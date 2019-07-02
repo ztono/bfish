@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bfish:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/bfish_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="bfish/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bfish" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
