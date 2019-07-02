@@ -146,7 +146,7 @@
                 </div>
             </div>
     </div>
-
+</div>
 <script src="js/jquery.nouislider.js"></script>
 
 

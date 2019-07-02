@@ -1,16 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 水水
+  User: 94714
   Date: 2019/7/2
-  Time: 18:52
+  Time: 15:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>智能问答助手</title>
+</head>
+<body>
+<%--<%--%>
+<%--    String question = "a";--%>
+<%--    SmartQA smartQA = new SmartQA();--%>
+<%--    String result = smartQA.getResult(question);--%>
+<%--    out.print(result);--%>
+<%--%>--%>
+</body>
 </html>
