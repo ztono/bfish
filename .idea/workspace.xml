@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="bfish:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="deb28599-6186-406d-87ec-5baeae45bfbe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BookDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BookDao2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BorrowDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/CategoryDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DamageDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DataDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/Finedao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/IncomDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/LocationDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/NoticeDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ReaderDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ReserveDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/Sbookdao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/Tool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/UserDao2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Borrow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Damage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Delete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Fine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Notice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Reader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Reserve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/SBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/foot_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/foot_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/login_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/login_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/change/success_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/change/success_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/lookbook_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/lookbook_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/search_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/search_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/showborrow_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/showborrow_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/shownotice_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/shownotice_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/showreserve_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/reader/showreserve_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/title_en_US.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/title_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/HomepageSearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/Logout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/DataShow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/Dchange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/Fchange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/Pchange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UpdateOne.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UpdateTwo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UserAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UserDelete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UserGet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UserSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/admin/UserShow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Addbook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Addcategory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Addlocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Addsbook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Borrow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Borrow1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Damage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Damagebook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/DeleteFine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Deletebook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Deletecategory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Deletelocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Deletesbook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Getbook2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Getbookbytitle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Getcategory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Getlocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Income.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Judge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Lookbook2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Lostbook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/NoticeAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/NoticeDelete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/NoticeShow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/NoticeUpdateOne.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/NoticeUpdateTwo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderDelete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderGet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderGetByName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderShow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderUpdateOne.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ReaderUpdateTwo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Return.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ShowBarCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ShowDelete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/ShowFine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Showbook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Showcategory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Showlocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Specialreturn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/UPdatebook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Update2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Updatecategory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/Updatelocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/getBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/librarian/looksbook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/reader/Change.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/reader/Forget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/reader/Reserve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/reader/Search.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/DBHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Listener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Remind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/activation.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/imap.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/jbarcode-0.2.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/jstl.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/mail.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.20-bin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/smtp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/standard.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/buttons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/lightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/doLanguage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/foot.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/homepage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/homepageSearch.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/change-language-btn-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/home.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/login-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/ok.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/readbook.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/school.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ISBN.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ISBN2.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/Llookbook.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/NoticeChange.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/NoticeListShow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ReaderBorrowRecord.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ReaderChange.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ReaderFineRecord.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ReaderListShow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/Sbookdao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/ShowReaderBarCode.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/addBook.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/borrow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/borrow1.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/damage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/income.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/lookbook.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/looksbook.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/return.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/showBarCode.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/showcategory.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/showdelete.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/showlocation.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/showsbook.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/specialreturn.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/librarian/update.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manager/Change.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manager/DataShow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manager/UserShow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manager/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/change/email.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/change/information.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/change/password.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/change/success.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/forget/forget.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/forget/four.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/forget/one.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/forget/three.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/forget/two.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/lookbook.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/search.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/showborrow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/reader/showreserve.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/title.jsp" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-12196" />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/utils/DBHelper.java" />
+        <option value="$PROJECT_DIR$/src/dao/BookDao.java" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="255" />
+    <option name="y" value="60" />
+    <option name="width" value="1535" />
+    <option name="height" value="880" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfish" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfish" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfish" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.12" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="bfish:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/bfish_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_12_bfish_4" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="bfish:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="deb28599-6186-406d-87ec-5baeae45bfbe" name="Default Changelist" comment="" />
+      <created>1562030838185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562030838185</updated>
+      <workItem from="1562030843715" duration="4374000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4374000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" sideWeight="0.5006916" side_tool="true" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49930844" visible="true" weight="0.24966443" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32918397" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32918397" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39834026" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/doLanguage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/librarian/ShowBarCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1825">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Tool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-897">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-590">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/BookDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12196" />
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>servlet-api</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
