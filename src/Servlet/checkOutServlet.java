@@ -35,6 +35,6 @@ public class checkOutServlet extends HttpServlet {
         checkout.setExp_score(exp_score);
         checkout.setSer_score(ser_score);
         checkindao.addCheckout(checkout);
-        request.getRequestDispatcher("Employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
 }

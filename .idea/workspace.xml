@@ -9,19 +9,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="deb28599-6186-406d-87ec-5baeae45bfbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_51.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jstl_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/standard-1.1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/nouislider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/bfish_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/bfish_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsp_api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jsp_api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/servlet_api.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bfish.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bfish.iml" afterDir="false" />
+    <list default="true" id="deb28599-6186-406d-87ec-5baeae45bfbe" name="Default Changelist" comment="删除文件">
+      <change afterPath="$PROJECT_DIR$/web/user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/bfish_war_exploded/WEB-INF/lib/activation.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/bfish_war_exploded/WEB-INF/lib/imap.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/bfish_war_exploded/WEB-INF/lib/jbarcode-0.2.8.jar" beforeDir="false" />
@@ -30,14 +19,8 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/bfish_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.20-bin.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/bfish_war_exploded/WEB-INF/lib/smtp.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/bfish_war_exploded/WEB-INF/lib/standard.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BEAN/employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BEAN/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/CheckinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CheckinDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/qa/SmartQA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/qa/SmartQA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Employee.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lib/fastjson-1.2.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.2.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/employee.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/smart_qa.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/smart_qa.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -62,19 +45,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Employee.jsp">
+        <entry file="file://$PROJECT_DIR$/web/employee.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2758">
-              <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+            <state relative-caret-position="414">
+              <caret line="18" column="22" lean-forward="true" selection-end-line="153" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/user.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/CheckinDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="253">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#368#376#0" expanded="true" />
@@ -92,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/smart_qa.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+            <state relative-caret-position="529">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -106,8 +98,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -120,7 +112,6 @@
         <option value="$PROJECT_DIR$/src/utils/DBHelper.java" />
         <option value="$PROJECT_DIR$/src/dao/BookDao.java" />
         <option value="$PROJECT_DIR$/web/User.jsp" />
-        <option value="$PROJECT_DIR$/web/smart_qa.jsp" />
         <option value="$PROJECT_DIR$/src/qa/Smart_QA.java" />
         <option value="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
@@ -128,6 +119,8 @@
         <option value="$PROJECT_DIR$/src/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/dao/CheckinDAO.java" />
         <option value="$PROJECT_DIR$/src/DAO/CheckinDAO.java" />
+        <option value="$PROJECT_DIR$/web/user.jsp" />
+        <option value="$PROJECT_DIR$/web/smart_qa.jsp" />
       </list>
     </option>
   </component>
@@ -150,7 +143,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfish" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfish" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfish" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -159,7 +173,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/standard-1.1.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -329,26 +343,34 @@
       <option name="project" value="LOCAL" />
       <updated>1562051308882</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修改了部分命名bug，添加了lib和js，重新设置了configure">
+      <created>1562077834649</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562077834649</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11709000" />
+    <option name="totallyTimeSpent" value="12050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4944" visible="true" weight="0.17963752" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.54468083" visible="true" weight="0.17963752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.5056" side_tool="true" visible="true" weight="0.17963752" />
+      <window_info id="Web" order="7" sideWeight="0.45531914" side_tool="true" visible="true" weight="0.17963752" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32918397" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33510637" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33510637" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -378,7 +400,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="删除文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除文件" />
+    <MESSAGE value="修改了部分命名bug，添加了lib和js，重新设置了configure" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了部分命名bug，添加了lib和js，重新设置了configure" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/doLanguage.jsp" />
@@ -387,7 +410,6 @@
     <entry file="file://$PROJECT_DIR$/src/dao/Tool.java" />
     <entry file="file://$PROJECT_DIR$/src/utils/DBHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/dao/BookDao.java" />
-    <entry file="file://$PROJECT_DIR$/web/User.jsp" />
     <entry file="file://$PROJECT_DIR$/src/qa/Smart_QA.java" />
     <entry file="file://$PROJECT_DIR$/src/BEAN/Client.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -454,24 +476,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/smart_qa.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Employee.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2758">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -491,12 +499,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/CheckinDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="253">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#368#376#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/employee.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="22" lean-forward="true" selection-end-line="153" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/smart_qa.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -552,10 +581,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
+          <last-edited>bfish</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
