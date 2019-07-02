@@ -18,7 +18,7 @@
     <meta name="keywords" content="旅馆管理系统 ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>前台工作人员</title>
+    <title>用户</title>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
@@ -118,8 +118,9 @@
 
         </div>
     </div>
+
     <script src="js/jquery.nouislider.js"></script>
 
-
+</div>
 </body>
 </html>
