@@ -11,7 +11,7 @@ public class BaseDao {
 
     private String url = "jdbc:mysql://localhost:3306/hotel?serverTimezone=UTC";
     private String user = "root";
-    private String pswd = "123456";
+    private String pswd = "";
     private java.sql.Connection conn;
     private PreparedStatement pstmt;
     private ResultSet rs;

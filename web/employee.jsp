@@ -84,8 +84,8 @@
             </p>
         </div>
         <div class="meun-title">登记管理</div>
-        <div class="meun-item" href="#checkin" aria-controls="checkin" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">入住登记</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
+        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
     </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
@@ -97,24 +97,42 @@
         <!-- Tab panes -->
         <div class="tab-content">
 
-            <!--入住登记模块-->
-            <div role="tabpanel" class="tab-pane" id="checkin">
+            <!--退房登记模块-->
+            <div role="tabpanel" class="tab-pane" id="checkout">
                 <div class="container">
                     <div class="page-header">
-                        <h1 align="center">入住登记</h1>
+                        <h1 align="center">退房登记</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkInServlet" method="post">
+                        <form class="form-horizontal" action="checkOutServlet" method="post">
                             <div class="form-group ">
-                                <label for="cNum" class="col-xs-3 control-label">客户ID：</label>
+                                <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="client_No" class="form-control input-sm duiqi" id="cNum" placeholder="">
+                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="roNo" class="col-xs-3 control-label">房间号：</label>
+                                <label for="rNo" class="col-xs-3 control-label">房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="room_No" class="form-control input-sm duiqi" id="roNo" placeholder="">
+                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="expS" class="col-xs-3 control-label">体验评分：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="serS" class="col-xs-3 control-label">服务评分：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -128,59 +146,84 @@
                     </div>
                 </div>
             </div>
+            <%--预定 --%>
 
-            <!--退房登记模块-->
-            <div role="tabpanel" class="tab-pane" id="checkout">
-            <div class="container">
-                <div class="page-header">
-                    <h1 align="center">退房登记</h1>
-                </div>
-                <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                    <form class="form-horizontal" action="checkOutServlet" method="post">
-                        <div class="form-group ">
-                            <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
-                            <div class="col-xs-8 ">
-                                <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">
+            <div role="tabpanel" class="tab-pane" id="reserve">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">预定</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" action="reserveServlet" method="post">
+                            <div class="form-group ">
+                                <label for="cTyp" class="col-xs-3 control-label" style="">roomType</label>
+                                <div class="col-xs-8"  style="margin-left: -28px;">
+                                    <select  type="" name="room_type" id="cTyp" class="form-control" style="width: 200px;">
+                                        <option>Select a Room</option>
+                                        <option>Luxury Room</option>
+                                        <option>Deluxe Room</option>
+                                        <option>Single Room</option>
+                                        <option value="doubleroom">doubleroom</option>
+                                    </select>
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="rNo" class="col-xs-3 control-label">房间号：</label>
-                            <div class="col-xs-8 ">
-                                <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">
+                            <div class="form-group">
+                                <label for="arrD" class="col-xs-3 control-label">ardate</label>
+                                <div class="col-xs-8 ">
+                                    <input type="date" name="arrive_date" class="form-control input-sm duiqi" id="arrD" placeholder="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
-                            <div class="col-xs-8">
-                                <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">
+                            <div class="form-group">
+                                <label for="leD" class="col-xs-3 control-label">ledate</label>
+                                <div class="col-xs-8">
+                                    <input type="date" name="leave_date" class="form-control input-sm duiqi" id="leD" placeholder="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="expS" class="col-xs-3 control-label">体验评分：</label>
-                            <div class="col-xs-8">
-                                <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">
+                            <div class="form-group">
+                                <label for="cname2" class="col-xs-3 control-label">姓名</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="name" class="form-control input-sm duiqi" id="cname2" placeholder="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="serS" class="col-xs-3 control-label">服务评分：</label>
-                            <div class="col-xs-8">
-                                <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">
+                            <div class="form-group">
+                                <label for="cid2" class="col-xs-3 control-label">身份证</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="id_number" class="form-control input-sm duiqi" id="cid2" placeholder="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group text-right">
-                            <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-                                <button class="btn btn-sm btn-primary" type="reset">重置</button>
-                                <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
-                                <button type="submit" class="btn btn-sm btn-green">保 存</button>
+                            <div class="form-group">
+                                <label for="phnum" class="col-xs-3 control-label">电话</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="phone_number" class="form-control input-sm duiqi" id="phnum" placeholder="">
+                                </div>
+                                <%=num%>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
+                                    <button id="bc" type="submit" class="btn btn-sm btn-green">保 存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <script src="js/jquery.nouislider.js"></script>
+
+<script type="">
+    (document).ready(function(){
+    $("#bc").click(function () {
+        alert(<%=num%>);
+    })
+    })
+</script>
 
 
 </body>
