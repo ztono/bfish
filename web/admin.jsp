@@ -85,7 +85,7 @@
         </div>
         <div class="meun-title">房间管理</div>
         <div class="meun-item" href="#addroom" aria-controls="addroom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">添加房间</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">修改房间</div>
+        <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">修改房间</div>
         <div class="meun-title">人事管理</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">添加雇员</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
@@ -108,22 +108,30 @@
             <div role="tabpanel" class="tab-pane" id="addroom">
                 <div class="container">
                     <div class="page-header">
-                        <h1 align="center">退房登记</h1>
+                        <h1 align="center">添加房间</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkOutServlet" method="post">
+                        <form class="form-horizontal" action="addroomServlet" method="post">
                             <div class="form-group ">
-                                <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
+                                <label for="rid" class="col-xs-3 control-label">房间ID：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">
+                                    <input type="" name="room_id" class="form-control input-sm duiqi" id="rid" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="rNo" class="col-xs-3 control-label">房间号：</label>
-                                <div class="col-xs-8 ">
-                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">
-                                </div>
-                            </div>
+                                <label for="rty" class="col-xs-3 control-label">房间型号</label>
+
+                                    <!-- 样式1 -->
+                                    <select class="form-control" name="room_type"  id="rty" >
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+
+
+
                             <div class="form-group">
                                 <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
                                 <div class="col-xs-8">
@@ -149,8 +157,10 @@
                                     <button type="submit" class="btn btn-sm btn-green">保 存</button>
                                 </div>
                             </div>
+                            </div>
                         </form>
-                    </div>
+
+                </div>
                 </div>
             </div>
         </div>
