@@ -11,5 +11,13 @@
         <servlet-name>checkOutServlet</servlet-name>
         <url-pattern>/checkOutServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>smartQa</servlet-name>
+        <servlet-class>qa.SmartQaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>smartQa</servlet-name>
+        <url-pattern>/smartQaServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
 

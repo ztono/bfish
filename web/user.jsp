@@ -68,6 +68,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.css">
+    <link rel="stylesheet" type="text/css" href="css/smart_qa.css">
     <style>
         #rightContent #back {
             width: 100%;
@@ -91,16 +92,16 @@
             </p>
         </div>
         <div class="meun-title">用户选项</div>
-        <div class="meun-item" href="#checkout" aria-controls="rooms_query" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#" aria-controls="rooms_query" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">剩余客房查询
         </div>
-        <div class="meun-item" href="#checkout" aria-controls="smart_qa" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#smart_qa" aria-controls="smart_qa" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">智能小助手
         </div>
-        <div class="meun-item" href="#checkout" aria-controls="ask_clean" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#" aria-controls="ask_clean" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">申请打扫
         </div>
-        <div class="meun-item" href="#checkout" aria-controls="reserve" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#" aria-controls="reserve" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">预定房间
         </div>
     </div>
@@ -114,16 +115,33 @@
         <!-- Tab panes -->
         <div class="tab-content">
 
-            <!--退房登记模块-->
-            <div role="tabpanel" class="tab-pane" id="checkout">
+            <!--智能助手模块-->
+            <div role="tabpanel" class="tab-pane" id="smart_qa" >
                 <div class="container">
                     <div class="page-header">
                         <h1 align="center">智能小助手</h1>
                     </div>
+                    <div class="qa_guide_text">
+                        <p>欢迎问智能小助手问题哦！</p>
+                    </div>
+                    <div id="ask_block" class="qa_ask_div">
+                        <textarea >
+
+                        </textarea>
+                    </div>
+                    <div id="ask_button_div" class="qa_ask_button_div">
+                        <button >
+
+                        </button>
+                    </div>
                 </div>
-
             </div>
-
+            <script type="javascript">
+                var ask_button = document.getElementById("qa_ask_button_div");
+                ask_button.addEventListener('click',function (ev) {
+                    
+                })
+            </script>
         <%-- 智能问答助手--%>
         </div>
 
