@@ -115,12 +115,20 @@
         <div class="tab-content">
 
             <!--退房登记模块-->
+            <div role="tabpanel" class="tab-pane" id="checkout">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">智能小助手</h1>
+                    </div>
+                </div>
 
+            </div>
+
+        <%-- 智能问答助手--%>
         </div>
-    </div>
 
     <script src="js/jquery.nouislider.js"></script>
-
+    </div>
 </div>
 </body>
 </html>
