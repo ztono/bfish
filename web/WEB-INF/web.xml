@@ -11,5 +11,14 @@
         <servlet-name>checkOutServlet</servlet-name>
         <url-pattern>/checkOutServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>checkInServlet</servlet-name>
+        <servlet-class>Servlet.checkInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkInServlet</servlet-name>
+        <url-pattern>/checkInServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
 

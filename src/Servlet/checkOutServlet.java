@@ -35,6 +35,8 @@ public class checkOutServlet extends HttpServlet {
         checkout.setExp_score(exp_score);
         checkout.setSer_score(ser_score);
         checkindao.addCheckout(checkout);
+        checkindao.updateCost(checkout);
+        checkindao.updateRoomState_leave(checkout); //更新房间状态
         request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
 }

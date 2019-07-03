@@ -9,6 +9,7 @@ public class Checkin {
     private String isdamaged;
     private String exp_score;
     private String ser_score;
+    private String cost;
 
     public Checkin() {
     }
@@ -85,4 +86,11 @@ public class Checkin {
         this.ser_score = ser_score;
     }
 
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
 }
