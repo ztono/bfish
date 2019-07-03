@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/bfish"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="fastjson-1.2.51" value="project"/>
+		<level name="jstl-1.2" value="project"/>
+		<level name="servlet-api" value="project"/>
+		<level name="mysql-connector-java-5.1.20-bin" value="project"/>
+		<level name="jsp-api" value="project"/>
+	</levels>
+</component>
