@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: 94714
   Date: 2019/7/2
-  Time: 15:45
+  Time: 22:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +18,7 @@
     <meta name="keywords" content="旅馆管理系统 ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>前台工作人员</title>
+    <title>用户</title>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
@@ -90,9 +90,18 @@
                 <a href="login.jsp">退出登录</a>
             </p>
         </div>
-        <div class="meun-title">登记管理</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img
-                src="images/icon_char_grey.png">退房登记
+        <div class="meun-title">用户选项</div>
+        <div class="meun-item" href="#checkout" aria-controls="rooms_query" role="tab" data-toggle="tab"><img
+                src="images/icon_char_grey.png">剩余客房查询
+        </div>
+        <div class="meun-item" href="#checkout" aria-controls="smart_qa" role="tab" data-toggle="tab"><img
+                src="images/icon_char_grey.png">智能小助手
+        </div>
+        <div class="meun-item" href="#checkout" aria-controls="ask_clean" role="tab" data-toggle="tab"><img
+                src="images/icon_char_grey.png">申请打扫
+        </div>
+        <div class="meun-item" href="#checkout" aria-controls="reserve" role="tab" data-toggle="tab"><img
+                src="images/icon_char_grey.png">预定房间
         </div>
     </div>
     <!-- 右侧具体内容栏目 -->
@@ -106,65 +115,12 @@
         <div class="tab-content">
 
             <!--退房登记模块-->
-            <div role="tabpanel" class="tab-pane" id="checkout">
-                <div class="container">
-                    <div class="page-header">
-                        <h1 align="center">退房登记</h1>
-                    </div>
-                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkOutServlet" method="post">
-                            <div class="form-group ">
-                                <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
-                                <div class="col-xs-8 ">
-                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo"
-                                           placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="rNo" class="col-xs-3 control-label">房间号：</label>
-                                <div class="col-xs-8 ">
-                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo"
-                                           placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
-                                <div class="col-xs-8">
-                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD"
-                                           placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="expS" class="col-xs-3 control-label">体验评分：</label>
-                                <div class="col-xs-8">
-                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS"
-                                           placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="serS" class="col-xs-3 control-label">服务评分：</label>
-                                <div class="col-xs-8">
-                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS"
-                                           placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group text-right">
-                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
-                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消
-                                    </button>
-                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
+
+    <script src="js/jquery.nouislider.js"></script>
+
 </div>
-<script src="js/jquery.nouislider.js"></script>
-
-
 </body>
 </html>

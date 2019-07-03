@@ -5,7 +5,7 @@ import BEAN.Checkin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckinDAO extends BaseDao{
+public class CheckinDAO extends DAO.BaseDao {
 
     public CheckinDAO() {
     }

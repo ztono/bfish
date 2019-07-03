@@ -12,10 +12,12 @@ import DAO.CheckinDAO;
 
 @WebServlet(name = "checkOutServlet")
 public class checkOutServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -33,6 +35,6 @@ public class checkOutServlet extends HttpServlet {
         checkout.setExp_score(exp_score);
         checkout.setSer_score(ser_score);
         checkindao.addCheckout(checkout);
-        request.getRequestDispatcher("Employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
 }
