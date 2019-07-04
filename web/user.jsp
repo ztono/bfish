@@ -125,22 +125,46 @@
                         <p>欢迎问智能小助手问题哦！</p>
                     </div>
                     <div id="ask_block" class="qa_ask_div">
-                        <textarea >
+                        <textarea id="ask_qa_textarea">
 
                         </textarea>
                     </div>
                     <div id="ask_button_div" class="qa_ask_button_div">
-                        <button >
-
+                        <button id="qa_ask_button" >
+                            询问小助手
                         </button>
+                    </div>
+                    <div id="qa_answer_div" class="qa_ask_div">
+                        <textarea id="qa_answer_textarea">
+
+                        </textarea>
                     </div>
                 </div>
             </div>
-            <script type="javascript">
-                var ask_button = document.getElementById("qa_ask_button_div");
+            <script type="text/javascript">
+                var qa_xml_http_request = new XMLHttpRequest();
+
+                var ask_button = document.getElementById("qa_ask_button");
                 ask_button.addEventListener('click',function (ev) {
-                    
-                })
+                    var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
+                    var user_qa_input = user_qa_input_textarea.value;
+                    var qa_url = "smartQaServlet?question="+user_qa_input;
+                    qa_xml_http_request.open("GET",qa_url,true);
+                    qa_xml_http_request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+                    qa_xml_http_request.send(null);
+                    qa_xml_http_request.onreadystatechange = show_answer;
+                    function show_answer(){
+                        if(qa_xml_http_request.readyState===4)
+                        {
+                            if(qa_xml_http_request.status===200)
+                            {
+                                var qa_answer_textarea = document.getElementById("qa_answer_textarea");
+                                qa_answer_textarea.value = qa_xml_http_request.responseText;
+                            }
+                        }
+                    }
+                });
+
             </script>
         <%-- 智能问答助手--%>
         </div>
