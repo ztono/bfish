@@ -6,10 +6,20 @@
     <servlet>
         <servlet-name>checkOutServlet</servlet-name>
         <servlet-class>Servlet.checkOutServlet</servlet-class>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>checkOutServlet</servlet-name>
         <url-pattern>/checkOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>reserveServlet</servlet-name>
+        <servlet-class>Servlet.reserveServlet</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reserveServlet</servlet-name>
+        <url-pattern>/reserveServlet</url-pattern>
     </servlet-mapping>
 </web-app>
 
