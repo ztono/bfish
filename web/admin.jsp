@@ -85,7 +85,7 @@
         </div>
         <div class="meun-title">房间管理</div>
         <div class="meun-item" href="#addroom" aria-controls="addroom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">添加房间</div>
-        <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">修改房间</div>
+        <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png">修改房间</div>
         <div class="meun-title">人事管理</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">添加雇员</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
@@ -104,7 +104,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
 
-            <!--退房登记模块-->
+            <!--添加房间模块-->
             <div role="tabpanel" class="tab-pane" id="addroom">
                 <div class="container">
                     <div class="page-header">
@@ -118,38 +118,31 @@
                                     <input type="" name="room_id" class="form-control input-sm duiqi" id="rid" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="rty" class="col-xs-3 control-label">房间型号</label>
+                            <label for="rty" class="col-xs-3 control-label">房间型号:</label>
+                            <div  class="form-group">
+                                 <select class="form-control"style="width: 200px;height: 30px" name="room_type"  id="rty" >
+                                        <option>singleroom</option>
+                                        <option>doubleroom</option>
+                                        <option>bigbedroom</option>
 
-                                    <!-- 样式1 -->
-                                    <select class="form-control" name="room_type"  id="rty" >
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
                                     </select>
 
 
+                            </div>
 
                             <div class="form-group">
-                                <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
+                                <label for="pri" class="col-xs-3 control-label">客房价格：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">
+                                    <input type="" name="room_price" class="form-control input-sm duiqi" id="pri" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="expS" class="col-xs-3 control-label">体验评分：</label>
+                                <label for="loc" class="col-xs-3 control-label">客房位置：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">
+                                    <input type="" name="room_location" class="form-control input-sm duiqi" id="loc" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="serS" class="col-xs-3 control-label">服务评分：</label>
-                                <div class="col-xs-8">
-                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">
-                                </div>
-                            </div>
+
                             <div class="form-group text-right">
                                 <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
                                     <button class="btn btn-sm btn-primary" type="reset">重置</button>
@@ -157,13 +150,49 @@
                                     <button type="submit" class="btn btn-sm btn-green">保 存</button>
                                 </div>
                             </div>
-                            </div>
+
                         </form>
 
                 </div>
                 </div>
             </div>
-        </div>
+
+            <div role="tabpanel" class="tab-pane" id="modroom">
+                <div class="container">
+                    <div class="page-header">
+                        <h4 align="center">修改房间</h4>
+                    </div>
+
+                        <table class="table table-hover">
+
+                            <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>城市</th>
+                                <th>邮编</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Tanmay</td>
+                                <td>Bangalore</td>
+                                <td>560001</td>
+                            </tr>
+                            <tr>
+                                <td>Sachin</td>
+                                <td>Mumbai</td>
+                                <td>400003</td>
+                            </tr>
+                            <tr>
+                                <td>Uma</td>
+                                <td>Pune</td>
+                                <td>411027</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+</div>
+            </div>      ,
         <div role="tabpanel" class="tab-pane" id="checkout">
             <div class="container">
                 <div class="page-header">
@@ -214,6 +243,7 @@
         </div>
     </div>
     </div>
+</div>
     <script src="js/jquery.nouislider.js"></script>
 
 
