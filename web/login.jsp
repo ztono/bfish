@@ -18,9 +18,9 @@
 <div class="container">
 	<div class="row tm-register-row tm-mb-35">
 		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
-			<form action="" method="post" class="tm-bg-black p-5 h-100">
+			<form action="loginServlet" method="post" class="tm-bg-black p-5 h-100">
 				<div class="input-field">
-					<input placeholder="Username" id="username" name="username" type="text" class="validate">
+					<input placeholder="Email" id="email" name="email" type="text" class="validate">
 				</div>
 				<div class="input-field mb-5">
 					<input placeholder="Password" id="password" name="password" type="password" class="validate">

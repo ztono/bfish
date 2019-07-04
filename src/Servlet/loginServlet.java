@@ -22,11 +22,11 @@ public class loginServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-
+        System.out.println("sss");
         LoginDAO login = new LoginDAO();
 
-        String email = request.getParameter("email1");
-        String  password = request.getParameter("password1");
+        String email = request.getParameter("email");
+        String  password = request.getParameter("password");
         if(login.existClient(email)){
             if(password.equals(login.getPasswrod(email)))
             request.getRequestDispatcher("user.jsp").forward(request, response);
