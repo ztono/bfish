@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author JunzhengChen
@@ -18,8 +19,10 @@ public class SmartQA {
 
     public String getResult(String question) {
         String questionUrl = null;
+        System.out.println("question"+question);
         try {
             questionUrl = URLEncoder.encode(question, "UTF-8");
+            System.out.println("url"+questionUrl);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -29,13 +32,16 @@ public class SmartQA {
         try {
             URL luisUrl = new URL(url);
             HttpURLConnection luisUrlConnect = (HttpURLConnection) luisUrl.openConnection();
-            BufferedReader br = new BufferedReader(new InputStreamReader(luisUrlConnect.getInputStream()));
+            luisUrlConnect.setRequestProperty("contentType", "utf-8");
+            BufferedReader br = new BufferedReader(new InputStreamReader(luisUrlConnect.getInputStream(), StandardCharsets.UTF_8));
             StringBuilder urlResult = new StringBuilder();
             String inputLine = null;
             while ((inputLine = br.readLine()) != null) {
                 urlResult.append(inputLine);
             }
+            System.out.println(urlResult);
             JSONObject jsonObject = (JSONObject) JSONObject.parse(urlResult.toString());
+            System.out.println(jsonObject.getJSONObject("topScoringIntent").get("intent").toString());
             return jsonObject.getJSONObject("topScoringIntent").get("intent").toString();
 
         } catch (IOException e) {
@@ -44,8 +50,8 @@ public class SmartQA {
         return null;
     }
 
-    public static void main(String[] args) {
-        SmartQA smartQA = new SmartQA();
-        smartQA.getResult("宾馆怎么去");
-    }
+//    public static void main(String[] args) {
+//        SmartQA smartQA = new SmartQA();
+//        System.out.println(smartQA.getResult("宾馆怎么去"));
+//    }
 }

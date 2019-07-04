@@ -85,6 +85,7 @@
         </div>
         <div class="meun-title">登记管理</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
+        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
     </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
@@ -145,10 +146,20 @@
                     </div>
                 </div>
             </div>
+
+
+
+        </div>
+
     </div>
 </div>
 <script src="js/jquery.nouislider.js"></script>
 
+/* 看板娘 */
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init();
+</script>
 
 </body>
 </html>
