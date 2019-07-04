@@ -7,8 +7,12 @@ public class Reserve {
         private String arr_date;
         private String lea_date;
 
-    public Reserve(int reserve_no, int client_no, int room_no, String arr_date, String lea_date) {
-        this.reserve_no = reserve_no;
+    public Reserve()
+    {
+
+    }
+    public Reserve( int client_no, int room_no, String arr_date, String lea_date) {
+
         this.client_no = client_no;
         this.room_no = room_no;
         this.arr_date = arr_date;

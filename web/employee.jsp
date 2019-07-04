@@ -197,7 +197,7 @@
                                 <div class="col-xs-8">
                                     <input type="" name="phone_number" class="form-control input-sm duiqi" id="phnum" placeholder="">
                                 </div>
-                                <%=num%>
+
                             </div>
 
                             <div class="form-group text-right">
@@ -217,14 +217,11 @@
 </div>
 <script src="js/jquery.nouislider.js"></script>
 
-<script type="">
-    (document).ready(function(){
-    $("#bc").click(function () {
-        alert(<%=num%>);
-    })
-    })
+/* 看板娘 */
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init();
 </script>
-
 
 </body>
 </html>
