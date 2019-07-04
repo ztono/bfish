@@ -15,6 +15,9 @@ public class Client {
 	private String telephone;
 	private int client_no;
 
+	public Client() {
+	}
+
 	public Client(String username, String password, String idcard, String email, String telephone, int client_no) {
 		this.username = username;
 		this.password = password;

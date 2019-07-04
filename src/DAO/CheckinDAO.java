@@ -11,7 +11,7 @@ public class CheckinDAO extends DAO.BaseDao {
     }
 
     public int addCheckout(Checkin checkout) {
-        String update = "insert checkin (client_no, room_no, isdamaged, exp_score, ser_score) values (?,?,?,?,?)";
+        String update = "insert checkin (checkin_no, arrivedate, leavedate, client_no, room_no, isdamaged, exp_score, ser_score) values (111,'2019-07-01','2019-07-04',?,?,?,?,?)";
         List<Object> params = new ArrayList<Object>();
         params.add(checkout.getClient_no());
         params.add(checkout.getRoom_no());
