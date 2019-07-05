@@ -2,6 +2,33 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page import="java.io.*,java.util.*" %>
+<%--<%--%>
+<%--    // 获取session创建时间--%>
+<%--    Date createTime = new Date(session.getCreationTime());--%>
+<%--    // 获取最后访问页面的时间--%>
+<%--    Date lastAccessTime = new Date(session.getLastAccessedTime());--%>
+
+<%--    String title = "访问网页";--%>
+<%--    Integer visitCount = new Integer(0);--%>
+<%--    String visitCountKey = new String("visitCount");--%>
+<%--    String userIDKey = new String("userID");--%>
+<%--    String userID = new String("ABCD");--%>
+
+<%--    // 检测网页是否有新的访问用户--%>
+<%--    if (session.isNew()){--%>
+<%--        title = "访问网页";--%>
+<%--        session.setAttribute(userIDKey, userID);--%>
+<%--        session.setAttribute(visitCountKey,  visitCount);--%>
+<%--    } else {--%>
+<%--        visitCount = (Integer)session.getAttribute(visitCountKey);--%>
+<%--        visitCount += 1;--%>
+<%--        userID = (String)session.getAttribute(userIDKey);--%>
+<%--        session.setAttribute(visitCountKey,  visitCount);--%>
+<%--    }--%>
+<%--%>--%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -84,8 +111,8 @@
             </p>
         </div>
         <div class="meun-title">登记管理</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
-        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
+        <div class="meun-item" ><a href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab" id="t1"><img src="images/icon_char_grey.png">退房登记</a></div>
+        <div class="meun-item" ><a href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</a></div>
     </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
@@ -96,7 +123,6 @@
         </a>
         <!-- Tab panes -->
         <div class="tab-content">
-
             <!--退房登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkout">
                 <div class="container">
@@ -145,86 +171,106 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <%--预定 --%>
+<%--                <h1>Session 跟踪</h1>--%>
 
+<%--                <table border="1" align="center">--%>
+<%--                    <tr bgcolor="#949494">--%>
+<%--                        <th>Session 信息</th>--%>
+<%--                        <th>值</th>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>id</td>--%>
+<%--                        <td><% out.print( session.getId()); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>创建时间</td>--%>
+<%--                        <td><% out.print(createTime); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>最后访问时间</td>--%>
+<%--                        <td><% out.print(lastAccessTime); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>用户 ID</td>--%>
+<%--                        <td><% out.print(userID); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>访问次数</td>--%>
+<%--                        <td><% out.print(visitCount); %></td>--%>
+<%--                    </tr>--%>
+<%--                </table>--%>
+            </div>
             <div role="tabpanel" class="tab-pane" id="reserve">
                 <div class="container">
                     <div class="page-header">
-                        <h1 align="center">预定</h1>
+                        <h1 align="center">reserve</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="reserveServlet" method="post">
+                        <form class="form-horizontal" action="checkOutServlet" method="post">
                             <div class="form-group ">
-                                <label for="cTyp" class="col-xs-3 control-label" style="">roomType</label>
-                                <div class="col-xs-8"  style="margin-left: -28px;">
-                                    <select  type="" name="room_type" id="cTyp" class="form-control" style="width: 200px;">
-                                        <option>Select a Room</option>
-                                        <option>Luxury Room</option>
-                                        <option>Deluxe Room</option>
-                                        <option>Single Room</option>
-                                        <option value="doubleroom">doubleroom</option>
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="arrD" class="col-xs-3 control-label">ardate</label>
+                                <label for="cNo2" class="col-xs-3 control-label">客户ID：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="date" name="arrive_date" class="form-control input-sm duiqi" id="arrD" placeholder="">
+                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo2" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="leD" class="col-xs-3 control-label">ledate</label>
-                                <div class="col-xs-8">
-                                    <input type="date" name="leave_date" class="form-control input-sm duiqi" id="leD" placeholder="">
+                                <label for="rNo2" class="col-xs-3 control-label">房间号：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo2" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="cname2" class="col-xs-3 control-label">姓名</label>
+                                <label for="isD2" class="col-xs-3 control-label">是否损坏：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="name" class="form-control input-sm duiqi" id="cname2" placeholder="">
+                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD2" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="cid2" class="col-xs-3 control-label">身份证</label>
+                                <label for="expS2" class="col-xs-3 control-label">体验评分：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="id_number" class="form-control input-sm duiqi" id="cid2" placeholder="">
+                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS2" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="phnum" class="col-xs-3 control-label">电话</label>
+                                <label for="serS2" class="col-xs-3 control-label">服务评分：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="phone_number" class="form-control input-sm duiqi" id="phnum" placeholder="">
+                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS2" placeholder="">
                                 </div>
-                                <%=num%>
                             </div>
-
                             <div class="form-group text-right">
                                 <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
                                     <button class="btn btn-sm btn-primary" type="reset">重置</button>
                                     <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
-                                    <button id="bc" type="submit" class="btn btn-sm btn-green">保 存</button>
+                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
+
+
         </div>
 
     </div>
 </div>
 <script src="js/jquery.nouislider.js"></script>
 
-<script type="">
-    (document).ready(function(){
-    $("#bc").click(function () {
-        alert(<%=num%>);
-    })
-    })
-</script>
+<% if (request.getParameter("ds")!= null) {%>
+<script type="text/javascript">
+    $(document).ready(function(){
 
+            // $('#t1').tab('show');
+            $("#t1").click();
+        });
+</script>
+<%} %>
+/* 看板娘 */
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init();
+</script>
 
 </body>
 </html>

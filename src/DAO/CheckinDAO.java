@@ -2,6 +2,7 @@ package DAO;
 
 import BEAN.Checkin;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,5 +53,11 @@ public class CheckinDAO extends DAO.BaseDao {
         return executeUpdate(update, params);
     }
 
+    public ResultSet researchComment()
+    {
+        String str = "select * from checkin where exp_score is not null";
+        List<Object> params = new ArrayList<Object>();
+        return executeQuery(str, params);
+    }
 
 }

@@ -68,6 +68,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.css">
+    <link rel="stylesheet" type="text/css" href="css/smart_qa.css">
     <style>
         #rightContent #back {
             width: 100%;
@@ -91,16 +92,16 @@
             </p>
         </div>
         <div class="meun-title">用户选项</div>
-        <div class="meun-item" href="#checkout" aria-controls="rooms_query" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#" aria-controls="rooms_query" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">剩余客房查询
         </div>
-        <div class="meun-item" href="#checkout" aria-controls="smart_qa" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#smart_qa" aria-controls="smart_qa" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">智能小助手
         </div>
-        <div class="meun-item" href="#checkout" aria-controls="ask_clean" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#" aria-controls="ask_clean" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">申请打扫
         </div>
-        <div class="meun-item" href="#checkout" aria-controls="reserve" role="tab" data-toggle="tab"><img
+        <div class="meun-item" href="#" aria-controls="reserve" role="tab" data-toggle="tab"><img
                 src="images/icon_char_grey.png">预定房间
         </div>
     </div>
@@ -114,16 +115,57 @@
         <!-- Tab panes -->
         <div class="tab-content">
 
-            <!--退房登记模块-->
-            <div role="tabpanel" class="tab-pane" id="checkout">
+            <!--智能助手模块-->
+            <div role="tabpanel" class="tab-pane" id="smart_qa" >
                 <div class="container">
                     <div class="page-header">
                         <h1 align="center">智能小助手</h1>
                     </div>
+                    <div class="qa_guide_text">
+                        <p>欢迎问智能小助手问题哦！</p>
+                    </div>
+                    <div id="ask_block" class="qa_ask_div">
+                        <textarea id="ask_qa_textarea">
+
+                        </textarea>
+                    </div>
+                    <div id="ask_button_div" class="qa_ask_button_div">
+                        <button id="qa_ask_button" >
+                            询问小助手
+                        </button>
+                    </div>
+                    <div id="qa_answer_div" class="qa_ask_div">
+                        <textarea id="qa_answer_textarea">
+
+                        </textarea>
+                    </div>
                 </div>
-
             </div>
+            <script type="text/javascript">
+                var qa_xml_http_request = new XMLHttpRequest();
 
+                var ask_button = document.getElementById("qa_ask_button");
+                ask_button.addEventListener('click',function (ev) {
+                    var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
+                    var user_qa_input = user_qa_input_textarea.value;
+                    var qa_url = "smartQaServlet?question="+user_qa_input;
+                    qa_xml_http_request.open("GET",qa_url,true);
+                    qa_xml_http_request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+                    qa_xml_http_request.send(null);
+                    qa_xml_http_request.onreadystatechange = show_answer;
+                    function show_answer(){
+                        if(qa_xml_http_request.readyState===4)
+                        {
+                            if(qa_xml_http_request.status===200)
+                            {
+                                var qa_answer_textarea = document.getElementById("qa_answer_textarea");
+                                qa_answer_textarea.value = qa_xml_http_request.responseText;
+                            }
+                        }
+                    }
+                });
+
+            </script>
         <%-- 智能问答助手--%>
         </div>
 

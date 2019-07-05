@@ -6,20 +6,29 @@
     <servlet>
         <servlet-name>checkOutServlet</servlet-name>
         <servlet-class>Servlet.checkOutServlet</servlet-class>
-
     </servlet>
     <servlet-mapping>
         <servlet-name>checkOutServlet</servlet-name>
         <url-pattern>/checkOutServlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>reserveServlet</servlet-name>
-        <servlet-class>Servlet.reserveServlet</servlet-class>
 
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>Servlet.loginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>reserveServlet</servlet-name>
-        <url-pattern>/reserveServlet</url-pattern>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logonServlet</servlet-name>
+        <servlet-class>Servlet.logonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logonServlet</servlet-name>
+        <url-pattern>/logonServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
