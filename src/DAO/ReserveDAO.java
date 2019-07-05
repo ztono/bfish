@@ -10,6 +10,10 @@ public class ReserveDAO extends DAO.BaseDao {
     public ReserveDAO() {
     }
 
+    /**
+     * 查找所有预定
+     * @return ResultSet
+     */
     public ResultSet researchRe()
     {
         String str = "select * from reserve";
