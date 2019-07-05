@@ -111,8 +111,8 @@
             </p>
         </div>
         <div class="meun-title">登记管理</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
-        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
+        <div class="meun-item" ><a href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab" id="t1"><img src="images/icon_char_grey.png">退房登记</a></div>
+        <div class="meun-item" ><a href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</a></div>
     </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
@@ -123,7 +123,6 @@
         </a>
         <!-- Tab panes -->
         <div class="tab-content">
-
             <!--退房登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkout">
                 <div class="container">
@@ -201,7 +200,55 @@
 <%--                    </tr>--%>
 <%--                </table>--%>
             </div>
+            <div role="tabpanel" class="tab-pane" id="reserve">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">reserve</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" action="checkOutServlet" method="post">
+                            <div class="form-group ">
+                                <label for="cNo2" class="col-xs-3 control-label">客户ID：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo2" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rNo2" class="col-xs-3 control-label">房间号：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo2" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="isD2" class="col-xs-3 control-label">是否损坏：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD2" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="expS2" class="col-xs-3 control-label">体验评分：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS2" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="serS2" class="col-xs-3 control-label">服务评分：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS2" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
+                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
+            </div>
 
 
         </div>
@@ -210,6 +257,15 @@
 </div>
 <script src="js/jquery.nouislider.js"></script>
 
+<% if (request.getParameter("ds")!= null) {%>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+            // $('#t1').tab('show');
+            $("#t1").click();
+        });
+</script>
+<%} %>
 /* 看板娘 */
 <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
 <script type="text/javascript">
