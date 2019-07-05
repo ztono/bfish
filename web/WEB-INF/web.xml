@@ -30,5 +30,22 @@
         <url-pattern>/logonServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>addClientServlet</servlet-name>
+        <servlet-class>Servlet.addClientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addClientServlet</servlet-name>
+        <url-pattern>/addClientServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteClientServlet</servlet-name>
+        <servlet-class>Servlet.deleteClientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteClientServlet</servlet-name>
+        <url-pattern>/deleteClientServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
 

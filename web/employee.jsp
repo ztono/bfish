@@ -86,6 +86,10 @@
         <div class="meun-title">登记管理</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
         <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
+        <div class="meun-title">客户管理</div>
+        <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户添加</div>
+        <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户删除</div>
+
     </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
@@ -146,10 +150,81 @@
                     </div>
                 </div>
             </div>
+            <!--客户添加-->
+            <div role="tabpanel" class="tab-pane" id="addClient">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">客户添加</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" action="addClientServlet" method="post">
+                            <div class="form-group ">
+                                <label for="username1" class="col-xs-3 control-label">客户名：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="username1" class="form-control input-sm duiqi" id="username1" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-xs-3 control-label">密码：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="password" class="form-control input-sm duiqi" id="password" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="idcard" class="col-xs-3 control-label">身份证号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="idcard" class="form-control input-sm duiqi" id="idcard" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-xs-3 control-label">邮箱号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="email" class="form-control input-sm duiqi" id="email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone" class="col-xs-3 control-label">电话号码：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="telephone" class="form-control input-sm duiqi" id="telephone" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
+                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!--客户删除-->
+            <div role="tabpanel" class="tab-pane" id="deleteClient">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">客户删除</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" action="deleteClientServlet" method="post">
+                            <div class="form-group">
+                                <label for="email1" class="col-xs-3 control-label">邮箱号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="email1" class="form-control input-sm duiqi" id="email1" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button type="submit" class="btn btn-sm btn-green">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
 
-
-        </div>
 
     </div>
 </div>
