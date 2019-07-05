@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"  import="java.util.*,BEAN.*,DAO.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,6 +16,12 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script>
+        $("#myModal").modal("hide");
+        function Rvalues(id) {
+            $("#room_id").val(id);
+
+
+        }
         $(function() {
             $(".meun-item").click(function() {
                 $("#back").hide();
@@ -71,14 +77,33 @@
 </head>
 
 <body>
-<div id="wrap">
+<% String Rd = (String)request.getAttribute("room_delete");
+    if("true".equals(Rd)){%>
+<script type="text/javascript">alert("delete success");</script>
+<% }else if("false".equals(Rd)){%>
+<script type="text/javascript">alert("error");</script>
+<%} %>
+
+<% String Rflag = (String)request.getAttribute("add");
+    if(Rflag=="3")
+    {%>
+<script type="text/javascript">alert("add successfully");</script>
+<% }
+else if(Rflag=="2")
+
+{%>
+<script type="text/javascript">alert("this room id has already existed,please change");</script>
+<%}
+%>
+
+    <div id="wrap">
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun">
         <div id="logoDiv">
             <p id="logoP"><img id="logo" alt="旅馆管理系统" src="images/dong.jpg"><span>旅馆管理系统</span></p>
         </div>
         <div id="personInfor">
-            <p id="userName">亲爱的用户<%= (String) request.getSession().getAttribute("id") %>，欢迎您！</p>
+            <p id="userName">亲爱的管理员<%= (String) request.getSession().getAttribute("id") %>，欢迎您！</p>
             <p>
                 <a href="login.jsp">退出登录</a>
             </p>
@@ -156,91 +181,137 @@
                 </div>
                 </div>
             </div>
-
+            <!-- 修改房间模块 -->
             <div role="tabpanel" class="tab-pane" id="modroom">
                 <div class="container">
                     <div class="page-header">
                         <h4 align="center">修改房间</h4>
                     </div>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>房间号</th>
+                            <th>房间类型</th>
+                            <th>房间价格</th>
+                            <th>房间位置</th>
+                            <th>操作</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    <%
+                        List<Room> rooms =RoomDao.getrooms();
 
-                        <table class="table table-hover">
 
-                            <thead>
-                            <tr>
-                                <th>名称</th>
-                                <th>城市</th>
-                                <th>邮编</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Tanmay</td>
-                                <td>Bangalore</td>
-                                <td>560001</td>
-                            </tr>
-                            <tr>
-                                <td>Sachin</td>
-                                <td>Mumbai</td>
-                                <td>400003</td>
-                            </tr>
-                            <tr>
-                                <td>Uma</td>
-                                <td>Pune</td>
-                                <td>411027</td>
-                            </tr>
+                        for(Room room:rooms)
+                        {
+
+                    %>
+
+                    <tr>
+                        <td ><%= room.getRoom_id() %></td>
+                        <td ><%= room.getRoom_type() %></td>
+                        <td ><%= room.getRoom_price() %></td>
+                        <td ><%= room.getRoom_location() %></td>
+                        <td> <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" onclick="values(<%=room.getRoom_id()%>)" > change</button></td>
+                        <td> <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#myModal" onclick="values(<%=room.getRoom_id()%>)"> delete</button></td>
+                        </tr>
+                        <%
+                        }
+                        %>
+
+
+
                             </tbody>
                         </table>
 
-</div>
-            </div>      ,
-        <div role="tabpanel" class="tab-pane" id="checkout">
-            <div class="container">
-                <div class="page-header">
-                    <h1 align="center">退房登记</h1>
-                </div>
-                <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                    <form class="form-horizontal" action="checkOutServlet" method="post">
-                        <div class="form-group ">
-                            <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
-                            <div class="col-xs-8 ">
-                                <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="form-group ">
+                                        <form action="">
+                                            <table>
+
+                                                <tr>
+                                                    <td width="100" height="50" font size="20px">房间号</td>
+
+                                                    <td><input type="text" name="room_id" id="room_id" ></td></tr>
+                                                <tr>	<td width="100" height="50" font size="20px">房间价格</td>
+
+                                                    <td>
+                                                        <input type="text" name="room_price" id="room_price"></td></tr>
+                                                <tr>
+                                                    <td width="100" height="50" font size="20px">房间位置</td>
+                                                    <td>
+                                                        <input type="text" name="room_location" id="room_location"></td></tr>
+                                                <tr>
+                                                    <td width="100" height="50" font size="20px">房间型号</td>
+                                                    <td>
+                                                        <select name="room_type" class="text2">
+
+                                                            <option value="singleroom">singleroom</option>
+                                                            <option value="doubleroom">doubleroom</option>
+                                                            <option value="bigbedroom">bigbedroom</option>
+                                                        </select></td></tr>
+                                                                  <input type="hidden" name="room_no" id="room_no">
+                                                <tr> <td><input type="submit" value="SUBMIT"></td></tr>
+
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="rNo" class="col-xs-3 control-label">房间号：</label>
-                            <div class="col-xs-8 ">
-                                <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
-                            <div class="col-xs-8">
-                                <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="expS" class="col-xs-3 control-label">体验评分：</label>
-                            <div class="col-xs-8">
-                                <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="serS" class="col-xs-3 control-label">服务评分：</label>
-                            <div class="col-xs-8">
-                                <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group text-right">
-                            <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-                                <button class="btn btn-sm btn-primary" type="reset">重置</button>
-                                <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
-                                <button type="submit" class="btn btn-sm btn-green">保 存</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                    </div>
+<%--        <div role="tabpanel" class="tab-pane" id="checkout">--%>
+<%--            <div class="container">--%>
+<%--                <div class="page-header">--%>
+<%--                    <h1 align="center">退房登记</h1>--%>
+<%--                </div>--%>
+<%--                <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">--%>
+<%--                    <form class="form-horizontal" action="checkOutServlet" method="post">--%>
+<%--                        <div class="form-group ">--%>
+<%--                            <label for="cNo" class="col-xs-3 control-label">客户ID：</label>--%>
+<%--                            <div class="col-xs-8 ">--%>
+<%--                                <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="rNo" class="col-xs-3 control-label">房间号：</label>--%>
+<%--                            <div class="col-xs-8 ">--%>
+<%--                                <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="isD" class="col-xs-3 control-label">是否损坏：</label>--%>
+<%--                            <div class="col-xs-8">--%>
+<%--                                <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="expS" class="col-xs-3 control-label">体验评分：</label>--%>
+<%--                            <div class="col-xs-8">--%>
+<%--                                <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="serS" class="col-xs-3 control-label">服务评分：</label>--%>
+<%--                            <div class="col-xs-8">--%>
+<%--                                <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-group text-right">--%>
+<%--                            <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">--%>
+<%--                                <button class="btn btn-sm btn-primary" type="reset">重置</button>--%>
+<%--                                <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>--%>
+<%--                                <button type="submit" class="btn btn-sm btn-green">保 存</button>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
     </div>
     </div>
 </div>
