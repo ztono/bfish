@@ -2,6 +2,33 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page import="java.io.*,java.util.*" %>
+<%--<%--%>
+<%--    // 获取session创建时间--%>
+<%--    Date createTime = new Date(session.getCreationTime());--%>
+<%--    // 获取最后访问页面的时间--%>
+<%--    Date lastAccessTime = new Date(session.getLastAccessedTime());--%>
+
+<%--    String title = "访问网页";--%>
+<%--    Integer visitCount = new Integer(0);--%>
+<%--    String visitCountKey = new String("visitCount");--%>
+<%--    String userIDKey = new String("userID");--%>
+<%--    String userID = new String("ABCD");--%>
+
+<%--    // 检测网页是否有新的访问用户--%>
+<%--    if (session.isNew()){--%>
+<%--        title = "访问网页";--%>
+<%--        session.setAttribute(userIDKey, userID);--%>
+<%--        session.setAttribute(visitCountKey,  visitCount);--%>
+<%--    } else {--%>
+<%--        visitCount = (Integer)session.getAttribute(visitCountKey);--%>
+<%--        visitCount += 1;--%>
+<%--        userID = (String)session.getAttribute(userIDKey);--%>
+<%--        session.setAttribute(visitCountKey,  visitCount);--%>
+<%--    }--%>
+<%--%>--%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -145,6 +172,34 @@
                         </form>
                     </div>
                 </div>
+<%--                <h1>Session 跟踪</h1>--%>
+
+<%--                <table border="1" align="center">--%>
+<%--                    <tr bgcolor="#949494">--%>
+<%--                        <th>Session 信息</th>--%>
+<%--                        <th>值</th>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>id</td>--%>
+<%--                        <td><% out.print( session.getId()); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>创建时间</td>--%>
+<%--                        <td><% out.print(createTime); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>最后访问时间</td>--%>
+<%--                        <td><% out.print(lastAccessTime); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>用户 ID</td>--%>
+<%--                        <td><% out.print(userID); %></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>访问次数</td>--%>
+<%--                        <td><% out.print(visitCount); %></td>--%>
+<%--                    </tr>--%>
+<%--                </table>--%>
             </div>
 
 
