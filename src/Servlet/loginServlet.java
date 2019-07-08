@@ -27,14 +27,23 @@ public class loginServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String  password = request.getParameter("password");
+        String name = login.getName(email);
         if(login.existClient(email)){
-            if(password.equals(login.getPasswrod(email)))
-            request.getRequestDispatcher("user.jsp").forward(request, response);
-            else
+            if(password.equals(login.getPasswrod(email))) {
+                request.getSession().setAttribute("id", name);
+                request.getRequestDispatcher("user.jsp").forward(request, response);
+
+            }
+            else {
+                request.getSession().setAttribute("message", "密码错误");
                 response.sendRedirect("/login.jsp");
+            }
         }
-        else
+        else {
+            request.getSession().setAttribute("message", "邮箱错误");
             response.sendRedirect("/login.jsp");
+
+        }
        // request.getRequestDispatcher("user.jsp").forward(request, response);
 
 

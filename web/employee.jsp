@@ -2,33 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@ page import="java.io.*,java.util.*" %>
-<%--<%--%>
-<%--    // 获取session创建时间--%>
-<%--    Date createTime = new Date(session.getCreationTime());--%>
-<%--    // 获取最后访问页面的时间--%>
-<%--    Date lastAccessTime = new Date(session.getLastAccessedTime());--%>
-
-<%--    String title = "访问网页";--%>
-<%--    Integer visitCount = new Integer(0);--%>
-<%--    String visitCountKey = new String("visitCount");--%>
-<%--    String userIDKey = new String("userID");--%>
-<%--    String userID = new String("ABCD");--%>
-
-<%--    // 检测网页是否有新的访问用户--%>
-<%--    if (session.isNew()){--%>
-<%--        title = "访问网页";--%>
-<%--        session.setAttribute(userIDKey, userID);--%>
-<%--        session.setAttribute(visitCountKey,  visitCount);--%>
-<%--    } else {--%>
-<%--        visitCount = (Integer)session.getAttribute(visitCountKey);--%>
-<%--        visitCount += 1;--%>
-<%--        userID = (String)session.getAttribute(userIDKey);--%>
-<%--        session.setAttribute(visitCountKey,  visitCount);--%>
-<%--    }--%>
-<%--%>--%>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -111,8 +84,12 @@
             </p>
         </div>
         <div class="meun-title">登记管理</div>
-        <div class="meun-item" ><a href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab" id="t1"><img src="images/icon_char_grey.png">退房登记</a></div>
-        <div class="meun-item" ><a href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</a></div>
+        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
+        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
+        <div class="meun-title">客户管理</div>
+        <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户添加</div>
+        <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户删除</div>
+
     </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
@@ -171,70 +148,43 @@
                         </form>
                     </div>
                 </div>
-<%--                <h1>Session 跟踪</h1>--%>
-
-<%--                <table border="1" align="center">--%>
-<%--                    <tr bgcolor="#949494">--%>
-<%--                        <th>Session 信息</th>--%>
-<%--                        <th>值</th>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>id</td>--%>
-<%--                        <td><% out.print( session.getId()); %></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>创建时间</td>--%>
-<%--                        <td><% out.print(createTime); %></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>最后访问时间</td>--%>
-<%--                        <td><% out.print(lastAccessTime); %></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>用户 ID</td>--%>
-<%--                        <td><% out.print(userID); %></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>访问次数</td>--%>
-<%--                        <td><% out.print(visitCount); %></td>--%>
-<%--                    </tr>--%>
-<%--                </table>--%>
             </div>
-            <div role="tabpanel" class="tab-pane" id="reserve">
+            <!--客户添加-->
+            <div role="tabpanel" class="tab-pane" id="addClient">
                 <div class="container">
                     <div class="page-header">
-                        <h1 align="center">reserve</h1>
+                        <h1 align="center">客户添加</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkOutServlet" method="post">
+                        <form class="form-horizontal" action="addClientServlet" method="post">
                             <div class="form-group ">
-                                <label for="cNo2" class="col-xs-3 control-label">客户ID：</label>
+                                <label for="username1" class="col-xs-3 control-label">客户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo2" placeholder="">
+                                    <input type="" name="username1" class="form-control input-sm duiqi" id="username1" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="rNo2" class="col-xs-3 control-label">房间号：</label>
+                                <label for="password" class="col-xs-3 control-label">密码：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo2" placeholder="">
+                                    <input type="" name="password" class="form-control input-sm duiqi" id="password" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="isD2" class="col-xs-3 control-label">是否损坏：</label>
+                                <label for="idcard" class="col-xs-3 control-label">身份证号：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD2" placeholder="">
+                                    <input type="" name="idcard" class="form-control input-sm duiqi" id="idcard" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="expS2" class="col-xs-3 control-label">体验评分：</label>
+                                <label for="email" class="col-xs-3 control-label">邮箱号：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS2" placeholder="">
+                                    <input type="" name="email" class="form-control input-sm duiqi" id="email" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="serS2" class="col-xs-3 control-label">服务评分：</label>
+                                <label for="telephone" class="col-xs-3 control-label">电话号码：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS2" placeholder="">
+                                    <input type="" name="telephone" class="form-control input-sm duiqi" id="telephone" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -247,11 +197,33 @@
                         </form>
                     </div>
                 </div>
+            </div>
 
+            <!--客户删除-->
+            <div role="tabpanel" class="tab-pane" id="deleteClient">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">客户删除</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" action="deleteClientServlet" method="post">
+                            <div class="form-group">
+                                <label for="email1" class="col-xs-3 control-label">邮箱号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="email1" class="form-control input-sm duiqi" id="email1" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button type="submit" class="btn btn-sm btn-green">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
 
-        </div>
 
     </div>
 </div>
@@ -260,8 +232,6 @@
 <% if (request.getParameter("ds")!= null) {%>
 <script type="text/javascript">
     $(document).ready(function(){
-
-            // $('#t1').tab('show');
             $("#t1").click();
         });
 </script>
