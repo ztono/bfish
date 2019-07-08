@@ -20,5 +20,14 @@
         <servlet-name>checkInServlet</servlet-name>
         <url-pattern>/checkInServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>changeRoomServlet</servlet-name>
+        <servlet-class>Servlet.changeRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changeRoomServlet</servlet-name>
+        <url-pattern>/changeRoomServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
 
