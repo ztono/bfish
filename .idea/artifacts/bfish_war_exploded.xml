@@ -12,6 +12,7 @@
           <element id="library" level="project" name="jstl-1.2" />
           <element id="library" level="project" name="mysql-connector-java-5.1.20-bin" />
           <element id="library" level="project" name="mysql-connector-java-8.0.121" />
+          <element id="library" level="project" name="standard" />
         </element>
       </element>
     </root>
