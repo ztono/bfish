@@ -89,6 +89,8 @@
         <div class="meun-title">客户管理</div>
         <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户添加</div>
         <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户删除</div>
+        <div class="meun-title">查看评论</div>
+        <div class="meun-item" href="#comment" aria-controls="comment" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看评论</div>
 
     </div>
     <!-- 右侧具体内容栏目 -->
@@ -219,6 +221,30 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="comment">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">客户删除</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <table border="1">
+                            <tr>
+                                <th>操作员</th>
+                                <th>分数</th>
+                            </tr>
+                            <tr>
+                                <td>row 1, cell 1</td>
+                                <td>row 1, cell 2</td>
+                            </tr>
+                            <tr>
+                                <td>row 2, cell 1</td>
+                                <td>row 2, cell 2</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
