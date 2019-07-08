@@ -17,8 +17,8 @@
     <script src="js/pagination.js"></script>
     <script>
         $("#myModal").modal("hide");
-        function Rvalues(id) {
-            $("#room_id").val(id);
+        function R_values(id) {
+            $("#room_no").val(id);
 
 
         }
@@ -78,22 +78,58 @@
 
 <body>
 <% String Rd = (String)request.getAttribute("room_delete");
-    if("true".equals(Rd)){%>
-<script type="text/javascript">alert("delete success");</script>
+if (Rd!=null){
+    if(Rd.equals("0")){%>
+<script type="text/javascript">alert("delete success");
+$(document).ready(function(){
+    $("#taggle2").click();
+});</script>
 <% }else if("false".equals(Rd)){%>
-<script type="text/javascript">alert("error");</script>
-<%} %>
+<script type="text/javascript">alert("error");
+$(document).ready(function(){
+    $("#taggle2").click();
+});
 
-<% String Rflag = (String)request.getAttribute("add");
-    if(Rflag=="3")
+</script>
+<%} }%>
+
+<% String add = (String)request.getAttribute("add");
+if(add!=null){
+    if(add.equals("0"))
     {%>
-<script type="text/javascript">alert("add successfully");</script>
+<script type="text/javascript">alert("add successfully");
+$(document).ready(function(){
+    $("#taggle1").click();
+});
+</script>
 <% }
-else if(Rflag=="2")
+else if(add.equals("1"))
 
 {%>
-<script type="text/javascript">alert("this room id has already existed,please change");</script>
-<%}
+<script type="text/javascript">alert("this room id has already existed,please change");
+$(document).ready(function(){
+    $("#taggle1").click();
+});</script>
+<%}}
+%>
+<% String editroom = (String)request.getAttribute("edit");
+if(editroom!=null){
+    if(editroom.equals("0"))
+    {%>
+<script type="text/javascript">alert("edit successfully");
+$(document).ready(function(){
+    $("#taggle2").click();
+});
+</script>
+<% }
+else if(editroom.equals("1"))
+
+{%>
+<script type="text/javascript">alert("error");
+$(document).ready(function(){
+    $("#taggle2").click();
+});</script>
+<%}}
 %>
 
     <div id="wrap">
@@ -103,22 +139,23 @@ else if(Rflag=="2")
             <p id="logoP"><img id="logo" alt="旅馆管理系统" src="images/dong.jpg"><span>旅馆管理系统</span></p>
         </div>
         <div id="personInfor">
-            <p id="userName">亲爱的管理员<%= (String) request.getSession().getAttribute("id") %>，欢迎您！</p>
+            <p id="adminid">亲爱的管理员<%= (String) request.getSession().getAttribute("adminid") %>，欢迎您！</p>
             <p>
                 <a href="login.jsp">退出登录</a>
             </p>
         </div>
         <div class="meun-title">房间管理</div>
-        <div class="meun-item" href="#addroom" aria-controls="addroom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">添加房间</div>
-        <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png">修改房间</div>
+        <div class="meun-item" href="#addroom" aria-controls="addroom" role="tab" data-toggle="tab" id="taggle1"><img src="images/icon_char_grey.png">添加房间</div>
+        <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" id="taggle2"><img src="images/icon_char_grey.png">修改房间</div>
         <div class="meun-title">人事管理</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">添加雇员</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
+        <div class="meun-item" href="#addemployee" aria-controls="addemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png" id="taggle4">添加雇员</div>
+        <div class="meun-item" href="#showemployee" aria-controls="showemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png" id="taggle3">查看雇员</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看上班记录</div>
         <div class="meun-title">收入管理</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看月收入</div>
 
     </div>
+
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
 
@@ -146,9 +183,9 @@ else if(Rflag=="2")
                             <label for="rty" class="col-xs-3 control-label">房间型号:</label>
                             <div  class="form-group">
                                  <select class="form-control"style="width: 200px;height: 30px" name="room_type"  id="rty" >
-                                        <option>singleroom</option>
-                                        <option>doubleroom</option>
-                                        <option>bigbedroom</option>
+                                        <option value="singleroom">singleroom</option>
+                                        <option  value="doubleroom">doubleroom</option>
+                                        <option  value="bigbedroom">bigbedroom</option>
 
                                     </select>
 
@@ -181,24 +218,26 @@ else if(Rflag=="2")
                 </div>
                 </div>
             </div>
+
+
             <!-- 修改房间模块 -->
             <div role="tabpanel" class="tab-pane" id="modroom">
-                <div class="container">
-                    <div class="page-header">
-                        <h4 align="center">修改房间</h4>
-                    </div>
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>房间号</th>
-                            <th>房间类型</th>
-                            <th>房间价格</th>
-                            <th>房间位置</th>
-                            <th>操作</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+            <div class="container">
+                <div class="page-header">
+                    <h4 align="center">修改房间</h4>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>房间号</th>
+                        <th>房间类型</th>
+                        <th>房间价格</th>
+                        <th>房间位置</th>
+                        <th>操作</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     <%
                         List<Room> rooms =RoomDao.getrooms();
 
@@ -213,48 +252,290 @@ else if(Rflag=="2")
                         <td ><%= room.getRoom_type() %></td>
                         <td ><%= room.getRoom_price() %></td>
                         <td ><%= room.getRoom_location() %></td>
-                        <td> <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" onclick="values(<%=room.getRoom_id()%>)" > change</button></td>
-                        <td> <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#myModal" onclick="values(<%=room.getRoom_id()%>)"> delete</button></td>
-                        </tr>
-                        <%
+                        <td> <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" onclick="R_values(<%=room.getRoom_no()%>)" > change</button></td>
+                        <td>  <form method="post" action="deleteroomServlet" >
+                            <input type="hidden" name="room_no" value="<%=room.getRoom_no()%>"/>
+                            <input type="submit" class="btn btn-sm btn-warning" value="delete" />
+                        </form>
+                        </td>
+                            <%
                         }
                         %>
 
 
 
-                            </tbody>
-                        </table>
+                    </tbody>
+                </table>
 
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="form-group ">
+                                    <form action="editroomServlet" method="post">
+                                        <table>
+
+                                            <tr>
+                                                <td width="100" height="50" font size="20px">房间号</td>
+
+                                                <td><input type="text" name="room_id" id="room_id" ></td></tr>
+                                            <tr>	<td width="100" height="50" font size="20px">房间价格</td>
+
+                                                <td>
+                                                    <input type="text" name="room_price" id="room_price"></td></tr>
+                                            <tr>
+                                                <td width="100" height="50" font size="20px">房间位置</td>
+                                                <td>
+                                                    <input type="text" name="room_location" id="room_location"></td></tr>
+                                            <tr>
+                                                <td width="100" height="50" font size="20px">房间型号</td>
+                                                <td>
+                                                    <select name="room_type" class="text2">
+
+                                                        <option value="singleroom">singleroom</option>
+                                                        <option value="doubleroom">doubleroom</option>
+                                                        <option value="bigbedroom">bigbedroom</option>
+                                                    </select></td></tr>
+                                            <input type="hidden" name="room_no" id="room_no">
+                                            <tr> <td><input type="submit" value="SUBMIT"></td></tr>
+
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            <!--添加雇员模块-->
+            <div role="tabpanel" class="tab-pane" id="addemployee">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">添加雇员</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" form action="/addemployee.do" name=form1 onsubmit="return check()" >
+                            <div class="form-group ">
+                                <label for="uname" class="col-xs-3 control-label">username：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="username" class="form-control input-sm duiqi" id="uname" placeholder="">
+                                </div>
+                            </div>
+
+                            <label for="rty" class="col-xs-3 control-label">position:</label>
+                            <div  class="form-group">
+
+                                <select class="form-control"style="width: 200px;height: 23px" name="position" class="text2">
+                                    <option value="repersonnel">repersonnel</option>
+                                    <option value="manager">manager</option>
+                                    <option value="cleaner">cleaner</option>
+
+                                </select>
+
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upassword" class="col-xs-3 control-label">password：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="password" class="form-control input-sm duiqi" id="upassword" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="uemail" class="col-xs-3 control-label">email：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="email" class="form-control input-sm duiqi" id="uemail" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="utelephone" class="col-xs-3 control-label">telephone：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="telephone" class="form-control input-sm duiqi" id="utelephone" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
+                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="showemployee">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">查看雇员</h1>
+                    </div>
+                    <% String c = (String)request.getAttribute("reset");
+                        if("true".equals(c)){%>
+                    <script type="text/javascript">alert("reset success"); $(document).ready(function(){
+                        $("#taggle3").click();
+                    });</script>
+                    <% }else if("false".equals(c)){%>
+                    <script type="text/javascript">alert("error");
+                    $(document).ready(function(){
+                        $("#taggle3").click(); })
+                    </script>
+                    <%} %>
+                    <% String p = (String)request.getAttribute("update");
+                        if("true".equals(p)){%>
+                    <script type="text/javascript">alert("update success"); $(document).ready(function(){
+                        $("#taggle3").click();
+                    });</script>
+                    <% }else if("false".equals(p)){%>
+                    <script type="text/javascript">alert("error");
+                    $(document).ready(function(){
+                        $("#taggle3").click(); })
+                    </script>
+                    <%} %>
+                    <% String d = (String)request.getAttribute("delete");
+                        if("true".equals(d)){%>
+                    <script type="text/javascript">alert("delete success"); $(document).ready(function(){
+                        $("#taggle3").click();
+                    });</script>
+                    <% }else if("false".equals(d)){%>
+                    <script type="text/javascript">alert("error");
+                    $(document).ready(function(){
+                        $("#taggle3").click(); })
+                    </script>
+                    <%} %>
+
+                    <% String flag = (String)request.getAttribute("add");
+                        if(flag=="3")
+                        {%>
+                    <script type="text/javascript">alert("add successfully");
+                    $(document).ready(function(){
+                        $("#taggle3").click();
+                    });</script>
+                    <% }
+                    else if(flag=="2")
+
+                    {%>
+                    <script type="text/javascript">alert("error");$(document).ready(function(){
+                        $("#taggle3").click();
+                    });</script>
+                    <%}
+                    %>
+                    <Script Language="JavaScript">
+
+
+
+                        $("#myModal").modal("hide");
+                        function values(employee_no) {
+
+                            $("#employee_no").val(employee_no);
+                        }
+
+
+
+                    </Script>
+
+
+
+
+
+                    <table style="width: 800px; margin: 44px auto"
+                           class="table table-striped table-bordered table-hover  table-condensed"
+                           align='center' border='0' cellspacing='0'>
+                        <tr>
+                            <td align="center">用户名</td>
+                            <td align="center">密码</td>
+                            <td align="center">职位</td>
+                            <td align="center">电子邮件</td>
+                            <td align="center">电话号码</td>
+                            <td align="center">编号</td>
+                            <td>操作</td>
+                            <td>操作</td>
+                            <td>操作</td>
+
+                        </tr>
+                        <%
+                            List<Employee> employees =EmployeeDao.ShowEmployee();
+
+
+                            for(Employee employee:employees)
+                            {
+
+                        %>
+                        <tr>
+                            <td align="center" width="10%"><%= employee.getUsername() %></td>
+                            <td align="center" width="10%"><%= employee.getPassword() %></td>
+                            <td align="center" width="10%"><%= employee.getEmail() %></td>
+                            <td align="center" width="10%"><%= employee.getTelephone() %></td>
+                            <td align="center" width="10%"><%= employee.getPosition() %></td>
+                            <td align="center" width="10%"><%= employee.getEmployee_no() %></td>
+
+
+                            <td>  <form  action="deleteemployee.do" >
+                                <input type="hidden" name="employee_no" value="<%=employee.getEmployee_no() %>"/>
+                                <input type="submit" class="btn btn-sm btn-warning" value="delete" />
+                            </form>
+                            </td>
+                            <td><button class="btn btn-sm btn-green" data-toggle="modal" data-target="#myModal1" onclick="values(<%=employee.getEmployee_no()%>)">
+                                change
+                            </button>
+                            <td>
+                                <form  action="resetpassword.do" >
+                                    <input type="hidden" name="employee_no" value="<%=employee.getEmployee_no() %>"/>
+                                    <input type="submit" class="btn btn-sm btn-info" value="reset" />
+                                </form>
+                            </td>
+
+                        </tr>
+                        <%
+
+                            }%>
+                    </table>
+
+                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <div class="form-group ">
-                                        <form action="">
+                                        <form action="/updateemployee.do">
                                             <table>
 
                                                 <tr>
-                                                    <td width="100" height="50" font size="20px">房间号</td>
+                                                    <td width="100" height="50" font size="20px">username</td>
 
-                                                    <td><input type="text" name="room_id" id="room_id" ></td></tr>
-                                                <tr>	<td width="100" height="50" font size="20px">房间价格</td>
+                                                    <td><input type="text" name="username" id="username" ></td></tr>
+                                                <tr>	<td width="100" height="50" font size="20px">password</td>
 
                                                     <td>
-                                                        <input type="text" name="room_price" id="room_price"></td></tr>
+                                                        <input type="text" name="password" id="password"></td></tr>
                                                 <tr>
-                                                    <td width="100" height="50" font size="20px">房间位置</td>
-                                                    <td>
-                                                        <input type="text" name="room_location" id="room_location"></td></tr>
-                                                <tr>
-                                                    <td width="100" height="50" font size="20px">房间型号</td>
-                                                    <td>
-                                                        <select name="room_type" class="text2">
+                                                    <td width="100" height="50" font size="20px">position</td>
 
-                                                            <option value="singleroom">singleroom</option>
-                                                            <option value="doubleroom">doubleroom</option>
-                                                            <option value="bigbedroom">bigbedroom</option>
+
+                                                    <td>
+                                                        <select name="position" class="text2">
+
+                                                            <option value="repersonnel">repersonnel</option>
+                                                            <option value="manager">manager</option>
+                                                            <option value="cleaner">cleaner</option>
                                                         </select></td></tr>
-                                                                  <input type="hidden" name="room_no" id="room_no">
+                                                <tr>
+                                                    <td width="100" height="50" font size="20px">email</td>
+
+                                                    <td>
+                                                        <input type="text" name="email" id="email" ></td></tr>
+                                                <tr>
+                                                    <td width="100" height="50" font size="20px">telephone</td>
+                                                    <td><input type="text" name="telephone" id="telephone"></td></tr>
+                                                <tr>
+
+                                                    <td>
+                                                        <input type="hidden" name="employee_no" id="employee_no"></td></tr>
+
                                                 <tr> <td><input type="submit" value="SUBMIT"></td></tr>
 
                                             </table>
@@ -262,59 +543,22 @@ else if(Rflag=="2")
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-<%--        <div role="tabpanel" class="tab-pane" id="checkout">--%>
-<%--            <div class="container">--%>
-<%--                <div class="page-header">--%>
-<%--                    <h1 align="center">退房登记</h1>--%>
-<%--                </div>--%>
-<%--                <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">--%>
-<%--                    <form class="form-horizontal" action="checkOutServlet" method="post">--%>
-<%--                        <div class="form-group ">--%>
-<%--                            <label for="cNo" class="col-xs-3 control-label">客户ID：</label>--%>
-<%--                            <div class="col-xs-8 ">--%>
-<%--                                <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group">--%>
-<%--                            <label for="rNo" class="col-xs-3 control-label">房间号：</label>--%>
-<%--                            <div class="col-xs-8 ">--%>
-<%--                                <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group">--%>
-<%--                            <label for="isD" class="col-xs-3 control-label">是否损坏：</label>--%>
-<%--                            <div class="col-xs-8">--%>
-<%--                                <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group">--%>
-<%--                            <label for="expS" class="col-xs-3 control-label">体验评分：</label>--%>
-<%--                            <div class="col-xs-8">--%>
-<%--                                <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group">--%>
-<%--                            <label for="serS" class="col-xs-3 control-label">服务评分：</label>--%>
-<%--                            <div class="col-xs-8">--%>
-<%--                                <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group text-right">--%>
-<%--                            <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">--%>
-<%--                                <button class="btn btn-sm btn-primary" type="reset">重置</button>--%>
-<%--                                <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>--%>
-<%--                                <button type="submit" class="btn btn-sm btn-green">保 存</button>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </form>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+
+
+
+
+
+
+                </div>
     </div>
     </div>
-</div>
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
     <script src="js/jquery.nouislider.js"></script>
 
 
