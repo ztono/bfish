@@ -20,10 +20,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
-    <orderEntry type="library" name="activation" level="project" />
     <orderEntry type="library" name="fastjson-1.2.51" level="project" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
-    <orderEntry type="library" name="servlet-api" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.12" level="project" />
+    <orderEntry type="library" name="jsp-api" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.121" level="project" />
+    <orderEntry type="library" name="jsp-api1" level="project" />
   </component>
 </module>

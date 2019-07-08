@@ -83,12 +83,12 @@
                 <a href="login.jsp">退出登录</a>
             </p>
         </div>
-        <div class="meun-title">旅馆管理</div>
-        <div class="meun-item" href="#checkin" aria-controls="checkin" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">入住登记</div>
+        <div class="meun-title">登记管理</div>
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
-        <div class="meun-item" href="#changeRoom" aria-controls="changeRoom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">换房登记</div>
-        <div class="meun-item" href="#changeRoom" aria-controls="changeRoom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预约记录</div>
-        <div class="meun-item" href="#changeRoom" aria-controls="changeRoom" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">打扫房间</div>
+        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
+        <div class="meun-title">客户管理</div>
+        <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户添加</div>
+        <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户删除</div>
 
     </div>
     <!-- 右侧具体内容栏目 -->
@@ -100,38 +100,6 @@
         </a>
         <!-- Tab panes -->
         <div class="tab-content">
-
-            <!--入住登记模块-->
-            <div role="tabpanel" class="tab-pane" id="checkin">
-                <div class="container">
-                    <div class="page-header">
-                        <h1 align="center">入住登记</h1>
-                    </div>
-                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkInServlet" method="post">
-                            <div class="form-group ">
-                                <label for="cNum" class="col-xs-3 control-label">客户ID：</label>
-                                <div class="col-xs-8 ">
-                                    <input type="" name="client_No" class="form-control input-sm duiqi" id="cNum" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="roNo" class="col-xs-3 control-label">房间号：</label>
-                                <div class="col-xs-8 ">
-                                    <input type="" name="room_No" class="form-control input-sm duiqi" id="roNo" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group text-right">
-                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
-                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
-                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
             <!--退房登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkout">
@@ -182,34 +150,44 @@
                     </div>
                 </div>
             </div>
-
-            <!--换房登记模块-->
-            <div role="tabpanel" class="tab-pane" id="changeRoom">
+            <!--客户添加-->
+            <div role="tabpanel" class="tab-pane" id="addClient">
                 <div class="container">
                     <div class="page-header">
-                        <h1 align="center">换房登记</h1>
+                        <h1 align="center">客户添加</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="changeRoomServlet" method="post">
+                        <form class="form-horizontal" action="addClientServlet" method="post">
                             <div class="form-group ">
-                                <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
+                                <label for="username1" class="col-xs-3 control-label">客户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="client_id" class="form-control input-sm duiqi" id="cId" placeholder="">
+                                    <input type="" name="username1" class="form-control input-sm duiqi" id="username1" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="rNo" class="col-xs-3 control-label">原房间号：</label>
+                                <label for="password" class="col-xs-3 control-label">密码：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="o_room_no" class="form-control input-sm duiqi" id="o_room_no" placeholder="">
+                                    <input type="" name="password" class="form-control input-sm duiqi" id="password" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="rNo" class="col-xs-3 control-label">新房间号：</label>
-                                <div class="col-xs-8 ">
-                                    <input type="" name="n_room_no" class="form-control input-sm duiqi" id="n_room_no" placeholder="">
+                                <label for="idcard" class="col-xs-3 control-label">身份证号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="idcard" class="form-control input-sm duiqi" id="idcard" placeholder="">
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label for="email" class="col-xs-3 control-label">邮箱号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="email" class="form-control input-sm duiqi" id="email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone" class="col-xs-3 control-label">电话号码：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="telephone" class="form-control input-sm duiqi" id="telephone" placeholder="">
+                                </div>
+                            </div>
                             <div class="form-group text-right">
                                 <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
                                     <button class="btn btn-sm btn-primary" type="reset">重置</button>
@@ -222,11 +200,41 @@
                 </div>
             </div>
 
+            <!--客户删除-->
+            <div role="tabpanel" class="tab-pane" id="deleteClient">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">客户删除</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form class="form-horizontal" action="deleteClientServlet" method="post">
+                            <div class="form-group">
+                                <label for="email1" class="col-xs-3 control-label">邮箱号：</label>
+                                <div class="col-xs-8">
+                                    <input type="" name="email1" class="form-control input-sm duiqi" id="email1" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button type="submit" class="btn btn-sm btn-green">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
 
     </div>
 </div>
 <script src="js/jquery.nouislider.js"></script>
 
+/* 看板娘 */
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init();
+</script>
 
 </body>
 </html>
