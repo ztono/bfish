@@ -10,8 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deb28599-6186-406d-87ec-5baeae45bfbe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsp_api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jsp_api.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bfish.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bfish.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BEAN/Change.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BEAN/Change.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CheckinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CheckinDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Servlet/changeRoomServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/changeRoomServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servlet/checkInServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/checkInServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servlet/searchRoomServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servlet/searchRoomServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/employee.jsp" afterDir="false" />
     </list>
@@ -29,62 +36,85 @@
     <session id="-467608702">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="4" />
+          <entry key="class" value="1" />
+          <entry key="java" value="19" />
           <entry key="js" value="1" />
-          <entry key="jsp" value="4" />
-          <entry key="xml" value="2" />
+          <entry key="jsp" value="5" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="4" />
-          <entry key="JSP" value="4" />
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="19" />
+          <entry key="JSP" value="5" />
           <entry key="JavaScript" value="1" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7" />
-          <entry key="jsp" value="75" />
-          <entry key="xml" value="3" />
+          <entry key="java" value="978" />
+          <entry key="jsp" value="362" />
+          <entry key="txt" value="3" />
+          <entry key="xml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7" />
-          <entry key="JSP" value="75" />
-          <entry key="XML" value="3" />
+          <entry key="JAVA" value="978" />
+          <entry key="JSP" value="362" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="XML" value="12" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/employee.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="222" column="18" selection-start-line="185" selection-start-column="12" selection-end-line="222" selection-end-column="18" />
+            <state relative-caret-position="773">
+              <caret line="325" column="66" selection-start-line="325" selection-start-column="57" selection-end-line="325" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Servlet/checkInServlet.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Servlet/searchRoomServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="20" selection-end-column="47" />
+            <state relative-caret-position="456">
+              <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Servlet/checkOutServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="42" column="21" selection-start-line="42" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DAO/CheckinDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="182" column="20" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -94,8 +124,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -114,16 +144,20 @@
         <option value="$PROJECT_DIR$/src/dao/BookDao.java" />
         <option value="$PROJECT_DIR$/web/User.jsp" />
         <option value="$PROJECT_DIR$/src/qa/Smart_QA.java" />
-        <option value="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" />
         <option value="$PROJECT_DIR$/web/Employee.jsp" />
         <option value="$PROJECT_DIR$/src/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/dao/CheckinDAO.java" />
         <option value="$PROJECT_DIR$/web/smart_qa.jsp" />
-        <option value="$PROJECT_DIR$/src/DAO/CheckinDAO.java" />
         <option value="$PROJECT_DIR$/web/user.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/BEAN/Change.java" />
+        <option value="$PROJECT_DIR$/src/Servlet/loginServlet.java" />
+        <option value="$PROJECT_DIR$/src/Servlet/checkOutServlet.java" />
         <option value="$PROJECT_DIR$/src/Servlet/changeRoomServlet.java" />
+        <option value="$PROJECT_DIR$/src/DAO/CheckinDAO.java" />
+        <option value="$PROJECT_DIR$/src/Servlet/checkInServlet.java" />
         <option value="$PROJECT_DIR$/web/employee.jsp" />
+        <option value="$PROJECT_DIR$/src/Servlet/searchRoomServlet.java" />
       </list>
     </option>
   </component>
@@ -141,8 +175,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="255" />
-    <option name="y" value="60" />
+    <option name="x" value="179" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
   </component>
@@ -154,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -188,15 +222,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562548048207" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hotel" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562569210490" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sport" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -335,7 +368,8 @@
       <workItem from="1562202549632" duration="596000" />
       <workItem from="1562222323349" duration="4114000" />
       <workItem from="1562229856995" duration="1155000" />
-      <workItem from="1562547512297" duration="535000" />
+      <workItem from="1562547512297" duration="10690000" />
+      <workItem from="1562568303166" duration="918000" />
     </task>
     <task id="LOCAL-00001" summary="删除文件">
       <created>1562051018935</created>
@@ -393,39 +427,62 @@
       <option name="project" value="LOCAL" />
       <updated>1562144608093</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="aaa">
+      <created>1562548172068</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1562548172068</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Merge branch 'master' of https://github.com/ztono/bfish&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;web/employee.jsp">
+      <created>1562558205856</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1562558205856</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19953000" />
+    <option name="totallyTimeSpent" value="31026000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6875" visible="true" weight="0.23827533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68472904" visible="true" weight="0.24130106" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.3125" side_tool="true" visible="true" weight="0.23827533" />
+      <window_info id="Web" order="7" sideWeight="0.31527093" side_tool="true" visible="true" weight="0.24130106" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22660099" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.12972085" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32840723" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32840723" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32840723" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32918397" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.22660099" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3287234" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32840723" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="15" sideWeight="0.49924356" visible="true" weight="0.23809524" />
+      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32840723" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49924356" weight="0.21510673" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -459,7 +516,9 @@
     <MESSAGE value="修改了部分命名bug，添加了lib和js，重新设置了configure" />
     <MESSAGE value="添加了部分js，重命名了部分文件" />
     <MESSAGE value="入住登记和退房登记基本完成，包括中间修改房间状态，计算消费金额。" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="aaa" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/ztono/bfish&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;web/employee.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ztono/bfish&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;web/employee.jsp" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/doLanguage.jsp" />
@@ -532,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/CheckinDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/smart_qa.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1175">
@@ -556,45 +608,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Servlet/checkOutServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/user.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="642">
+          <caret line="102" column="14" lean-forward="true" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/user.jsp">
+    <entry file="file://$PROJECT_DIR$/src/DAO/LoginDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="102" column="70" selection-start-line="102" selection-start-column="70" selection-end-line="102" selection-end-column="70" />
+        <state relative-caret-position="-456">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Servlet/loginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="228">
+          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BEAN/Change.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Servlet/changeRoomServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="271">
+          <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/employee.jsp">
+    <entry file="jar://D:/Eclipse/jdbc/mysql-connector-java-8.0.12/mysql-connector-java-8.0.12.jar!/com/mysql/cj/jdbc/AbandonedConnectionCleanupThread.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="222" column="18" selection-start-line="185" selection-start-column="12" selection-end-line="222" selection-end-column="18" />
+        <state relative-caret-position="390">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Servlet/checkInServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="20" selection-end-column="47" />
+        <state relative-caret-position="94">
+          <caret line="20" column="43" selection-start-line="19" selection-start-column="8" selection-end-line="20" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Servlet/checkOutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="42" column="21" selection-start-line="42" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/CheckinDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="182" column="20" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Servlet/searchRoomServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/employee.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="325" column="66" selection-start-line="325" selection-start-column="57" selection-end-line="325" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -609,6 +720,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -639,6 +751,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -655,7 +768,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -675,7 +787,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jstl-1.2</last-edited>
+          <last-edited>mysql-connector-java-8.0.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
