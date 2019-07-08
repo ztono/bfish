@@ -23,14 +23,17 @@ public class checkInServlet extends HttpServlet {
         Checkin checkin = new Checkin();
         CheckinDAO checkinDao = new CheckinDAO();
 
-        String client_no = request.getParameter("client_No");
-        String room_no = request.getParameter("room_No");
+        String client_no = request.getParameter("clientNo");
+        String room_no = request.getParameter("roomNo");
+        int duration = Integer.parseInt(request.getParameter("duration"));
 
         checkin.setClient_no(client_no);
         checkin.setRoom_no(room_no);
         checkinDao.addCheckin(checkin);
-        checkinDao.updateRoomState_arrive(checkin); //更新房间状态
+        checkinDao.updateLeaveDate(checkin,duration);
+        checkinDao.updateCost(checkin);
+        checkinDao.updateRoomState_arrive(room_no); //更新房间状态
 
-        request.getRequestDispatcher("employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp?idr=5").forward(request, response);
     }
 }
