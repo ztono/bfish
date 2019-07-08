@@ -316,7 +316,8 @@ else if(Rflag=="2")
     </div>
 </div>
     <script src="js/jquery.nouislider.js"></script>
-
+    </div>
+    </div>
 
 </body>
 </html>
