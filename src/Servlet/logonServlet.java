@@ -30,9 +30,10 @@ public class logonServlet extends HttpServlet {
         String idcard = request.getParameter("idcard");
         if (logindao.existClient(email)) {
 
+
+            request.getSession().setAttribute("message2", "邮箱已被使用");
             System.out.println("fail");
-            request.setAttribute("logon", "false");
-            request.getRequestDispatcher("/login.jsp").forward(request,response);
+            request.getRequestDispatcher("/logon.jsp").forward(request,response);
 
 
         }
@@ -45,6 +46,7 @@ public class logonServlet extends HttpServlet {
             client.setIdcard(idcard);
             logindao.addClient(client);
             System.out.println("ok1");
+            request.getSession().setAttribute("id", name);
             request.getRequestDispatcher("user.jsp").forward(request, response);
 
 

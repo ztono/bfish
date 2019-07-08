@@ -18,6 +18,15 @@
 <div class="container">
 	<div class="row tm-register-row tm-mb-35">
 		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
+			<%
+				Object message = request.getSession().getAttribute("message");
+				if(message!=null && !"".equals(message)){
+
+			%>
+			<script type="text/javascript">
+				alert("<%=message%>");
+			</script>
+			  <%} %>
 			<form action="loginServlet" method="post" class="tm-bg-black p-5 h-100">
 				<div class="input-field">
 					<input placeholder="Email" id="email" name="email" type="text" class="validate">
@@ -41,7 +50,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ml-auto mr-0 text-center">
-			<a href="register.html" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">Create New Account</a>
+			<a href="logon.jsp" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">Create New Account</a>
 		</div>
 	</div>
 	<footer class="row tm-mt-big mb-3">
