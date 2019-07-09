@@ -26,7 +26,7 @@ public class SmartQaServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
         String hotelLocationResponse = "我们旅馆是国际一流的6星级旅馆，坐落于陕西省西安市友谊西路127号。" +
                 "可以乘坐110路公交车直达。更多问题欢迎致电110";
-        String bookRoomResponse = "欢迎拨打我们的订房热线或者通过页面左侧的订房路径前往订房";
+        String bookRoomResponse = "欢迎拨打我们的订房热线，或者通过页面上方的导航栏前往订房";
         String undefinedResponse = "对不起，小助手还没办法回答你的问题呢。";
         if ("询问宾馆信息".equals(result)) {
             printWriter.write(hotelLocationResponse);
