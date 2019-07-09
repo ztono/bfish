@@ -1,5 +1,6 @@
 package DAO;
 
+import BEAN.Change;
 import BEAN.Checkin;
 
 import java.sql.ResultSet;
@@ -25,8 +26,15 @@ public class CheckinDAO extends DAO.BaseDao {
         return executeUpdate(sql, params);
     }
 
+    public int updateLeaveDate(Checkin checkin, int duration){
+        String sql = "update checkin set leavedate = (arrivedate + "+duration+") where client_no = ?;";
+        List<Object> params = new ArrayList<Object>();
+        params.add(checkin.getClient_no());
+        return executeUpdate(sql, params);
+    }
+
     public int addCheckout(Checkin checkout) {
-        String update = "update checkin set leavedate=sysdate(), isdamaged=?, exp_score=?, ser_score=? where client_no = ? and room_no = ?;";
+        String update = "update checkin set isdamaged=?, exp_score=?, ser_score=? where client_no = ? and room_no = ?;";
         List<Object> params = new ArrayList<Object>();
         params.add(checkout.getIsdamaged());
         params.add(checkout.getExp_score());
@@ -45,33 +53,47 @@ public class CheckinDAO extends DAO.BaseDao {
         return executeUpdate(update, params);
     }
 
-    public int updateRoomState_arrive(Checkin checkin){
-        String update = "update room set room_state = 'unAvailable' where room_no = ?";
+    public int updateRoomState_arrive(String room_no){
+        String update = "update room set room_state = 'checkedin' where room_id = ?";
         List<Object> params = new ArrayList<Object>();
-        params.add(checkin.getRoom_no());
+        params.add(room_no);
         return executeUpdate(update, params);
     }
 
-    public int updateRoomState_leave(Checkin checkout){
-        String update = "update room set room_state = 'available' where room_no = ?";
+    public int updateRoomState_leave(String room_no){
+        String update = "update room set room_state = 'unavailable' where room_id = ?";
         List<Object> params = new ArrayList<Object>();
-        params.add(checkout.getRoom_no());
+        params.add(room_no);
         return executeUpdate(update, params);
     }
 
     /**
-     * 换房
+     * 换房,更新changeroom表
      * @param or_room_id
      * @param to_room_id
      * @param client_no
      * @return
      */
-    public int changeRoom(String or_room_id,String to_room_id,String client_no)
+    public int ChangeRoom(String or_room_id,String to_room_id,String client_no)
     {
-        String sql = "insert change ( oldroomid ,newroomid ,client_no ) values (?,?,?)";
+        String sql = "insert changeroom ( oldroomid ,newroomid ,client_no ) values (?,?,?)";
         List<Object> params = new ArrayList<Object>();
         params.add(or_room_id);
         params.add(to_room_id);
+        params.add(client_no);
+        return executeUpdate(sql, params);
+    }
+
+    /**
+     * 换房,更新checkin表
+     * @param to_room_no
+     * @param client_no
+     * @return
+     */
+    public int updateChangeRoom(String to_room_no, String client_no){
+        String sql = " update checkin set room_no = ? where client_no = ?;";
+        List<Object> params = new ArrayList<Object>();
+        params.add(to_room_no);
         params.add(client_no);
         return executeUpdate(sql, params);
     }
@@ -212,10 +234,7 @@ public class CheckinDAO extends DAO.BaseDao {
             }
         }
 
-
         return roomlist;
-
-
     }
 
     /**

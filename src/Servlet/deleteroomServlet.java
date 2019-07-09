@@ -1,30 +1,22 @@
 package Servlet;
 
+import javax.jws.WebService;
 import java.io.IOException;
 import DAO.*;
-
-import javax.jws.WebService;
-
-@WebService(name="addroomServlet")
-public class addroomServlet extends javax.servlet.http.HttpServlet {
+@WebService(name="deleteroomServlet")
+public class deleteroomServlet extends javax.servlet.http.HttpServlet  {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        String id = request.getParameter("room_id");
-
-        String price=request.getParameter("room_price");
-        String type=request.getParameter("room_type");
-        String location=request.getParameter("room_location");
+        String no = request.getParameter("room_no");
 
 
-
-        String flag=RoomDao.addroom(id,price,type,location);
-             System.out.println(location);
+        String flag=RoomDao.deleteroom(no);
 
         if(flag=="0") {
 
-            request.setAttribute("add","0");
+            request.setAttribute("room_delete","0");
         }else if(flag=="1"){
 
-            request.setAttribute("add", "1");
+            request.setAttribute("room_delete", "1");
         }
 
 
@@ -35,4 +27,5 @@ public class addroomServlet extends javax.servlet.http.HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         doPost(request,response);
     }
+
 }

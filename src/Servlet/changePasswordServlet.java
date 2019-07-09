@@ -1,6 +1,5 @@
 package Servlet;
 
-import BEAN.Client;
 import DAO.LoginDAO;
 
 import javax.servlet.ServletException;
@@ -10,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "loginServlet")
-public class loginServlet extends HttpServlet {
+@WebServlet(name = "changePasswordServlet")
+public class changePasswordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
@@ -31,7 +30,6 @@ public class loginServlet extends HttpServlet {
         if(login.existClient(email)){
             if(password.equals(login.getPasswrod(email))) {
                 request.getSession().setAttribute("id", name);
-                request.getSession().setAttribute("clientEmail", email);
                 request.getRequestDispatcher("user.jsp").forward(request, response);
 
             }

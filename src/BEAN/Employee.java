@@ -23,7 +23,8 @@ public class Employee {
 		this.telephone = telephone;
 		this.employee_no = employee_no;
 	}
-
+public  Employee(){
+}
 	public String getUsername() {
 		return username;
 	}
