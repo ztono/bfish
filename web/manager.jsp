@@ -17,6 +17,17 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script>
+        function a()
+        {
+            document.form1.action="/sign1.do";
+            document.form1.submit();
+        }
+        function b()
+        {
+            document.form1.action="/sign2.do";
+            document.form1.submit();
+        }
+
         $(function() {
             $(".meun-item").click(function() {
                 $("#back").hide();
@@ -83,6 +94,27 @@
             <p>
                 <a href="login.jsp">退出登录</a>
             </p>
+            <form name="form1" action="" >
+                staff_no:<input type="text" name="staff_no" id="staff_no">
+                <INPUT Type="Button"  Value="上班" onClick="a()">
+                <INPUT Type="Button"  Value="下班" onClick="b()">
+            </form>
+        </div>
+        <%
+            String flag = (String)request.getAttribute("flag");
+        %>
+        <Script language="javascript">
+            <% if (flag=="1"){ %>alert('上班打卡成功')<%}
+else if (flag=="-1"){ %>alert('您已打卡')<%}
+else if (flag=="2"){ %>alert('下班打卡成功')<%}
+else if (flag=="-2"){ %>alert('您已打卡')<%}
+else if (flag=="3"){ %>alert('上错误')<%}
+else if (flag=="-3"){ %>alert('下错误')<%}
+%>
+        </Script>
+
+
+
         </div>
 
         <div class="meun-item" href="#displayemployee" aria-controls="displayemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
@@ -149,6 +181,7 @@
 
         </div>
     </div>
-
+    </div>
+</div>
 </body>
 </html>

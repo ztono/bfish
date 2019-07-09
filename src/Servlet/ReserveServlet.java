@@ -1,23 +1,24 @@
 package Servlet;
 
+import BEAN.Client;
 import BEAN.Reserve;
-import DAO.ClientDao;
 import DAO.ReserveDAO;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import DAO.ClientDao;
 
-@WebServlet(name = "reserveServlet")
-public class reserveServlet extends HttpServlet {
+public class ReserveServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -25,88 +26,74 @@ public class reserveServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String rm_type = request.getParameter("room_type");
-        String arr_dateStr = request.getParameter("arrive_date");
-        String lea_dateStr = request.getParameter("leave_date");
+        String roomType = request.getParameter("room_type");
+        String arrDateStr = request.getParameter("arrive_date");
+        String leaveDatestr = request.getParameter("leave_date");
         String name = request.getParameter("name");
-        String id_no = request.getParameter("cid2");
-        String ph_no = request.getParameter("phone_number");
+        String idNo = request.getParameter("id");
+        String phoneNum = request.getParameter("phone_number");
 
+        java.sql.Date arrDate = new java.sql.Date(strToDate(arrDateStr).getTime());
+        java.sql.Date leaveDate = new java.sql.Date(strToDate(leaveDatestr).getTime());
 
-        java.sql.Date arr_date = new java.sql.Date(strToDate(arr_dateStr).getTime());
-        java.sql.Date lea_date = new java.sql.Date(strToDate(lea_dateStr).getTime());
+        ReserveDAO reserveDAO = new ReserveDAO();
+        System.out.println(roomType);
+        boolean flag = true;
+        int roomId = -1;
+        int roomNo = -1;
 
-        ReserveDAO reservedao = new ReserveDAO();
-        System.out.println(rm_type);
-        Boolean flag = true;
-        int room_id = -1;
-        int room_no = -1;
-        ResultSet rs1 = reservedao.searchRoomByType(rm_type);
-
-
+        ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
+        System.out.println(rs1);
         while (true) {
             try {
-                if (!rs1.next()) break;
-                room_id = rs1.getInt("room_id");
-                room_no = rs1.getInt("room_no");
-                ResultSet rs2 = reservedao.searchReserveByNo(room_no);
+                if (!rs1.next()) {
+                    break;
+                }
+                roomId = rs1.getInt("room_id");
+                roomNo = rs1.getInt("room_no");
+                ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
                 while (true) {
                     try {
                         if (!rs2.next()) break;
-                        if (!is_solt(arr_date, lea_date, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
+                        if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
                             flag = false;
                             break;
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-
                 }
                 if (flag == true) {
                     break;
                 }
 
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
 
-        ClientDao cdao = new ClientDao();
-        ResultSet cRs = cdao.searchClientById(id_no);
-        try {
-            cRs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        int client_no = -1;
-        try {
-            client_no = cRs.getInt("client_no");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        HttpSession httpSession = request.getSession();
+//
+//        String email = (String) httpSession.getAttribute("clientEmail");
+//        ClientDao clientDao = new ClientDao();
+//
+//        int clientID = clientDao.searchClientByEmail(email);
 
-
-        if (!flag) {
-            System.out.println("order fail");
-
+        System.out.println("reached");
+        Reserve re = new Reserve(1, roomNo, arrDateStr, leaveDatestr);
+        int is = reserveDAO.reserveRoom(re);
+        if (is != 0) {
+            System.out.println("order suceess");
+            System.out.println(roomId);
         } else {
-            System.out.println(room_id);
-            Reserve re = new Reserve(client_no, room_no, arr_dateStr, lea_dateStr);
-            int is = reservedao.reserveRoom(re);
-            if (is != 0) {
-                System.out.println("order suceess");
-                System.out.println(room_id);
-            } else {
-                System.out.println("order fail");
-            }
+            System.out.println("order fail");
         }
 
-
-        request.getRequestDispatcher("employee.jsp").forward(request, response);
+        PrintWriter printWriter = response.getWriter();
+        printWriter.write("result");
     }
 
 
