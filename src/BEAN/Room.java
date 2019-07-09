@@ -8,6 +8,9 @@ public class Room {
     private String room_location;
     private String room_no;
 
+    public Room() {
+    }
+
     public String getRoom_id() {
         return room_id;
     }
