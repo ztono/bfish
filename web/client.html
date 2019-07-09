@@ -331,6 +331,7 @@
         var reserve_xml_http_request = new XMLHttpRequest();
 
         function reserve_result() {
+            alert("ok1");
             if (reserve_xml_http_request.readyState === 4) {
                 if (reserve_xml_http_request.status === 200) {
                     alert("ok");
