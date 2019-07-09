@@ -32,7 +32,7 @@ public class loginServlet extends HttpServlet {
             if(password.equals(login.getPasswrod(email))) {
                 request.getSession().setAttribute("id", name);
                 request.getSession().setAttribute("clientEmail", email);
-                request.getRequestDispatcher("user.jsp").forward(request, response);
+                request.getRequestDispatcher("client.html").forward(request, response);
 
             }
             else {
