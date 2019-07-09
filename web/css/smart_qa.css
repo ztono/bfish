@@ -1,5 +1,9 @@
 .qa_ask_div textarea{
-    margin: 50px auto;
+    overflow: hidden;
+}
+
+.qa_ask_div {
+    margin: 50px;
 }
 
 .qa_guide_text{
@@ -9,4 +13,18 @@
 .qa_guide_text p{
     color: #0f0f0f;
     font-size: 20px;
+}
+
+.qa_ask_div{
+    /*margin: 20px;*/
+}
+
+.qa_ask_button_div button{
+    font-size: 20px;
+
+}
+
+.qa_answer_div{
+    margin: 50px;
+    /*background-color:rgba(255,255,255,1);*/
 }

@@ -1,6 +1,5 @@
 package Servlet;
 
-import BEAN.Room;
 import DAO.CheckinDAO;
 
 import javax.servlet.ServletException;
@@ -9,28 +8,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "searchRoomServlet")
-public class searchRoomServlet extends HttpServlet {
+@WebServlet(name = "cleanSureServlet")
+public class cleanSureServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
         CheckinDAO checkinDao = new CheckinDAO();
 
-        String room_type = request.getParameter("room_type");
-        String arrivetime = request.getParameter("arrivetime");
-        String leavetime = request.getParameter("leavetime");
+        String room_no = request.getParameter("room_no");
 
-        List<Room> roomList = checkinDao.searchRoomAvailable(room_type,arrivetime,leavetime);
+        checkinDao.updateRoomState_clean(room_no);
 
-        request.getSession().setAttribute("roomList", roomList);
-
-        request.getRequestDispatcher("employee.jsp?ds='showEmptyRooms'").forward(request, response);
+        request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
 }

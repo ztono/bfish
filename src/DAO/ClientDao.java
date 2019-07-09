@@ -45,5 +45,20 @@ public class ClientDao extends DAO.BaseDao{
         }
 
     }
+    public static void changePassword(String email) {
+        String sql = "delete from client   where email='" + email + "'";
+        System.out.println(sql);
+        try {
+            Connection c = DBHelper.getInstance().getConnection();
+            Statement s = c.createStatement();
+            s.executeUpdate(sql);
+            DBHelper.closeConnection(c, s, null);
+
+        } catch (Exception e) {
+            System.out.println("deleteClient()方法出错！");
+            e.printStackTrace();
+        }
+
+    }
 
 }
