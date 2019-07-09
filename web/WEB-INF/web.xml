@@ -40,6 +40,27 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>addroomServlet</servlet-name>
+        <servlet-class>Servlet.addroomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addroomServlet</servlet-name>
+        <url-pattern>/addroomServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>editroomServlet</servlet-name>
+        <servlet-class>Servlet.editroomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editroomServlet</servlet-name>
+        <url-pattern>/editroomServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet>
         <servlet-name>adminloginServlet</servlet-name>
         <servlet-class>Servlet.adminloginServlet</servlet-class>
     </servlet>
