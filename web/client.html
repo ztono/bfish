@@ -331,10 +331,11 @@
         var reserve_xml_http_request = new XMLHttpRequest();
 
         function reserve_result() {
-            alert("ok1");
+
             if (reserve_xml_http_request.readyState === 4) {
+                alert("result");
                 if (reserve_xml_http_request.status === 200) {
-                    alert("ok");
+                    alert("预定成功");
                     window.location.href="client.html";
                 }
             }
