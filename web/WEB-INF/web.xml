@@ -67,21 +67,104 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>addClientServlet</servlet-name>
-        <servlet-class>Servlet.addClientServlet</servlet-class>
+        <servlet-name>deleteroomServlet</servlet-name>
+        <servlet-class>Servlet.deleteroomServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>addClientServlet</servlet-name>
-        <url-pattern>/addClientServlet</url-pattern>
+        <servlet-name>deleteroomServlet</servlet-name>
+        <url-pattern>/deleteroomServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>deleteClientServlet</servlet-name>
-        <servlet-class>Servlet.deleteClientServlet</servlet-class>
+        <servlet-name>addroomServlet</servlet-name>
+        <servlet-class>Servlet.addroomServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>deleteClientServlet</servlet-name>
-        <url-pattern>/deleteClientServlet</url-pattern>
+        <servlet-name>addroomServlet</servlet-name>
+        <url-pattern>/addroomServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>editroomServlet</servlet-name>
+        <servlet-class>Servlet.editroomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editroomServlet</servlet-name>
+        <url-pattern>/editroomServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>adminloginServlet</servlet-name>
+        <servlet-class>Servlet.adminloginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminloginServlet</servlet-name>
+        <url-pattern>/adminloginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowEmployee</servlet-name>
+        <servlet-class>employeeServlet.Showemployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowEmployee</servlet-name>
+        <url-pattern>/ShowEmployee.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddEmployee</servlet-name>
+        <servlet-class>employeeServlet.Addemployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEmployee</servlet-name>
+        <url-pattern>/addemployee.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteEmployee</servlet-name>
+        <servlet-class>employeeServlet.DeleteEmployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteEmployee</servlet-name>
+        <url-pattern>/deleteemployee.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateEmployee</servlet-name>
+        <servlet-class>employeeServlet.UpdateEmployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateEmployee</servlet-name>
+        <url-pattern>/updateemployee.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>employeeServlet.Resetpassword</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/resetpassword.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisplayEmployee</servlet-name>
+        <servlet-class>employeeServlet.DisplayEmployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayEmployee</servlet-name>
+        <url-pattern>/displayemployee.do</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>smartQaServlet</servlet-name>
+        <servlet-class>Servlet.SmartQaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>smartQaServlet</servlet-name>
+        <url-pattern>/smartQaServlet</url-pattern>
     </servlet-mapping>
 </web-app>
 

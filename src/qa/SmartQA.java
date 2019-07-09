@@ -1,6 +1,6 @@
 package qa;
 
-//import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,10 +19,10 @@ public class SmartQA {
 
     public String getResult(String question) {
         String questionUrl = null;
-        System.out.println("question"+question);
+        System.out.println("question" + question);
         try {
             questionUrl = URLEncoder.encode(question, "UTF-8");
-            System.out.println("url"+questionUrl);
+            System.out.println("url" + questionUrl);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -40,9 +40,12 @@ public class SmartQA {
                 urlResult.append(inputLine);
             }
             System.out.println(urlResult);
-//            JSONObject jsonObject = (JSONObject) JSONObject.parse(urlResult.toString());
-//            System.out.println(jsonObject.getJSONObject("topScoringIntent").get("intent").toString());
-//            return jsonObject.getJSONObject("topScoringIntent").get("intent").toString();
+            JSONObject jsonObject = (JSONObject) JSONObject.parse(urlResult.toString());
+            System.out.println(jsonObject.getJSONObject("topScoringIntent").get("intent").toString());
+            if (Float.valueOf(jsonObject.getJSONObject("topScoringIntent").get("score").toString()) < 0.6) {
+                return "";
+            }
+            return jsonObject.getJSONObject("topScoringIntent").get("intent").toString();
 
         } catch (IOException e) {
             e.printStackTrace();
