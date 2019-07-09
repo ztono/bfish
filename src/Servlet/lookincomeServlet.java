@@ -11,7 +11,7 @@ public class lookincomeServlet extends javax.servlet.http.HttpServlet {
         String y = request.getParameter("y2");
 
         String m=request.getParameter("m2");
-
+            System.out.println(y+m);
         double single=IncomeDao.singleRoomIncome(y,m);
        double dou=IncomeDao.doubleRoomIncome(y,m);
        double  bigbed=IncomeDao.bigBedRoomIncome(y,m);

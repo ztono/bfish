@@ -31,8 +31,11 @@ public static List<Income> ShowIncome(){
 				String[] temp;
 				temp = str.split("-",3);
 				income.setYear(temp[0]);
+				if(temp[1].startsWith("0"))
+				    temp[1]=temp[1].substring(1);
 				income.setMounth(temp[1]);
 				income.setRoom_type(rs.getString("room_type"));
+
 				incomes.add(income);
 				
 			}
@@ -58,11 +61,12 @@ public static double doubleRoomIncome(String year,String month){
 			c=c+Double.parseDouble(income.getCost());
 			
 			
-		}	
+		}
+
 		}
 		
 	}
-}
+}      System.out.println(c);
 	
 	return c;
 }
@@ -97,7 +101,7 @@ public static double bigBedRoomIncome(String year,String month){
 		if(income.getRoom_type().equals("bigbedroom")) {
 			
 			b=b+Double.parseDouble(income.getCost());
-			
+
 			
 		}	
 		

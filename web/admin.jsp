@@ -464,7 +464,7 @@ $(document).ready(function(){
 
                     <table style="width: 800px; margin: 44px auto"
                            class="table table-striped table-bordered table-hover  table-condensed"
-                           align='center' border='0' cellspacing='0'>
+                           align='left' border='0' cellspacing='0'>
                         <tr>
                             <td align="center">用户名</td>
                             <td align="center">密码</td>
@@ -499,9 +499,11 @@ $(document).ready(function(){
                                 <input type="submit" class="btn btn-sm btn-warning" value="delete" />
                             </form>
                             </td>
-                            <td><button class="btn btn-sm btn-green" data-toggle="modal" data-target="#myModal1" onclick="values(<%=employee.getEmployee_no()%>)">
+
+                            <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal1" onclick="values(<%=employee.getEmployee_no()%>)">
                                 change
                             </button>
+
                             <td>
                                 <form  action="resetpassword.do" >
                                     <input type="hidden" name="employee_no" value="<%=employee.getEmployee_no() %>"/>
