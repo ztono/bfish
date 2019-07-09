@@ -560,7 +560,8 @@ $(document).ready(function(){
     </div>
     </div>
     <script src="js/jquery.nouislider.js"></script>
-
+    </div>
+    </div>
 
 </body>
 </html>

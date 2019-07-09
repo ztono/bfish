@@ -29,13 +29,13 @@
 			  <%} %>
 			<form action="loginServlet" method="post" class="tm-bg-black p-5 h-100">
 				<div class="input-field">
-					<input placeholder="Email" id="email" name="email" type="text" class="validate">
+					<input placeholder="Email" id="email" name="email" type="text" class="validate" >
 				</div>
 				<div class="input-field mb-5">
-					<input placeholder="Password" id="password" name="password" type="password" class="validate">
+					<input placeholder="Password" id="password" name="password" type="password" class="validate" onclick="check()">
 				</div>
 				<div class="tm-flex-lr">
-					<a href="#" class="white-text small">Forgot Password?</a>
+<%--					<a href="#" class="white-text small">Forgot Password?</a>--%>
 					<button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">Login</button>
 				</div>
 			</form>
@@ -69,6 +69,27 @@
 	$(document).ready(function () {
 		$('select').formSelect();
 	});
+    function check()
+    {
+
+        var email=document.getElementById("email").value;
+
+//
+        if(email=="")
+        {
+            alert("电子邮件不能为空");
+            return false;
+        }
+        else
+        {
+            reg=/^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi;
+            if(!reg.test(email))
+            {
+                alert("非法的电子邮件");
+                return false;
+            }
+        }
+    }
 </script>
 </body>
 
