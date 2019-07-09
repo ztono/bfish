@@ -37,6 +37,32 @@ public class LoginDAO extends DAO.BaseDao {
         return result;
     }
 
+    public static boolean existEmployee(String email){
+
+        boolean result = false;
+        String sql="select * from employee where email='" + email + "'";
+        System.out.print(sql);
+
+        try {
+            Connection c = DBHelper.getInstance().getConnection();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+                if(!rs.getString(1).equals(null)){
+                    result = true;
+                }
+            }
+            DBHelper.closeConnection(c, s, rs);
+
+        } catch (Exception e) {
+            System.out.println("existEmployee()方法出错！");
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
     public static String getPasswrod(String email){
 
         String password = "";
@@ -59,6 +85,30 @@ public class LoginDAO extends DAO.BaseDao {
         }
         return password;
     }
+
+    public static String getEPasswrod(String email){
+
+        String password = "";
+        String sql="select password from Employee where email='" + email + "'";
+        System.out.print(sql);
+
+        try {
+            Connection c = DBHelper.getInstance().getConnection();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+                password = rs.getString("password");
+            }
+            DBHelper.closeConnection(c, s, rs);
+
+        } catch (Exception e) {
+            System.out.println("getEPassword()方法出错！");
+            e.printStackTrace();
+        }
+        return password;
+    }
+
     public static String getName(String email){
 
         String username = "";
