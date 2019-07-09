@@ -4,48 +4,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>checkInServlet</servlet-name>
-        <servlet-class>Servlet.checkInServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>checkInServlet</servlet-name>
-        <url-pattern>/checkInServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>checkOutServlet</servlet-name>
         <servlet-class>Servlet.checkOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>checkOutServlet</servlet-name>
         <url-pattern>/checkOutServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>changeRoomServlet</servlet-name>
-        <servlet-class>Servlet.changeRoomServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>changeRoomServlet</servlet-name>
-        <url-pattern>/changeRoomServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>cleanSureServlet</servlet-name>
-        <servlet-class>Servlet.cleanSureServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>cleanSureServlet</servlet-name>
-        <url-pattern>/cleanSureServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>searchRoomServlet</servlet-name>
-        <servlet-class>Servlet.searchRoomServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>searchRoomServlet</servlet-name>
-        <url-pattern>/searchRoomServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -92,6 +56,10 @@
         <servlet-name>editroomServlet</servlet-name>
         <url-pattern>/editroomServlet</url-pattern>
     </servlet-mapping>
+
+
+
+
     <servlet>
         <servlet-name>adminloginServlet</servlet-name>
         <servlet-class>Servlet.adminloginServlet</servlet-class>
@@ -141,7 +109,6 @@
         <servlet-name>ResetPassword</servlet-name>
         <url-pattern>/resetpassword.do</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>DisplayEmployee</servlet-name>
         <servlet-class>employeeServlet.DisplayEmployee</servlet-class>
@@ -150,22 +117,46 @@
         <servlet-name>DisplayEmployee</servlet-name>
         <url-pattern>/displayemployee.do</url-pattern>
     </servlet-mapping>
+
     <servlet>
-        <servlet-name>smartQaServlet</servlet-name>
-        <servlet-class>Servlet.SmartQaServlet</servlet-class>
+        <servlet-name>WorkRecord</servlet-name>
+        <servlet-class>Servlet.WorkRecord</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>smartQaServlet</servlet-name>
-        <url-pattern>/smartQaServlet</url-pattern>
+        <servlet-name>WorkRecord</servlet-name>
+        <url-pattern>/workrecord.do</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ReserveServlet</servlet-name>
-        <servlet-class>Servlet.ReserveServlet</servlet-class>
+        <servlet-name>Sign1</servlet-name>
+        <servlet-class>Servlet.Sign1</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ReserveServlet</servlet-name>
-        <url-pattern>/reserveServlet</url-pattern>
+        <servlet-name>Sign1</servlet-name>
+        <url-pattern>/sign1.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sign2</servlet-name>
+        <servlet-class>Servlet.Sign2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign2</servlet-name>
+        <url-pattern>/sign2.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>lookincomeServlet</servlet-name>
+        <servlet-class>Servlet.lookincomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lookincomeServlet</servlet-name>
+        <url-pattern>/lookincomeServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
 </web-app>
 
