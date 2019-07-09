@@ -146,6 +146,16 @@ public class CheckinDAO extends DAO.BaseDao {
         List<Object> params = new ArrayList<Object>();
         params.add(roomType);
         ResultSet rs = executeQuery(str,params);
+//        while(true){
+//            try {
+//                if (!rs.next()) break;
+//                System.out.println(rs.getString("room_id"));
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
+
 
         return rs;
     }
@@ -161,15 +171,36 @@ public class CheckinDAO extends DAO.BaseDao {
         List<Object> params = new ArrayList<Object>();
         params.add(room_no);
         ResultSet rs = executeQuery(str,params);
+//                while(true){
+//            try {
+//                if (!rs.next()) break;
+//                System.out.println(rs.getString("room_no"));
+//                System.out.println(rs.getString("room_id"));
+//                System.out.println(rs.getString("room_location"));
+//                System.out.println(rs.getString("room_price"));
+//                System.out.println(rs.getString("room_type"));
+//                System.out.println(rs.getString("room_state"));
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
+//        System.out.println("room_id");
+        //Room rm = new Room(rs.getString("room_id"),rs.getString("room_type"),rs.getString("room_state"),rs.getString("room_price"),rs.getString("room_location"),rs.getString("room_no"));
+//        rm.setRoom_no(rs.getString("room_no"));
+//        rm.setRoom_id(rs.getString("room_id"));
+//        rm.setRoom_location(rs.getString("room_location"));
+//        rm.setRoom_price(rs.getString("room_price"));
+//        rm.setRoom_type(rs.getString("room_type"));
+//        rm.setRoom_state(rs.getString("room_state"));
+        rs.next();
         Room rm = new Room();
         rm.setRoom_no(rs.getString("room_no"));
         rm.setRoom_id(rs.getString("room_id"));
         rm.setRoom_location(rs.getString("room_location"));
         rm.setRoom_price(rs.getString("room_price"));
-        rm.setRoom_price(rs.getString("room_price"));
         rm.setRoom_type(rs.getString("room_type"));
         rm.setRoom_state(rs.getString("room_state"));
-
         return rm;
     }
 
@@ -182,7 +213,13 @@ public class CheckinDAO extends DAO.BaseDao {
      */
     public List<Room> searchRoomAvaiable(String roomType,String arr_dateStr,String lea_dateStr)  {
 
+
+        System.out.println(roomType);
+        System.out.println(arr_dateStr);
+        System.out.println(lea_dateStr);
         ResultSet rs = searchRoomByType(roomType);
+
+
 
         java.sql.Date arr_date = new java.sql.Date(strToDate(arr_dateStr).getTime());
         java.sql.Date lea_date = new java.sql.Date(strToDate(lea_dateStr).getTime());
@@ -224,15 +261,25 @@ public class CheckinDAO extends DAO.BaseDao {
 
         }
 
+//            for(int i =0;i<rlist.size();i++)
+//            {
+//                System.out.println(rlist.get(i));
+//            }
+
         List<Room> roomlist = new ArrayList<Room>();
         for(int i=0;i<rlist.size();i++)
-        {
+        {//            for(int i =0;i<roomlist.size();i++)
+//            {
+//                System.out.println(roomlist.get(i).toString());
+//            }
+
             try {
                 roomlist.add(SearchRoomByNo(rlist.get(i)));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println(roomlist.size());
 
         return roomlist;
     }
