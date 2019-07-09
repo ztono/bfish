@@ -36,23 +36,25 @@
 				</div>
 				<div class="tm-flex-lr">
 <%--					<a href="#" class="white-text small">Forgot Password?</a>--%>
-					<button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">Login</button>
+					<button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">登录</button>
+					<a href="logon.jsp" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">注册</a>
 				</div>
+<%--				<div class="row">--%>
+<%--					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ml-auto mr-0 text-center">--%>
+<%--						<a href="logon.jsp" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">注册</a>--%>
+<%--					</div>--%>
+<%--				</div>--%>
 			</form>
 		</div>
-		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-r">
-			<header class="font-weight-light tm-bg-black p-5 h-100">
-				<h3 class="mt-0 text-white font-weight-light">Your Login</h3>
-				<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-				<p class="mb-0">Vestibulum neque neque, porttitor quis lacinia eu, iaculis id dui. Mauris quis velit lectus.</p>
-			</header>
-		</div>
+<%--		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-r">--%>
+<%--			<header class="font-weight-light tm-bg-black p-5 h-100">--%>
+<%--&lt;%&ndash;				<h3 class="mt-0 text-white font-weight-light">Your Login</h3>&ndash;%&gt;--%>
+<%--&lt;%&ndash;				<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>&ndash;%&gt;--%>
+<%--&lt;%&ndash;				<p class="mb-0">Vestibulum neque neque, porttitor quis lacinia eu, iaculis id dui. Mauris quis velit lectus.</p>&ndash;%&gt;--%>
+<%--			</header>--%>
+<%--		</div>--%>
 	</div>
-	<div class="row">
-		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ml-auto mr-0 text-center">
-			<a href="logon.jsp" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">Create New Account</a>
-		</div>
-	</div>
+
 	<footer class="row tm-mt-big mb-3">
 		<div class="col-xl-12 text-center">
 			<p class="d-inline-block tm-bg-black white-text py-2 tm-px-5">
