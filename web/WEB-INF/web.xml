@@ -56,10 +56,6 @@
         <servlet-name>editroomServlet</servlet-name>
         <url-pattern>/editroomServlet</url-pattern>
     </servlet-mapping>
-
-
-
-
     <servlet>
         <servlet-name>adminloginServlet</servlet-name>
         <servlet-class>Servlet.adminloginServlet</servlet-class>
@@ -118,10 +114,6 @@
         <servlet-name>DisplayEmployee</servlet-name>
         <url-pattern>/displayemployee.do</url-pattern>
     </servlet-mapping>
-
-
-
-
     <servlet>
         <servlet-name>smartQaServlet</servlet-name>
         <servlet-class>Servlet.SmartQaServlet</servlet-class>
@@ -129,6 +121,15 @@
     <servlet-mapping>
         <servlet-name>smartQaServlet</servlet-name>
         <url-pattern>/smartQaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReserveServlet</servlet-name>
+        <servlet-class>Servlet.ReserveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReserveServlet</servlet-name>
+        <url-pattern>/reserveServlet</url-pattern>
     </servlet-mapping>
 </web-app>
 
