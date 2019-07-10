@@ -23,14 +23,7 @@
 	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
 </head>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-<style type="text/css">
-	input{
-		width: 30px;
-		margin: 5px 0 0 5px;
-		padding: 5px 0 0 5px;
-	}
 
-</style>
 <body id="register">
 
 <div class="container">
@@ -46,48 +39,50 @@
 			</script>
 			  <%} %>
 			<div style="width:100%;text-align:center">
-			<form id="form1" class="form-horizontal" action="addClientServlet" method="post" style="width:600px;height:800px"
-			>
+			<form  id="form1" class="form-horizontal" action="addClientServlet" method="post" style="width:700px;height:1000px"
+                >
 				<div class="form-group ">
-					<label for="username1" class="col-xs-3 control-label">客户名：</label>
+					<label  style="font-size:20px" for="username1" class="col-xs-3 control-label">客户名：</label>
 					<div class="col-xs-8 ">
 						<input type="" name="name" class="form-control input-sm duiqi" id="username1" placeholder="">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="password" class="col-xs-3 control-label">密码：</label>
+					<label style="font-size:20px" for="password" class="col-xs-3 control-label">密码：</label>
 					<div class="col-xs-8 ">
 						<input type="" name="password" class="form-control input-sm duiqi" id="password" placeholder="">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="idcard" class="col-xs-3 control-label">身份证号：</label>
+					<label style="font-size:20px" for="idcard" class="col-xs-3 control-label">身份证号：</label>
 					<div class="col-xs-8">
 						<input type="" name="idcard" class="form-control input-sm duiqi" id="idcard" placeholder="">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="email" class="col-xs-3 control-label">邮箱号：</label>
+					<label style="font-size:20px" for="email" class="col-xs-3 control-label">邮箱号：</label>
 					<div class="col-xs-8">
 						<input type="" name="email" class="form-control input-sm duiqi" id="email" placeholder="">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="telephone" class="col-xs-3 control-label">电话号码：</label>
+					<label style="font-size:20px" for="telephone" class="col-xs-3 control-label">电话号码：</label>
 					<div class="col-xs-8">
 						<input type="" name="telephone" class="form-control input-sm duiqi" id="telephone" placeholder="">
 					</div>
 				</div>
 				<div class="form-group text-right">
 					<div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-						<button type="submit" class="btn btn-sm btn-green">提 交</button>
+                    </br> </br>
+
+						<button style="font-size:20px" type="submit" class="btn btn-sm btn-green">提 交</button>
 					</div>
 				</div>
 			</form>
 		</div>
 		</div>
 
-		<script type="text/javascript">
+		<script style="font-size:20px" type="text/javascript">
 			window.onload = function () {
 				$('#form1').bootstrapValidator({
 					message: 'This value is not valid',

@@ -203,59 +203,41 @@
 <!--works start -->
 <section id="query" class="works">
     <div class="container">
-        <div class="section-header">
-            <h2>how it works</h2>
-            <p>Learn More about how our website works</p>
-        </div><!--/.section-header-->
-        <div class="works-content">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-lightbulb-idea"></i>
-                        </div>
-                        <h2><a href="#">choose <span> what to</span> do</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+        <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="name" class="col-xs-3 control-label">单人间：</label>
+                    <div class="col-xs-8">
+                        <input type="text" name="name" class="form-control input-sm duiqi" id="query_singleroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-networking"></i>
-                        </div>
-                        <h2><a href="#">find <span> what you want</span></a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+                <div class="form-group">
+                    <label for="telephone" class="col-xs-3 control-label">大床房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="phone_number" class="form-control input-sm duiqi"
+                               id="query_bigbedroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-location-on-road"></i>
-                        </div>
-                        <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+
+                <div class="form-group">
+                    <label for="id_card" class="col-xs-3 control-label">双人房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="id_card" class="form-control input-sm duiqi" id="query_doubleroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-            </div>
+                <div class="form-group text-right">
+                    <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                        <button class="btn btn-sm btn-primary" id="query_bottom">查询</button>
+                    </div>
+                </div>
+            </form>
         </div>
+
+        <script type="text/javascript">
+        </script>
     </div><!--/.container-->
 
 </section><!--/.works-->
@@ -271,7 +253,7 @@
             <p>一站式问答，解决您的大部分问题</p>
         </div><!--/.section-header-->
         <div id="ask_block" class="qa_ask_div" style="text-align: center">
-            <textarea id="ask_qa_textarea" style="width: 700px;height: 50px"></textarea>
+            <textarea id="ask_qa_textarea" style="width: 500px;height: 50px"></textarea>
         </div>
         <div id="ask_button_div" class="qa_ask_button_div" style="text-align: center">
             <button id="qa_ask_button">
@@ -279,11 +261,12 @@
             </button>
         </div>
         <div id="qa_answer_div" class="qa_answer_div" style="text-align: center">
-            <textarea id="qa_answer_textarea" style="width: 500px;height: 100px;border: none;"
+            <textarea id="qa_answer_textarea" style="width: 500px;height: 50px;border: none;"
                       disabled></textarea>
         </div>
         <script type="text/javascript">
             var qa_xml_http_request = new XMLHttpRequest();
+
             var ask_button = document.getElementById("qa_ask_button");
             ask_button.addEventListener('click', function (ev) {
                 var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
@@ -293,6 +276,7 @@
                 qa_xml_http_request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
                 qa_xml_http_request.send(null);
                 qa_xml_http_request.onreadystatechange = show_answer;
+
                 function show_answer() {
                     if (qa_xml_http_request.readyState === 4) {
                         if (qa_xml_http_request.status === 200) {
@@ -302,12 +286,12 @@
                     }
                 }
             });
+
         </script>
     </div><!--/.container-->
 
 </section><!--/.explore-->
 <!--explore end -->
-
 
 
 <!-- statistics strat -->
@@ -319,9 +303,122 @@
         <div class="section-header">
             <h2>预定房间</h2>
             <p></p>
+            <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="col-xs-3 control-label">姓名：</label>
+                        <div class="col-xs-8">
+                            <input type="text" name="name" class="form-control input-sm duiqi" id="name"
+                                   placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone" class="col-xs-3 control-label">电话号码：</label>
+                        <div class="col-xs-8">
+                            <input type="number" name="phone_number" class="form-control input-sm duiqi" id="telephone"
+                                   placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_card" class="col-xs-3 control-label">身份证号：</label>
+                        <div class="col-xs-8">
+                            <input type="number" name="id_card" class="form-control input-sm duiqi" id="id_card"
+                                   placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_card" class="col-xs-3 control-label">房间类型：</label>
+                        <div class="col-xs-8">
+                            <select id="room_type">
+                                <option value="singleroom">单人间</option>
+                                <option value="doubleroom">双人间</option>
+                                <option value="bigbedroom">大床房</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_card" class="col-xs-3 control-label">入住时间：</label>
+                        <div class="col-xs-8">
+                            <input type="date" name="id_card" class="form-control input-sm duiqi"
+                                   id="reserve_arrive_date"
+                                   placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_card" class="col-xs-3 control-label">离开时间：</label>
+                        <div class="col-xs-8">
+                            <input type="date" name="id_card" class="form-control input-sm duiqi"
+                                   id="reserve_leave_date"
+                                   placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                            <button class="btn btn-sm btn-primary" type="reset" id="reserve_reset">重置</button>
+                            <button type="submit" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div><!--/.section-header-->
     </div><!--/.container-->
+    <script type="text/javascript">
+        submit_buttom = document.getElementById("reserve_submit");
+        reserve_name = document.getElementById("name");
+        reserve_telephone = document.getElementById("telephone");
+        reserve_id_card = document.getElementById("id_card");
+        reserve_room_type = document.getElementById("room_type");
+        reserve_arrive_date = document.getElementById("reserve_arrive_date");
+        reserve_leave_date = document.getElementById("reserve_leave_date");
 
+        // 重置按钮
+        function clear_all() {
+            reserve_name.value = "";
+            reserve_telephone.value = "";
+            reserve_id_card.value = "";
+            reserve_room_type.value = "singleroom";
+            reserve_arrive_date.value = "";
+            reserve_leave_date.value = "";
+        }
+
+        reserve_reset_buttom = document.getElementById("reserve_reset");
+        reserve_reset_buttom.addEventListener("click", clear_all);
+        // 重置按钮
+
+
+        var reserve_xml_http_request = new XMLHttpRequest();
+
+        function reserve_result() {
+            alert("ok1");
+            if (reserve_xml_http_request.readyState === 4) {
+                if (reserve_xml_http_request.status === 200) {
+                    alert("ok");
+                    window.location.href = "client.html";
+                }
+            }
+        }
+
+        submit_buttom.addEventListener("click", function (ev) {
+            if (reserve_name.value === "" || reserve_telephone.value === "" || reserve_id_card.value === "" || reserve_arrive_date.value === "" || reserve_leave_date.value === "") {
+                alert("任何一项都不能为空");
+                return
+            }
+            var reserve_url = "reserveServlet";
+            reserve_xml_http_request.open("POST", reserve_url, true);
+            reserve_xml_http_request.setRequestHeader("Content-Type",
+                "application/x-www-form-urlencoded");
+            var reserve_name_string = reserve_name.value;
+            var reserve_telephone_string = reserve_telephone.value;
+            var reserve_id_card_string = reserve_id_card.value;
+            var reserve_room_type_string = reserve_room_type.value;
+            var reserve_arrive_date_string = reserve_arrive_date.value;
+            var reserve_leave_date_string = reserve_leave_date.value;
+            reserve_xml_http_request.send("name=" + reserve_name_string + "&id=" + reserve_id_card_string + "&phone_number=" + reserve_telephone_string + "&room_type=" + reserve_room_type_string + "&arrive_date=" + reserve_arrive_date_string + "&leave_date=" + reserve_leave_date_string);
+            reserve_xml_http_request.onreadystatechange = reserve_result;
+        });
+
+
+    </script>
 </section><!--/.blog-->
 <!--blog end -->
 
