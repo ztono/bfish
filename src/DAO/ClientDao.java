@@ -11,6 +11,18 @@ import java.sql.Statement;
 public class ClientDao extends DAO.BaseDao{
     public ClientDao() {
     }
+
+
+    public ResultSet showClient()
+
+    {
+        String sql ="select * from client";
+        List<Object> params = new ArrayList<Object>();
+        ResultSet rs =executeQuery(sql, params);
+        return rs;
+    }
+
+
     public ResultSet searchClientById(String id)
     {
         String str = "select * from client where idcard = ?";

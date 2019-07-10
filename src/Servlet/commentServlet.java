@@ -32,28 +32,49 @@ public class commentServlet extends HttpServlet{
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
 
-
+            String operator_name = request.getParameter("operator_name");
             CheckinDAO chindao = new CheckinDAO();
             ResultSet rs;
-            rs = chindao.researchComment();
-            List<Checkin> chinList = new ArrayList<Checkin>();
-            while(true)
-            {
-                try {
-                    if (!rs.next()) break;
-                    Checkin checkin  = new Checkin();
+            rs = chindao.SearchScoreByOpr(operator_name);
 
-                    checkin.setCheckin_no(rs.getInt("checkin_no"));
-                    checkin.setClient_no(rs.getString("client_no"));
-                    checkin.setRoom_no(rs.getString("room_no"));
-                    checkin.setExp_score(rs.getString("exp_score"));
-                    chinList.add(checkin);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+//            /* 求平均值 */
+//            int num=0;
+//            int average =0;
+//            while(true)
+//            {
+//                try {
+//                    if (!rs.next()) break;
+//                    num++;
+//                    average = average + rs.getInt("ser_score");
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//            average = average/num;
+//           request.setAttribute("average",average);
 
-            }
-            request.setAttribute("chinList",chinList);
+//              /*返回表格*/
+//            List<Checkin> commentList = new ArrayList<Checkin>();
+//            while(true)
+//            {
+//                try {
+//                    if (!rs.next()) break;
+//                    Checkin ch = new Checkin();
+//                    ch.setRoom_no(rs.getString("room_no"));
+//                    ch.setClient_no(rs.getString("client_no"));
+//                    ch.setArrivedate(rs.getString("arrivadate"));
+//                    ch.setLeavedate(rs.getString("leavedate"));
+//                    ch.setSer_score(rs.getString("ser_score"));
+//                    commentList.add(ch);
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//            request.setAttribute("commentList",commentList);
+//
+
             request.getRequestDispatcher("employee.jsp").forward(request, response);
         }
 
