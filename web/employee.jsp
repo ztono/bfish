@@ -719,7 +719,6 @@
                     <sql:query dataSource="${snapshot}" var="result">
                         SELECT * from room;
                     </sql:query>
-
                         <table id="block" style="width: 800px; margin: 44px auto"
                                class="table table-striped table-bordered table-hover  table-condensed"
                                align='center' border='1' cellspacing='0'>
