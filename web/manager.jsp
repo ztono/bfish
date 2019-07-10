@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" import="BEAN.Employee,java.util.*,DAO.*" %>
+         pageEncoding="UTF-8" import="BEAN.Employee,java.util.*,DAO.*,BEAN.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
@@ -89,6 +89,23 @@
 
 </script>
 <%}%>
+
+<%
+    String commentflag=(String)request.getSession().getAttribute("commentflag");
+    if(commentflag!=null)
+        if(commentflag.equals("1"))
+        {
+
+
+%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#taggle4").click();
+        commentflag="0";
+    });
+
+</script>
+<%}%>
 <div id="wrap">
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun">
@@ -131,6 +148,7 @@ else if (flag=="-3"){ %>alert('下错误')<%}
 
 
         <div class="meun-item" href="#displayemployee" aria-controls="displayemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
+        <div class="meun-item" href="#showcom" aria-controls="showcom" role="tab" data-toggle="tab" id="taggle4"><img src="images/icon_char_grey.png">查看客户评价</div>
         <div class="meun-item" href=""  aria-controls="displayemployee" role="tab" data-toggle="tab" id="taggle1"><img src="images/icon_char_grey.png">每日绩效</div>
         <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png">查看绩效</div>
         <div class="meun-item" href="#lookincome" aria-controls="lookincome" role="tab" data-toggle="tab" id="taggle6"><img src="images/icon_char_grey.png">查看月收入</div>
@@ -191,6 +209,44 @@ else if (flag=="-3"){ %>alert('下错误')<%}
 
     </div>
 </div>
+            <div role="tabpanel" class="tab-pane" id="showcom"><!-- showcom -->
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">查看客户评价</h1>
+                    </div>
+                    <form class="form-horizontal" action="commentServlet" method="post">
+                        <div class="form-inline" align="center">
+                            <div>
+                                <input type="text" name="operator_name" class="form-control input-sm duiqi" id="op_name" placeholder="请输入姓名" style="height: 30px;">
+                                <button type="submit" class="btn btn-white btn-xs " style="position: relative;left: 20px;height: 30px;top: 3px;">查 询 </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div style="margin-left: 180px;margin-top: 10px;">
+                        <h>平均值 </h>
+                        <h><%= request.getSession().getAttribute("average")%></h>
+                    </div>
+                    <table id="blocks2" style="width: 800px; margin: 44px auto"
+                           class="table table-striped table-bordered table-hover  table-condensed"
+                           align='center' border='1' cellspacing='0'>
+                        <tr>
+                            <td>房间号</td>
+                            <td>离开日期</td>
+                            <td>评价</td>
+
+                        </tr>
+                        <c:forEach items="${sessionScope.commentList}" var="comment">
+                            <tr>
+                                <td>${comment.room_no }</td>
+                                <td>${comment.leavedate }</td>
+                                <td>${comment.ser_score }</td>
+
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </div>
+
 
             <div role="tabpanel" class="tab-pane" id="lookincome">
                 <div class="container">

@@ -103,6 +103,14 @@
 
 
 
+    <servlet>
+        <servlet-name>commentServlet</servlet-name>
+        <servlet-class>Servlet.commentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>commentServlet</servlet-name>
+        <url-pattern>/commentServlet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>adminloginServlet</servlet-name>
