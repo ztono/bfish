@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en" >
 
 <head>
     <!-- meta data -->
@@ -64,16 +64,92 @@
 
 <body>
 <!--[if lte IE 9]>
-
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
+<script>
+    function jump(){
+        window.location.href="http://localhost:8080/login.jsp";
+    }
+    function jump1(){
+        window.location.href="http://localhost:8080/login.jsp";
+    }
+</script>
+<script language="javascript" type="text/javascript">
 
+    window.onload = function setValue() {
+       // document.getElementById("s1").innerHTML = "登录";
+        var re = new XMLHttpRequest();
+        //var ask_button = document.getElementById("qa_ask_button");
+        //  ask_button.addEventListener('click', function (ev) {
+        //  var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
+        // var user_qa_input = user_qa_input_textarea.value;
+        var qa_url = "showServlet";
+        re.open("GET", qa_url, true);
+        re.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        re.send(null);
+        //alert("dd");
+        re.onreadystatechange = show_answer;
+        function show_answer() {
+            if (re.readyState === 4) {
+
+                if (re.status === 200) {
+                   // alert("dd");
+                    var name1 = document.getElementById("s1");
+                    name1.value = re.responseText;
+                    alert(re.responseText);
+                        document.getElementById("s1").innerHTML = name1.value;
+                }
+            }
+        }
+
+
+
+
+
+    }
+</script>
 <!--header-top start -->
 <header id="header-top" class="header-top">
+    <ul>
+        <li>
+            <div class="header-top-left">
+                <ul>
+                    <li class="select-opt">
+                        <select name="language" id="language">
+                            <option value="default">EN</option>
+                            <option value="Bangla">BN</option>
+                            <option value="Arabic">AB</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
 
+                    </li>
+                    <li class="select-opt">
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="head-responsive-right pull-right">
+            <div class="header-top-right">
+                <ul>
+
+                    <li class="header-top-contact">
+                        <div th:text="${session.id}"></div>
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump()">亲爱的用户
+                            <span  id="s1"> </span>，你好！
+                        </button>
+
+                    </li>
+                    <li class="header-top-contact">
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump1()">退出登录</button>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
 
 </header><!--/.header-top-->
 <!--header-top end -->
-
 <!-- top-area Start -->
 <section class="top-area">
     <div class="header-area">
@@ -184,7 +260,7 @@
             <p>一站式问答，解决您的大部分问题</p>
         </div><!--/.section-header-->
         <div id="ask_block" class="qa_ask_div" style="text-align: center">
-            <textarea id="ask_qa_textarea" style="width: 500px;height: 50px"></textarea>
+            <textarea id="ask_qa_textarea" style="width: 700px;height: 50px"></textarea>
         </div>
         <div id="ask_button_div" class="qa_ask_button_div" style="text-align: center">
             <button id="qa_ask_button">
@@ -192,12 +268,11 @@
             </button>
         </div>
         <div id="qa_answer_div" class="qa_answer_div" style="text-align: center">
-            <textarea id="qa_answer_textarea" style="width: 500px;height: 50px;border: none;"
+            <textarea id="qa_answer_textarea" style="width: 500px;height: 100px;border: none;"
                       disabled></textarea>
         </div>
         <script type="text/javascript">
             var qa_xml_http_request = new XMLHttpRequest();
-
             var ask_button = document.getElementById("qa_ask_button");
             ask_button.addEventListener('click', function (ev) {
                 var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
@@ -207,7 +282,6 @@
                 qa_xml_http_request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
                 qa_xml_http_request.send(null);
                 qa_xml_http_request.onreadystatechange = show_answer;
-
                 function show_answer() {
                     if (qa_xml_http_request.readyState === 4) {
                         if (qa_xml_http_request.status === 200) {
@@ -217,12 +291,12 @@
                     }
                 }
             });
-
         </script>
     </div><!--/.container-->
 
 </section><!--/.explore-->
 <!--explore end -->
+
 
 
 <!-- statistics strat -->
@@ -234,122 +308,9 @@
         <div class="section-header">
             <h2>预定房间</h2>
             <p></p>
-            <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="name" class="col-xs-3 control-label">姓名：</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="name" class="form-control input-sm duiqi" id="name"
-                                   placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="telephone" class="col-xs-3 control-label">电话号码：</label>
-                        <div class="col-xs-8">
-                            <input type="number" name="phone_number" class="form-control input-sm duiqi" id="telephone"
-                                   placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_card" class="col-xs-3 control-label">身份证号：</label>
-                        <div class="col-xs-8">
-                            <input type="number" name="id_card" class="form-control input-sm duiqi" id="id_card"
-                                   placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_card" class="col-xs-3 control-label">房间类型：</label>
-                        <div class="col-xs-8">
-                            <select id="room_type">
-                                <option value="singleroom">单人间</option>
-                                <option value="doubleroom">双人间</option>
-                                <option value="bigbedroom">大床房</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_card" class="col-xs-3 control-label">入住时间：</label>
-                        <div class="col-xs-8">
-                            <input type="date" name="id_card" class="form-control input-sm duiqi"
-                                   id="reserve_arrive_date"
-                                   placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_card" class="col-xs-3 control-label">离开时间：</label>
-                        <div class="col-xs-8">
-                            <input type="date" name="id_card" class="form-control input-sm duiqi"
-                                   id="reserve_leave_date"
-                                   placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group text-right">
-                        <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-                            <button class="btn btn-sm btn-primary" type="reset" id="reserve_reset">重置</button>
-                            <button type="submit" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div><!--/.section-header-->
     </div><!--/.container-->
-    <script type="text/javascript">
-        submit_buttom = document.getElementById("reserve_submit");
-        reserve_name = document.getElementById("name");
-        reserve_telephone = document.getElementById("telephone");
-        reserve_id_card = document.getElementById("id_card");
-        reserve_room_type = document.getElementById("room_type");
-        reserve_arrive_date = document.getElementById("reserve_arrive_date");
-        reserve_leave_date = document.getElementById("reserve_leave_date");
 
-        // 重置按钮
-        function clear_all(){
-            reserve_name.value = "";
-            reserve_telephone.value = "";
-            reserve_id_card.value = "";
-            reserve_room_type.value = "singleroom";
-            reserve_arrive_date.value = "";
-            reserve_leave_date.value = "";
-        }
-        reserve_reset_buttom = document.getElementById("reserve_reset");
-        reserve_reset_buttom.addEventListener("click", clear_all);
-        // 重置按钮
-
-
-        var reserve_xml_http_request = new XMLHttpRequest();
-
-        function reserve_result() {
-
-            if (reserve_xml_http_request.readyState === 4) {
-                alert("result");
-                if (reserve_xml_http_request.status === 200) {
-                    alert("预定成功");
-                    window.location.href="client.html";
-                }
-            }
-        }
-
-        submit_buttom.addEventListener("click", function (ev) {
-            if (reserve_name.value === "" || reserve_telephone.value === "" || reserve_id_card.value === "" || reserve_arrive_date.value === "" || reserve_leave_date.value === "") {
-                alert("任何一项都不能为空");
-                return
-            }
-            var reserve_url = "reserveServlet";
-            reserve_xml_http_request.open("POST", reserve_url, true);
-            reserve_xml_http_request.setRequestHeader("Content-Type",
-                "application/x-www-form-urlencoded");
-            var reserve_name_string = reserve_name.value;
-            var reserve_telephone_string = reserve_telephone.value;
-            var reserve_id_card_string = reserve_id_card.value;
-            var reserve_room_type_string = reserve_room_type.value;
-            var reserve_arrive_date_string = reserve_arrive_date.value;
-            var reserve_leave_date_string = reserve_leave_date.value;
-            reserve_xml_http_request.send("name=" + reserve_name_string + "&id=" + reserve_id_card_string + "&phone_number=" + reserve_telephone_string + "&room_type=" + reserve_room_type_string + "&arrive_date=" + reserve_arrive_date_string + "&leave_date=" + reserve_leave_date_string);
-            reserve_xml_http_request.onreadystatechange =reserve_result;
-        });
-
-
-    </script>
 </section><!--/.blog-->
 <!--blog end -->
 
@@ -426,13 +387,13 @@
         </div><!--/.hm-footer-copyright-->
     </div><!--/.container-->
 
-    <div id="scroll-Top">
-        <div class="return-to-top">
-            <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="Back to Top" aria-hidden="true"></i>
-        </div>
+<!--    <div id="scroll-Top">-->
+<!--        <div class="return-to-top">-->
+<!--            <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title=""-->
+<!--               data-original-title="Back to Top" aria-hidden="true"></i>-->
+<!--        </div>-->
 
-    </div><!--/.scroll-Top-->
+<!--    </div>&lt;!&ndash;/.scroll-Top&ndash;&gt;-->
 
 </footer><!--/.footer-->
 <!--footer end-->

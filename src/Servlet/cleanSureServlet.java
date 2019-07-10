@@ -24,7 +24,8 @@ public class cleanSureServlet extends HttpServlet {
         CheckinDAO checkinDao = new CheckinDAO();
 
         String room_no = request.getParameter("room_no");
-
+        System.out.println("room_no");
+            System.out.println(room_no);
         checkinDao.updateRoomState_clean(room_no);
 
         request.getRequestDispatcher("employee.jsp").forward(request, response);
