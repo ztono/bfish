@@ -81,8 +81,8 @@ public class ReserveServlet extends HttpServlet {
 //        ClientDao clientDao = new ClientDao();
 //
 //        int clientID = clientDao.searchClientByEmail(email);
-//
-//        System.out.println("reached");
+
+        System.out.println("reached");
         Reserve re = new Reserve(1, roomNo, arrDateStr, leaveDatestr);
         int is = reserveDAO.reserveRoom(re);
         if (is != 0) {
