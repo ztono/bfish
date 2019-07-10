@@ -19,6 +19,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script src="js/bootstrapValidator.min.js"></script>
+    <script src="js/jquery.nouislider.js"></script>
     <script>
         $(function() {
             $(".meun-item").click(function() {
@@ -84,9 +85,19 @@
         </div>
         <div id="personInfor">
             <p id="userName">亲爱的用户<%= (String) request.getSession().getAttribute("id") %>，欢迎您！</p>
-            <p>
-                <a href="login.jsp">退出登录</a>
-            </p>
+            <div role="group" aria-label="...">
+                <a href="login.jsp"><button type="button" class="btn btn-link btn-xs" style="margin-left: 10px;width: 100px;" onclick="logout()">点击退出登录</button></a>
+                <div>
+                    <form class="form-inline" action="Sign1" method="post" style="float: left">
+                        <input type="hidden" name="staff_no" id="staff_no" value="<%=(String) request.getSession().getAttribute("staff")%>">
+                        <button type="submit" class="btn btn-primary btn-xs">上班</button>
+                    </form>
+                    <form class="form-inline" action="Sign2" method="post">
+                        <input type="hidden" name="staff_no2" id="staff_no2" value="<%=(String) request.getSession().getAttribute("staff")%>">
+                        <button type="submit" class="btn btn-primary btn-xs" style="float: right;margin-right: 30px;">下班</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="meun-title">登记管理</div>
         <div class="meun-item" href="#checkin" aria-controls="checkin" role="tab" data-toggle="tab" id="checkInButton"><img src="images/icon_char_grey.png">入住登记</div>
@@ -103,6 +114,7 @@
         <div class="meun-item" href="#showEmptyRooms" aria-controls="showEmptyRooms" role="tab" data-toggle="tab" id="showRoomsButton"><img src="images/icon_char_grey.png">显示空房间</div>
 
     </div>
+
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
     
@@ -124,19 +136,19 @@
                         <form id="form1" class="form-horizontal" action="checkInServlet" method="post">
                             <div class="form-group ">
                                 <label for="clientNo" class="col-xs-3 control-label" >用户名：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="clientNo" class="form-control input-sm duiqi" id="clientNo" placeholder="请输入客户ID！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="roomNo" class="col-xs-3 control-label">房间号：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="roomNo" class="form-control input-sm duiqi" id="roomNo" placeholder="请输入房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="duration" class="col-xs-3 control-label">入住时长：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="duration" class="form-control input-sm duiqi" id="duration" placeholder="请输入入住时长！">
                                 </div>
                             </div>
@@ -206,6 +218,7 @@
                 }
             </script>
 
+
             <!--退房登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkout">
                 <div class="container">
@@ -216,31 +229,31 @@
                         <form id="form2" class="form-horizontal" action="checkOutServlet" method="post">
                             <div class="form-group ">
                                 <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="请输入客户ID！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="rNo" class="col-xs-3 control-label">房间号：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="请输入房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="请输入损坏情况！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="expS" class="col-xs-3 control-label">体验评分：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="请输入体验评分！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="serS" class="col-xs-3 control-label">服务评分：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="请输入服务评分！">
                                 </div>
                             </div>
@@ -353,19 +366,19 @@
                         <form id="form3" class="form-horizontal" action="changeRoomServlet" method="post">
                             <div class="form-group ">
                                 <label for="clientid" class="col-xs-3 control-label">客户ID：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="clientid" class="form-control input-sm duiqi" id="clientid" placeholder="请输入客户ID！">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="oldRoomNo" class="col-xs-3 control-label">原房间号：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="oldRoomNo" class="form-control input-sm duiqi" id="oldRoomNo" placeholder="请输入原房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="newRoomNo" class="col-xs-3 control-label">新房间号：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="newRoomNo" class="form-control input-sm duiqi" id="newRoomNo" placeholder="请输入新房间号！">
                                 </div>
                             </div>
@@ -445,25 +458,25 @@
                         <form id="form4" class="form-horizontal" action="employeeReserveServlet" method="post">
                             <div class="form-group ">
                                 <label for="userID" class="col-xs-3 control-label">身份证号：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="clientIDnum" class="form-control input-sm duiqi" id="userID" placeholder="请输入身份证号！">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="rmNo" class="col-xs-3 control-label">房间号：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="roomNumber" class="form-control input-sm duiqi" id="rmNo" placeholder="请输入房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="arrtime" class="col-xs-3 control-label">到达时间：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="date" name="arrtime" class="form-control input-sm duiqi" id="arrtime" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="leatime" class="col-xs-3 control-label">离开时间：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="date" name="leatime" class="form-control input-sm duiqi" id="leatime" placeholder="">
                                 </div>
                             </div>
@@ -543,7 +556,7 @@
                     <div class="page-header">
                         <h1 align="center">预定查询</h1>
                     </div>
-                    <form id="form5" class="form-horizontal" action="reserveCheckInServlet" method="post">
+                    <form class="form-horizontal" action="reserveCheckInServlet" method="post">
                         <div class="form-inline" align="center">
                             <div>
                                 <input type="" name="clientId_no" class="form-control input-sm duiqi" placeholder="请输入身份证号！" style="position: relative;left: 30px;height: 30px;top: -3px;">
@@ -565,18 +578,19 @@
                         </tr>
                         <c:forEach items="${sessionScope.searchList}" var="reserve">
                             <tr>
-                                <td>${reserve.username }</td>
-                                <td>${reserve.id_card }</td>
-                                <td>${reserve.telephone }</td>
+                                <td>${reserve.client_name }</td>
+                                <td>${reserve.client_id }</td>
+                                <td>${reserve.client_tele }</td>
                                 <td>${reserve.room_id }</td>
-                                <td>${reserve.orderarrivedate }</td>
-                                <td>${reserve.orderleavedate }</td>
+                                <td>${reserve.arr_date }</td>
+                                <td>${reserve.lea_date }</td>
                             </tr>
                         </c:forEach>
                     </table>
 
                 </div>
             </div>
+
 
             <!--客户添加模块-->
             <div role="tabpanel" class="tab-pane" id="addClient">
@@ -588,31 +602,31 @@
                         <form id="form6" class="form-horizontal" action="addClientServlet" method="post">
                             <div class="form-group ">
                                 <label for="username1" class="col-xs-3 control-label">客户名：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="username1" class="form-control input-sm duiqi" id="username1" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-xs-3 control-label">密码：</label>
-                                <div class="col-xs-8 ">
+                                <div class="col-xs-6 ">
                                     <input type="" name="password" class="form-control input-sm duiqi" id="password" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="idcard" class="col-xs-3 control-label">身份证号：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="idcard" class="form-control input-sm duiqi" id="idcard" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-xs-3 control-label">邮箱号：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="email" class="form-control input-sm duiqi" id="email" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="telephone" class="col-xs-3 control-label">电话号码：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="telephone" class="form-control input-sm duiqi" id="telephone" placeholder="">
                                 </div>
                             </div>
@@ -677,8 +691,52 @@
                                     notEmpty: {
                                         message: '身份证号不能为空！'
                                     },
-                                    creditCard:{
-                                        message:'身份证号格式有误'
+                                    regexp: {
+                                        regexp: /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/,
+                                        message: '身份证号码格式不正确，为15位和18位身份证号码！'
+                                    },
+                                    callback: {
+                                        message: '身份证号码无效！',
+                                        callback:function(value, validator,$field){
+                                            //15位和18位身份证号码的正则表达式
+                                            var regIdCard = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+                                            //如果通过该验证，说明身份证格式正确，但准确性还需计算
+                                            var idCard = value;
+                                            if (regIdCard.test(idCard)) {
+                                                if (idCard.length == 18) {
+                                                    var idCardWi = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2); //将前17位加权因子保存在数组里
+                                                    var idCardY = new Array(1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2); //这是除以11后，可能产生的11位余数、验证码，也保存成数组
+                                                    var idCardWiSum = 0; //用来保存前17位各自乖以加权因子后的总和
+                                                    for (var i = 0; i < 17; i++) {
+                                                        idCardWiSum += idCard.substring(i, i + 1) * idCardWi[i];
+                                                    }
+                                                    var idCardMod = idCardWiSum % 11;//计算出校验码所在数组的位置
+                                                    var idCardLast = idCard.substring(17);//得到最后一位身份证号码
+                                                    //如果等于2，则说明校验码是10，身份证号码最后一位应该是X
+                                                    if (idCardMod == 2) {
+                                                        if (idCardLast == "X" || idCardLast == "x") {
+                                                            return true;
+                                                            //alert("恭喜通过验证啦！");
+                                                        } else {
+                                                            return false;
+                                                            //alert("身份证号码错误！");
+                                                        }
+                                                    } else {
+                                                        //用计算出的验证码与最后一位身份证号码匹配，如果一致，说明通过，否则是无效的身份证号码
+                                                        if (idCardLast == idCardY[idCardMod]) {
+                                                            //alert("恭喜通过验证啦！");
+                                                            return true;
+                                                        } else {
+                                                            return false;
+                                                            //alert("身份证号码错误！");
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                //alert("身份证格式不正确!");
+                                                return false;
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -697,7 +755,8 @@
                                     notEmpty:{
                                         message:'电话号码不能为空！'
                                     },
-                                    phone:{
+                                    regexp:{
+                                        regexp: /^0|1[0123456789]\d{9}$/,
                                         message:'电话号码格式有误'
                                     }
                                 }
@@ -717,7 +776,7 @@
                         <form id="form7" class="form-horizontal" action="deleteClientServlet" method="post">
                             <div class="form-group">
                                 <label for="email1" class="col-xs-3 control-label">邮箱号：</label>
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <input type="" name="email1" class="form-control input-sm duiqi" id="email1" placeholder="">
                                 </div>
                             </div>
@@ -848,7 +907,6 @@
 
     </div>
 </div>
-<script src="js/jquery.nouislider.js"></script>
 
 <% if (request.getParameter("searchReserve")!= null) {%>
 <script type="text/javascript">
