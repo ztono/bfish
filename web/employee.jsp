@@ -15,9 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <title>前台工作人员</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
+
+
+
     <script>
         $(function() {
             $(".meun-item").click(function() {
@@ -64,6 +68,9 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.css">
+
+    <script src="js/bootstrapValidator.min.js"></script>
+    <link href="css/bootstrapValidator.min.css" rel="stylesheet"/>
     <style>
         #rightContent #back{
             width:100%;
@@ -148,6 +155,11 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
 
             <!--退房登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkout">
@@ -333,7 +345,7 @@
                             </div>
                         </div>
                     </form>
-                    <form action="cleanSureServlet" method="post">
+
                         <table id="block" style="width: 800px; margin: 44px auto"
                                class="table table-striped table-bordered table-hover  table-condensed"
                                align='center' border='1' cellspacing='0'>
@@ -347,7 +359,9 @@
                                 <td align="center">操作</td>
                             </tr>
                             <c:forEach items="${result.rows }" var="room">
-                                <tr>
+                                <form action="cleanSureServlet" method="post">
+                                    <input style="display: none"value="${room.room_id }" name="room_no">
+                                    <tr>
                                     <td>${room.room_no }</td>
                                     <td>${room.room_id }</td>
                                     <td>${room.room_type }</td>
@@ -355,10 +369,11 @@
                                     <td>${room.room_price }</td>
                                     <td>${room.room_location }</td>
                                     <td align="center"><button type="submit" class="btn btn-success btn-xs" data-toggle="modal">打扫确认</button></td>
-                                </tr>
+                                    </tr>
+                                </form>
                             </c:forEach>
                         </table>
-                    </form>
+
                 </div>
             </div>
 
@@ -369,7 +384,22 @@
                     <div class="page-header">
                         <h1 align="center">所有房间</h1>
                     </div>
+                    <form class="form-horizontal" action="searchRoomServlet" method="post">
+                        <div class="form-inline" align="center">
+                            <div>
 
+                                <select  type="" name="room_type" id="cNo2" class="form-control" style="width: 200px;height: 30px;">
+                                    <option>Select a Room</option>
+                                    <option value="bigroom">Deluxe Room</option>
+                                    <option value="singleroom">Single Room</option>
+                                    <option value="doubleroom">Double Room</option>
+                                </select>
+                                <input type="date" name="arrivetime" class="form-control input-sm duiqi" id="rNo2" placeholder="" style="position: relative;left: 30px;height: 30px;top: -3px;">
+                                <input type="date" name="leavetime" class="form-control input-sm duiqi" id="isD2" placeholder="" style="position: relative;left: 60px;height: 30px;top: -3px;">
+                                <button type="submit" class="btn btn-white btn-xs " style="position: relative;left: 60px;height: 30px;top: 0px;">查 询 </button>
+                            </div>
+                        </div>
+                    </form>
                     <table id="blocks2" style="width: 800px; margin: 44px auto"
                            class="table table-striped table-bordered table-hover  table-condensed"
                            align='center' border='1' cellspacing='0'>
