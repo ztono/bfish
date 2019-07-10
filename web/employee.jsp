@@ -18,6 +18,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
+    <script src="js/bootstrapValidator.min.js"></script>
+    <%--<script src="js/checkValidation.js"></script>--%>
     <script>
         $(function() {
             $(".meun-item").click(function() {
@@ -64,6 +66,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.min.css">
     <style>
         #rightContent #back{
             width:100%;
@@ -87,13 +90,15 @@
             </p>
         </div>
         <div class="meun-title">登记管理</div>
-        <div class="meun-item" href="#checkin" aria-controls="checkin" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">入住登记</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">退房登记</div>
-        <div class="meun-item" href="#change" aria-controls="change" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">换房登记</div>
-        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定</div>
+        <div class="meun-item" href="#checkin" aria-controls="checkin" role="tab" data-toggle="tab" id="checkInButton"><img src="images/icon_char_grey.png">入住登记</div>
+        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab" id="checkOutButton"><img src="images/icon_char_grey.png">退房登记</div>
+        <div class="meun-item" href="#change" aria-controls="change" role="tab" data-toggle="tab" id="changeRoomButton"><img src="images/icon_char_grey.png">换房登记</div>
+        <div class="meun-title">预定管理</div>
+        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">前台预定</div>
+        <div class="meun-item" href="#searchReserve" aria-controls="searchReserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定查询</div>
         <div class="meun-title">客户管理</div>
-        <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户添加</div>
-        <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">客户删除</div>
+        <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab" id="clientAddButton"><img src="images/icon_char_grey.png">客户添加</div>
+        <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab" id="clientDelButton"><img src="images/icon_char_grey.png">客户删除</div>
         <div class="meun-title">房间管理</div>
         <div class="meun-item" href="#allRooms" aria-controls="allRooms" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">所有房间</div>
         <div class="meun-item" href="#showEmptyRooms" aria-controls="showEmptyRooms" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">显示空房间</div>
@@ -118,23 +123,23 @@
                         <h1 align="center">入住登记</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkInServlet" method="post">
+                        <form id="form1" class="form-horizontal" action="checkInServlet" method="post">
                             <div class="form-group ">
-                                <label for="clientNo" class="col-xs-3 control-label">客户ID：</label>
+                                <label for="clientNo" class="col-xs-3 control-label" >用户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="clientNo" class="form-control input-sm duiqi" id="clientNo" placeholder="">
+                                    <input type="" name="clientNo" class="form-control input-sm duiqi" id="clientNo" placeholder="请输入客户ID">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="roomNo" class="col-xs-3 control-label">房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="roomNo" class="form-control input-sm duiqi" id="roomNo" placeholder="">
+                                    <input type="" name="roomNo" class="form-control input-sm duiqi" id="roomNo" placeholder="请输入房间号">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="duration" class="col-xs-3 control-label">入住时长：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="duration" class="form-control input-sm duiqi" id="duration" placeholder="">
+                                    <input type="" name="duration" class="form-control input-sm duiqi" id="duration" placeholder="请输入入住时长">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -149,6 +154,60 @@
                 </div>
             </div>
 
+            <script type="text/javascript">
+                document.getElementById('checkInButton').onclick = function () {
+                    $('#form1').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            clientNo: {
+                                message: '用户名验证失败',
+                                validators: {
+                                    notEmpty: {
+                                        message: '用户名不能为空！'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 20,
+                                        message: '用户名长度必须在6到20位之间'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: '用户名只能包含大写、小写、数字和下划线'
+                                    }
+                                }
+                            },
+                            roomNo: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '房间号不能为空！'
+                                    },
+                                    regexp: {
+                                        regexp: /^[0-9]+$/,
+                                        message: '房间号只能为整数'
+                                    }
+                                }
+                            },
+                            duration:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'入住时长不能为空！'
+                                    },
+                                    regexp:{
+                                        regexp:/^[0-9]+$/,
+                                        message:'入住时长只能为整数'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+
             <!--退房登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkout">
                 <div class="container">
@@ -156,7 +215,7 @@
                         <h1 align="center">退房登记</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="checkOutServlet" method="post">
+                        <form id="form2" class="form-horizontal" action="checkOutServlet" method="post">
                             <div class="form-group ">
                                 <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
                                 <div class="col-xs-8 ">
@@ -199,6 +258,93 @@
                 </div>
             </div>
 
+            <script type="text/javascript">
+                document.getElementById('checkOutButton').onclick= function () {
+                    $('#form2').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            client_no: {
+                                message: '用户名验证失败',
+                                validators: {
+                                    notEmpty: {
+                                        message: '用户名不能为空！'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 20,
+                                        message: '用户名长度必须在6到20位之间'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: '用户名只能包含大写、小写、数字和下划线'
+                                    }
+                                }
+                            },
+                            room_no: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '房间号不能为空！'
+                                    },
+                                    regexp: {
+                                        regexp: /^[0-9]+$/,
+                                        message: '房间号只能为整数'
+                                    }
+                                }
+                            },
+                            isdamaged:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'是否损坏不能为空！'
+                                    },
+                                    regexp:{
+                                        regexp:/^[YES|NO]+$/,
+                                        message:'是否损坏只能为YES或NO'
+                                    }
+                                }
+                            },
+                            exp_score:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'体验评分不能为空！'
+                                    },
+                                    between:{
+                                        min:0,
+                                        max:100,
+                                        message:'评分只能在0-100之间'
+                                    },
+                                    regexp:{
+                                        regexp:/^[0-9]+$/,
+                                        message:'评分只能为整数'
+                                    }
+                                }
+                            },
+                            ser_score:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'服务评分不能为空！'
+                                    },
+                                    between:{
+                                        min:0,
+                                        max:100,
+                                        message:'评分只能在0-100之间'
+                                    },
+                                    regexp:{
+                                        regexp:/^[0-9]+$/,
+                                        message:'评分只能为整数'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+
+
             <!--换房登记模块-->
             <div role="tabpanel" class="tab-pane" id="change">
                 <div class="container">
@@ -206,7 +352,7 @@
                         <h1 align="center">换房登记</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="changeRoomServlet" method="post">
+                        <form id="form3" class="form-horizontal" action="changeRoomServlet" method="post">
                             <div class="form-group ">
                                 <label for="clientid" class="col-xs-3 control-label">客户ID：</label>
                                 <div class="col-xs-8 ">
@@ -237,6 +383,152 @@
                 </div>
             </div>
 
+            <script type="text/javascript">
+                document.getElementById('changeRoomButton').onclick = function () {
+                    $('#form3').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            clientid: {
+                                message: '用户名验证失败',
+                                validators: {
+                                    notEmpty: {
+                                        message: '用户名不能为空！'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 20,
+                                        message: '用户名长度必须在6到20位之间'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: '用户名只能包含大写、小写、数字和下划线'
+                                    }
+                                }
+                            },
+                            oldRoomNo: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '房间号不能为空！'
+                                    },
+                                    regexp: {
+                                        regexp: /^[0-9]+$/,
+                                        message: '房间号只能为整数'
+                                    }
+                                }
+                            },
+                            newRoomNo:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'房间号不能为空！'
+                                    },
+                                    regexp:{
+                                        regexp: /^[0-9]+$/,
+                                        message: '房间号只能为整数'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+
+            <!--前台预定模块-->
+            <div role="tabpanel" class="tab-pane" id="reserve">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">前台预定</h1>
+                    </div>
+                    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+                        <form id="form4" class="form-horizontal" action="employeeReserveServlet" method="post">
+                            <div class="form-group ">
+                                <label for="userID" class="col-xs-3 control-label">客户身份证号：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="clientID" class="form-control input-sm duiqi" id="userID" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="rmNo" class="col-xs-3 control-label">房间号：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="roomNumber" class="form-control input-sm duiqi" id="rmNo" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="arrtime" class="col-xs-3 control-label">到达时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="date" name="arrtime" class="form-control input-sm duiqi" id="arrtime" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="leatime" class="col-xs-3 control-label">离开时间：</label>
+                                <div class="col-xs-8 ">
+                                    <input type="" name="leatime" class="form-control input-sm duiqi" id="leatime" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                                    <button class="btn btn-sm btn-primary" type="reset">重置</button>
+                                    <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">取 消</button>
+                                    <button type="submit" class="btn btn-sm btn-green">保 存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!--预定查询模块-->
+            <div role="tabpanel" class="tab-pane" id="searchReserve">
+                <div class="container">
+                    <div class="page-header">
+                        <h1 align="center">预定查询</h1>
+                    </div>
+                    <form class="form-horizontal" action="searchReserveServlet" method="post">
+                        <div class="form-inline" align="center">
+                            <div>
+
+                                <select  type="" name="room_type" id="cNo3" class="form-control" style="width: 200px;height: 30px;">
+                                    <option>Select a Room</option>
+                                    <option value="bigroom">Deluxe Room</option>
+                                    <option value="singleroom">Single Room</option>
+                                    <option value="doubleroom">Double Room</option>
+                                </select>
+                                <input type="date" name="arrivetime" class="form-control input-sm duiqi" id="rNo3" placeholder="" style="position: relative;left: 30px;height: 30px;top: -3px;">
+                                <input type="date" name="leavetime" class="form-control input-sm duiqi" id="isD3" placeholder="" style="position: relative;left: 60px;height: 30px;top: -3px;">
+                                <button type="submit" class="btn btn-white btn-xs " style="position: relative;left: 60px;height: 30px;top: 0px;">查 询 </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <table id="blocks3" style="width: 800px; margin: 44px auto"
+                           class="table table-striped table-bordered table-hover  table-condensed"
+                           align='center' border='1' cellspacing='0'>
+                        <tr>
+                            <td>房间号</td>
+                            <td>房间类型</td>
+                            <td>房间价格</td>
+                            <td>房间位置</td>
+                            <td>房间状态</td>
+                        </tr>
+                        <c:forEach items="${sessionScope.roomList}" var="room">
+                            <tr>
+                                <td>${room.room_id }</td>
+                                <td>${room.room_type }</td>
+                                <td>${room.room_price }</td>
+                                <td>${room.room_location }</td>
+                                <td>${room.room_state }</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+
+                </div>
+            </div>
+
+
             <!--客户添加模块-->
             <div role="tabpanel" class="tab-pane" id="addClient">
                 <div class="container">
@@ -244,7 +536,7 @@
                         <h1 align="center">客户添加</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="addClientServlet" method="post">
+                        <form id="form6" class="form-horizontal" action="addClientServlet" method="post">
                             <div class="form-group ">
                                 <label for="username1" class="col-xs-3 control-label">客户名：</label>
                                 <div class="col-xs-8 ">
@@ -287,6 +579,85 @@
                 </div>
             </div>
 
+            <script type="text/javascript">
+                document.getElementById('clientAddButton').onclick = function () {
+                    $('#form6').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            username1: {
+                                message: '用户名验证失败',
+                                validators: {
+                                    notEmpty: {
+                                        message: '用户名不能为空！'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 20,
+                                        message: '用户名长度必须在6到20位之间'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: '用户名只能包含大写、小写、数字和下划线'
+                                    }
+                                }
+                            },
+                            password: {
+                                message: '密码验证失败',
+                                validators: {
+                                    notEmpty: {
+                                        message: '密码不能为空！'
+                                    },
+                                    stringLength: {
+                                        min: 8,
+                                        max: 16,
+                                        message: '密码长度必须在8到16位之间'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: '密码只能包含大写、小写、数字和下划线'
+                                    }
+                                }
+                            },
+                            idcard: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '身份证号不能为空！'
+                                    },
+                                    creditCard:{
+                                        message:'身份证号格式有误'
+                                    }
+                                }
+                            },
+                            email:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'邮箱不能为空！'
+                                    },
+                                    emailAddress: {
+                                        message:'邮箱格式有误'
+                                    }
+                                }
+                            },
+                            telephone:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'电话号码不能为空！'
+                                    },
+                                    phone:{
+                                        message:'电话号码格式有误'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+
             <!--客户删除模块-->
             <div role="tabpanel" class="tab-pane" id="deleteClient">
                 <div class="container">
@@ -294,7 +665,7 @@
                         <h1 align="center">客户删除</h1>
                     </div>
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
-                        <form class="form-horizontal" action="deleteClientServlet" method="post">
+                        <form id="form7" class="form-horizontal" action="deleteClientServlet" method="post">
                             <div class="form-group">
                                 <label for="email1" class="col-xs-3 control-label">邮箱号：</label>
                                 <div class="col-xs-8">
@@ -311,6 +682,31 @@
                 </div>
             </div>
 
+            <script type="text/javascript">
+                document.getElementById('clientDelButton').onclick = function () {
+                    $('#form7').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            email1:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'邮箱不能为空！'
+                                    },
+                                    emailAddress: {
+                                        message:'邮箱格式有误'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+
             <!--所有房间模块-->
             <div role="tabpanel" class="tab-pane" id="allRooms">
                 <div class="container">
@@ -323,17 +719,6 @@
                     <sql:query dataSource="${snapshot}" var="result">
                         SELECT * from room;
                     </sql:query>
-                    <form class="form-horizontal" action="searchRoomServlet" method="post">
-                        <div class="form-inline" align="center">
-                            <div>
-                                <input type="text" name="room_type" class=" form-control input-sm " placeholder="请输入房间类型">
-                                <input type="text" name="arrivetime" class=" form-control input-sm " placeholder="输入到达时间">
-                                <input type="text" name="leavetime" class=" form-control input-sm " placeholder="输入离开时间">
-                                <button type="submit" class="btn btn-white btn-xs ">查 询 </button>
-                            </div>
-                        </div>
-                    </form>
-                    <form action="cleanSureServlet" method="post">
                         <table id="block" style="width: 800px; margin: 44px auto"
                                class="table table-striped table-bordered table-hover  table-condensed"
                                align='center' border='1' cellspacing='0'>
@@ -347,6 +732,8 @@
                                 <td align="center">操作</td>
                             </tr>
                             <c:forEach items="${result.rows }" var="room">
+                            <form action="cleanSureServlet" method="post">
+                                <input style="display: none"value="${room.room_id }" name="room_no">
                                 <tr>
                                     <td>${room.room_no }</td>
                                     <td>${room.room_id }</td>
@@ -356,9 +743,9 @@
                                     <td>${room.room_location }</td>
                                     <td align="center"><button type="submit" class="btn btn-success btn-xs" data-toggle="modal">打扫确认</button></td>
                                 </tr>
+                            </form>
                             </c:forEach>
                         </table>
-                    </form>
                 </div>
             </div>
 
@@ -367,8 +754,24 @@
             <div role="tabpanel" class="tab-pane" id="showEmptyRooms">
                 <div class="container">
                     <div class="page-header">
-                        <h1 align="center">所有房间</h1>
+                        <h1 align="center">查询空房间</h1>
                     </div>
+                    <form class="form-horizontal" action="searchRoomServlet" method="post">
+                        <div class="form-inline" align="center">
+                            <div>
+
+                                <select  type="" name="room_type" id="cNo2" class="form-control" style="width: 200px;height: 30px;">
+                                    <option>Select a Room</option>
+                                    <option value="bigroom">Deluxe Room</option>
+                                    <option value="singleroom">Single Room</option>
+                                    <option value="doubleroom">Double Room</option>
+                                </select>
+                                <input type="date" name="arrivetime" class="form-control input-sm duiqi" id="rNo2" placeholder="" style="position: relative;left: 30px;height: 30px;top: -3px;">
+                                <input type="date" name="leavetime" class="form-control input-sm duiqi" id="isD2" placeholder="" style="position: relative;left: 60px;height: 30px;top: -3px;">
+                                <button type="submit" class="btn btn-white btn-xs " style="position: relative;left: 60px;height: 30px;top: 0px;">查 询 </button>
+                            </div>
+                        </div>
+                    </form>
 
                     <table id="blocks2" style="width: 800px; margin: 44px auto"
                            class="table table-striped table-bordered table-hover  table-condensed"
@@ -401,13 +804,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
             $("#t1").click();
-        });
-</script>
-<%} %>
-<% if (request.getParameter("ds")== "showEmptyRooms") {%>
-<script type="text/javascript">
-    $(document).ready(function(){
-            $("#showEmptyRooms").click();
         });
 </script>
 <%} %>

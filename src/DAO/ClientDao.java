@@ -1,9 +1,8 @@
 package DAO;
 import BEAN.Client;
 import BEAN.DBHelper;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.Statement;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
@@ -20,6 +19,24 @@ public class ClientDao extends DAO.BaseDao{
         ResultSet rs = executeQuery(str,params);
         return rs;
     }
+
+    public int searchClientByEmail(String id)
+    {
+        String str = "select * from client where email = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(id);
+        ResultSet rs = executeQuery(str,params);
+        try {
+            rs.next();
+            int client_no = rs.getInt("client_no");
+            return client_no;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1;
+    }
+
     public int addClient(Client client) {
         String update = "insert client (username, password, idcard, email, telephone) values (?,?,?,?,?)";
         List<Object> params = new ArrayList<Object>();

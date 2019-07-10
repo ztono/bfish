@@ -1,13 +1,14 @@
 package Servlet;
 
+import BEAN.Client;
 import BEAN.Reserve;
-import DAO.ClientDao;
 import DAO.ReserveDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import DAO.ClientDao;
 
 public class ReserveServlet extends HttpServlet {
     @Override
@@ -24,6 +26,7 @@ public class ReserveServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String roomType = request.getParameter("room_type");
@@ -38,68 +41,57 @@ public class ReserveServlet extends HttpServlet {
 
         ReserveDAO reserveDAO = new ReserveDAO();
         System.out.println(roomType);
-        Boolean flag = false;
+        boolean flag = true;
         int roomId = -1;
         int roomNo = -1;
 
         ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
-//        while (true) {
-//            try {
-//                if (!rs1.next()) break;
-//                roomId = rs1.getInt("roomId");
-//                roomNo = rs1.getInt("roomNo");
-//                ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
-//                while (true) {
-//                    try {
-//                        if (!rs2.next()) break;
-//                        if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
-//                            flag = false;
-//                            break;
-//                        }
-//                    } catch (SQLException e) {
-//                        e.printStackTrace();
-//                    }
+        System.out.println(rs1);
+        while (true) {
+            try {
+                if (!rs1.next()) {
+                    break;
+                }
+                roomId = rs1.getInt("room_id");
+                roomNo = rs1.getInt("room_no");
+                ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
+                while (true) {
+                    try {
+                        if (!rs2.next()) break;
+                        if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
+                            flag = false;
+                            break;
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (flag == true) {
+                    break;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+//        HttpSession httpSession = request.getSession();
 //
-//                }
-//                if (flag == true) {
-//                    break;
-//                }
+//        String email = (String) httpSession.getAttribute("clientEmail");
+//        ClientDao clientDao = new ClientDao();
 //
-//
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//        ClientDao cdao = new ClientDao();
-//        ResultSet cRs = cdao.searchClientById(idNo);
-//        try {
-//            cRs.next();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        int client_no = -1;
-//        try {
-//            client_no = cRs.getInt("client_no");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        if (!flag) {
-//            System.out.println("order fail");
-//
-//        } else {
-//            System.out.println(roomId);
-//            Reserve re = new Reserve(client_no, roomNo, arrDateStr, leaveDatestr);
-//            int is = reserveDAO.reserveRoom(re);
-//            if (is != 0) {
-//                System.out.println("order suceess");
-//                System.out.println(roomId);
-//            } else {
-//                System.out.println("order fail");
-//            }
-//        }
-        request.getRequestDispatcher("employee.jsp").forward(request, response);
+//        int clientID = clientDao.searchClientByEmail(email);
+
+        System.out.println("reached");
+        Reserve re = new Reserve(1, roomNo, arrDateStr, leaveDatestr);
+        int is = reserveDAO.reserveRoom(re);
+        if (is != 0) {
+            System.out.println("order suceess");
+            System.out.println(roomId);
+        } else {
+            System.out.println("order fail");
+        }
+
         PrintWriter printWriter = response.getWriter();
         printWriter.write("result");
     }

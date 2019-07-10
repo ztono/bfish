@@ -75,6 +75,24 @@ public class CheckinDAO extends DAO.BaseDao {
     }
 
     /**
+     * 查找预定
+     * @param id
+     * @param arrive_date
+     * @return
+     */
+
+    public ResultSet SearchReserveById(String id,String arrive_date)
+    {
+        String sql = "select * from reserve,client where reserve.client_no=client.client_no and client.idcard= ? and reserve.orderarrivedate = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(id);
+        params.add(arrive_date);
+        ResultSet rs =executeQuery(sql, params);
+        return rs;
+    }
+
+
+    /**
      * 换房,更新changeroom表
      * @param or_room_id
      * @param to_room_id
@@ -170,7 +188,7 @@ public class CheckinDAO extends DAO.BaseDao {
         ResultSet rs = executeQuery(str,params);
         rs.next();
         Room rm = new Room();
-        rm.setRoom_no(rs.getString("room_no"));
+        rm.setRoom_no(rs.getInt("room_no"));
         rm.setRoom_id(rs.getString("room_id"));
         rm.setRoom_location(rs.getString("room_location"));
         rm.setRoom_price(rs.getString("room_price"));
