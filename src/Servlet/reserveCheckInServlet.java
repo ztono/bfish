@@ -1,6 +1,5 @@
 package Servlet;
 
-import BEAN.ReserveShow;
 import DAO.CheckinDAO;
 
 import javax.servlet.ServletException;
@@ -13,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import BEAN.ReserveShow;
 @WebServlet(name = "reserveCheckInServlet")
 public class reserveCheckInServlet extends HttpServlet {
 
@@ -26,10 +25,15 @@ public class reserveCheckInServlet extends HttpServlet {
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
+//        String rm_type = request.getParameter("room_type");
+//        String arr_dateStr = request.getParameter("arrive_date");
+//        String lea_dateStr = request.getParameter("leave_date");
+//        String name = request.getParameter("name");
+//        String id_no = request.getParameter("cid2");
+//        String ph_no = request.getParameter("phone_number");
 
             String client_id = request.getParameter("clientId_no");
             String arrive_time = request.getParameter("arrivetime");
-
             CheckinDAO checkindao = new CheckinDAO();
             ResultSet rs;
             rs = checkindao.SearchReserveById(client_id,arrive_time);

@@ -17,7 +17,7 @@ public class WorkRecordDao {
 	public static List<WorkRecord> getrecords(String staff_no) {
 
 		List<WorkRecord> wrs = new ArrayList<WorkRecord>();
-		String sql = "select * from workrecord where staff_no=" + staff_no;
+		String sql = "select workrecord.record_no,workrecord.start_time,workrecord.end_time,employee.username from workrecord ,employee where staff_no=" + staff_no+ "and workrecord.staff_no = employee.employee_no";
 		System.out.println(sql);
 		try {
 			Connection c = DBHelper.getInstance().getConnection();
@@ -25,13 +25,15 @@ public class WorkRecordDao {
 			ResultSet rs = s.executeQuery(sql);
 			while (rs.next()) {
 				WorkRecord wr = new WorkRecord();
-				String record_no = rs.getString("record_no");
-				String start_time = rs.getString("start_time");
-				String end_time = rs.getString("end_time");
+				String record_no = rs.getString("workrecord.record_no");
+				String start_time = rs.getString("workrecord.start_time");
+				String end_time = rs.getString("workrecord.end_time");
+				String username=rs.getString("employee.username");
 				wr.setRecord_no(record_no);
 				wr.setStaff_no(staff_no);
 				wr.setStart_time(start_time);
 				wr.setEnd_time(end_time);
+				wr.setUsername(username);
 				wrs.add(wr);
 			}
 			DBHelper.closeConnection(c, s, rs);
@@ -46,7 +48,7 @@ public class WorkRecordDao {
 	public static List<WorkRecord> getrecords2(String year, String month, String day) {
 
 		List<WorkRecord> wrs = new ArrayList<WorkRecord>();
-		String sql = "select * from workrecord";
+		String sql = "select workrecord.record_no,workrecord.start_time,workrecord.staff_no,workrecord.end_time,employee.username from workrecord ,employee where  workrecord.staff_no = employee.employee_no;";
 		System.out.println(sql);
 		try {
 			Connection c = DBHelper.getInstance().getConnection();
@@ -59,6 +61,7 @@ public class WorkRecordDao {
 				String staff_no = rs.getString("staff_no");
 				String start_time = rs.getString("start_time");
 				String end_time = rs.getString("end_time");
+				String username=rs.getString("username");
 				String[] stime = start_time.split("-");
 				String[] stime1 = stime[2].split(" ");
 				String[] etime = end_time.split("-");
@@ -71,6 +74,7 @@ public class WorkRecordDao {
 						wr.setStaff_no(staff_no);
 						wr.setStart_time(start_time);
 						wr.setEnd_time(end_time);
+						wr.setUsername(username);
 						System.out.println(end_time);
 						wrs.add(wr);
 
@@ -85,6 +89,7 @@ public class WorkRecordDao {
 						wr.setStaff_no(staff_no);
 						wr.setStart_time(start_time);
 						wr.setEnd_time(end_time);
+						wr.setUsername(username);
 
 						wrs.add(wr);
 					}

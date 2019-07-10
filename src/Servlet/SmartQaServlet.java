@@ -20,7 +20,6 @@ public class SmartQaServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("UTF-8");
         String question = req.getParameter("question");
-        System.out.println(question);
         SmartQA smartQa = new SmartQA();
         String result = smartQa.getResult(question);
         PrintWriter printWriter = resp.getWriter();

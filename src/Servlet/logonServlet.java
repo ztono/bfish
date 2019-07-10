@@ -47,7 +47,8 @@ public class logonServlet extends HttpServlet {
             logindao.addClient(client);
             System.out.println("ok1");
             request.getSession().setAttribute("id", name);
-            request.getRequestDispatcher("user.jsp").forward(request, response);
+            request.getSession().setAttribute("clientEmail", email);
+            request.getRequestDispatcher("client.html").forward(request, response);
 
 
 

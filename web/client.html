@@ -62,12 +62,89 @@
 <!--[if lte IE 9]>
 
 <![endif]-->
+<script>
+    function jump(){
+        window.location.href="http://localhost:8080/login.jsp";
+    }
+    function jump1(){
+        window.location.href="http://localhost:8080/login.jsp";
+    }
+</script>
+<script language="javascript" type="text/javascript">
 
+    window.onload = function setValue() {
+        // document.getElementById("s1").innerHTML = "登录";
+        var re = new XMLHttpRequest();
+        //var ask_button = document.getElementById("qa_ask_button");
+        //  ask_button.addEventListener('click', function (ev) {
+        //  var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
+        // var user_qa_input = user_qa_input_textarea.value;
+        var qa_url = "showServlet";
+        re.open("GET", qa_url, true);
+        re.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        re.send(null);
+        //alert("dd");
+        re.onreadystatechange = show_answer;
+        function show_answer() {
+            if (re.readyState === 4) {
+
+                if (re.status === 200) {
+
+                    var name1 = document.getElementById("s1");
+                    name1.value = re.responseText;
+                    document.getElementById("s1").innerHTML = name1.value;
+                }
+            }
+        }
+
+
+
+
+
+    }
+</script>
 <!--header-top start -->
 <header id="header-top" class="header-top">
+    <ul>
+        <li>
+            <div class="header-top-left">
+                <ul>
+                    <li class="select-opt">
+                        <select name="language" id="language">
+                            <option value="default">EN</option>
+                            <option value="Bangla">BN</option>
+                            <option value="Arabic">AB</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
 
+                    </li>
+                    <li class="select-opt">
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="head-responsive-right pull-right">
+            <div class="header-top-right">
+                <ul>
+
+                    <li class="header-top-contact">
+                        <div th:text="${session.id}"></div>
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump()">亲爱的用户
+                            <span  id="s1"> </span>，你好！
+                        </button>
+
+                    </li>
+                    <li class="header-top-contact">
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump1()">退出登录</button>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
 
 </header><!--/.header-top-->
+
 <!--header-top end -->
 
 <!-- top-area Start -->
@@ -126,61 +203,77 @@
 <!--list-topics end-->
 
 <!--works start -->
-<section id="query" class="works">
+<section id="query" class="blog">
     <div class="container">
         <div class="section-header">
-            <h2>how it works</h2>
-            <p>Learn More about how our website works</p>
-        </div><!--/.section-header-->
-        <div class="works-content">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-lightbulb-idea"></i>
-                        </div>
-                        <h2><a href="#">choose <span> what to</span> do</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-networking"></i>
-                        </div>
-                        <h2><a href="#">find <span> what you want</span></a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-location-on-road"></i>
-                        </div>
-                        <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <h2>选择日期，查看空闲房间数</h2>
         </div>
+        <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="id_card" class="col-xs-3 control-label">查询时间：</label>
+                    <div class="col-xs-8">
+                        <input type="date" name="id_card" class="form-control input-sm duiqi"
+                               id="query_date"
+                               placeholder="" value="2019-07-04">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-xs-3 control-label">单人间：</label>
+                    <div class="col-xs-8">
+                        <input type="text" name="name" class="form-control input-sm duiqi" id="query_singleroom"
+                               placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="telephone" class="col-xs-3 control-label">大床房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="phone_number" class="form-control input-sm duiqi"
+                               id="query_bigbedroom"
+                               placeholder="" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_card" class="col-xs-3 control-label">双人房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="id_card" class="form-control input-sm duiqi" id="query_doubleroom"
+                               placeholder="" disabled>
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                        <button class="btn btn-sm btn-primary" id="query_bottom" type="button">查询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            var query_xml_request=new XMLHttpRequest();
+            query_date_input=document.getElementById("query_date");
+
+            query_bottom=document.getElementById("query_bottom");
+            query_bottom.addEventListener("click",function (ev) {
+                query_date=query_date_input.value;
+                var query_url = "queryServlet?query_date=" + query_date;
+                query_xml_request.open("GET",query_url,true);
+                query_xml_request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                query_xml_request.send(null);
+                query_xml_request.onreadystatechange=function () {
+                    if(query_xml_request.readyState===4){
+                        if(query_xml_request.status===200){
+                            result_total = query_xml_request.responseText;
+                            numbers = result_total.split("|");
+                            document.getElementById("query_singleroom").value = numbers[0];
+                            document.getElementById("query_doubleroom").value = numbers[1];
+                            document.getElementById("query_bigbedroom").value = numbers[2];
+
+                        }
+                    }
+                }
+            })
+        </script>
     </div><!--/.container-->
 
 </section><!--/.works-->
@@ -298,7 +391,7 @@
                     <div class="form-group text-right">
                         <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
                             <button class="btn btn-sm btn-primary" type="reset" id="reserve_reset">重置</button>
-                            <button type="submit" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
+                            <button type="button" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
                         </div>
                     </div>
                 </form>
@@ -315,7 +408,7 @@
         reserve_leave_date = document.getElementById("reserve_leave_date");
 
         // 重置按钮
-        function clear_all(){
+        function clear_all() {
             reserve_name.value = "";
             reserve_telephone.value = "";
             reserve_id_card.value = "";
@@ -323,6 +416,7 @@
             reserve_arrive_date.value = "";
             reserve_leave_date.value = "";
         }
+
         reserve_reset_buttom = document.getElementById("reserve_reset");
         reserve_reset_buttom.addEventListener("click", clear_all);
         // 重置按钮
@@ -331,11 +425,10 @@
         var reserve_xml_http_request = new XMLHttpRequest();
 
         function reserve_result() {
-            alert("ok1");
             if (reserve_xml_http_request.readyState === 4) {
                 if (reserve_xml_http_request.status === 200) {
                     alert("ok");
-                    window.location.href="client.html";
+                    window.location.href = "client.html";
                 }
             }
         }
@@ -356,7 +449,7 @@
             var reserve_arrive_date_string = reserve_arrive_date.value;
             var reserve_leave_date_string = reserve_leave_date.value;
             reserve_xml_http_request.send("name=" + reserve_name_string + "&id=" + reserve_id_card_string + "&phone_number=" + reserve_telephone_string + "&room_type=" + reserve_room_type_string + "&arrive_date=" + reserve_arrive_date_string + "&leave_date=" + reserve_leave_date_string);
-            reserve_xml_http_request.onreadystatechange =reserve_result;
+            reserve_xml_http_request.onreadystatechange = reserve_result;
         });
 
 
@@ -369,10 +462,10 @@
     <div class="container">
         <div class="subscribe-title text-center">
             <h2>
-                do you want to add your business listing with us?
+                联系我们
             </h2>
             <p>
-                Listrace offer you to list your business with us and we very much able to promote your Business.
+                期待您的来信！
             </p>
         </div>
         <div class="row">

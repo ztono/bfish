@@ -32,29 +32,55 @@ public class commentServlet extends HttpServlet{
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
 
-
+            String operator_name = request.getParameter("operator_name");
             CheckinDAO chindao = new CheckinDAO();
             ResultSet rs;
-            rs = chindao.researchComment();
-            List<Checkin> chinList = new ArrayList<Checkin>();
+            rs = chindao.SearchScoreByOpr(operator_name);
+
+            /* 求平均值 */
+            int num=0;
+            int average =0;
+//            while(true)
+//            {
+//                try {
+//                    if (!rs.next()) break;
+//                    num++;
+//                    average = average + rs.getInt("ser_score");
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//            average = average/num;
+
+
+              /*返回表格*/
+            List<Checkin> commentList = new ArrayList<Checkin>();
             while(true)
             {
                 try {
                     if (!rs.next()) break;
-                    Checkin checkin  = new Checkin();
+                    num++;
+                    average = average + rs.getInt("ser_score");
+                    Checkin ch = new Checkin();
+                    ch.setRoom_no(rs.getString("room_no"));
+                    ch.setClient_no(rs.getString("client_no"));
 
-                    checkin.setCheckin_no(rs.getInt("checkin_no"));
-                    checkin.setClient_no(rs.getString("client_no"));
-                    checkin.setRoom_no(rs.getString("room_no"));
-                    checkin.setExp_score(rs.getString("exp_score"));
-                    chinList.add(checkin);
+                    ch.setLeavedate(rs.getString("leavedate"));
+                    ch.setSer_score(rs.getString("ser_score"));
+                    commentList.add(ch);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
 
             }
-            request.setAttribute("chinList",chinList);
-            request.getRequestDispatcher("employee.jsp").forward(request, response);
+            average=average/num;
+            request.getSession().setAttribute("average",average);
+            request.getSession().setAttribute("commentList",commentList);
+            request.getSession().setAttribute("commentflag","1");
+
+
+            request.getRequestDispatcher("manager.jsp").forward(request, response);
         }
 
 

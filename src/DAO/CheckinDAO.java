@@ -75,6 +75,41 @@ public class CheckinDAO extends DAO.BaseDao {
     }
 
     /**
+     * 根据操作员查找评分
+     * @param operator_name
+     * @return
+     */
+    public ResultSet SearchScoreByOpr(String operator_name)
+    {
+        String sql = "select * from checkin,employee where checkin.operator_id = employee.employee_no and username = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(operator_name);
+
+        return executeQuery(sql,params);
+    }
+
+    /**
+     * 查找预定
+     * @param id
+     * @param arrive_date
+     * @return
+     */
+
+    public ResultSet SearchReserveById(String id,String arrive_date)
+    {
+        String sql = "select * from reserve,client,room where reserve.client_no=client.client_no and room.room_no=reserve.room_no and client.idcard= ? and reserve.orderarrivedate = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(id);
+        params.add(arrive_date);
+        ResultSet rs =executeQuery(sql, params);
+        return rs;
+    }
+
+
+
+
+
+    /**
      * 换房,更新changeroom表
      * @param or_room_id
      * @param to_room_id
@@ -106,27 +141,8 @@ public class CheckinDAO extends DAO.BaseDao {
     }
 
 
-    /**
-     * 查询所有评论exp_score
-     * @return ResultSet
-     */
-    public ResultSet researchComment()
-    {
-        String str = "select * from checkin where exp_score is not null";
-        List<Object> params = new ArrayList<Object>();
-        return executeQuery(str, params);
-    }
 
-    /**
-     * 按时间查询评论     未完成！！！！！！！！！！！
-     * @return
-     */
-    public ResultSet researchCommentBytime()
-    {
-        String str = "select * from checkin where exp_score is not null ";
-        List<Object> params = new ArrayList<Object>();
-        return executeQuery(str, params);
-    }
+
 
     /**
      * 根据房间号查找这个房间的所有预定
@@ -170,7 +186,7 @@ public class CheckinDAO extends DAO.BaseDao {
         ResultSet rs = executeQuery(str,params);
         rs.next();
         Room rm = new Room();
-        rm.setRoom_no(rs.getInt("room_no"));
+        rm.setRoom_no(rs.getString("room_no"));
         rm.setRoom_id(rs.getString("room_id"));
         rm.setRoom_location(rs.getString("room_location"));
         rm.setRoom_price(rs.getString("room_price"));
