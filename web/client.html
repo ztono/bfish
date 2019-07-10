@@ -5,6 +5,10 @@
     <!-- meta data -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
@@ -112,7 +116,7 @@
 <section id="home" class="welcome-hero">
     <div class="container">
         <div class="welcome-hero-txt">
-            <h2>最好的服务<br> 提供你所有需要 </h2>
+            <h2>最好的服务<br> 满足您所有需要 </h2>
             <p>
             </p>
         </div>
@@ -126,61 +130,45 @@
 <!--list-topics end-->
 
 <!--works start -->
-<section id="query" class="works">
+<section id="query" class="blog">
     <div class="container">
         <div class="section-header">
-            <h2>how it works</h2>
-            <p>Learn More about how our website works</p>
+            <h2>查看今天的房间剩余信息</h2>
         </div><!--/.section-header-->
-        <div class="works-content">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-lightbulb-idea"></i>
-                        </div>
-                        <h2><a href="#">choose <span> what to</span> do</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+        <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="name" class="col-xs-3 control-label">单人间：</label>
+                    <div class="col-xs-8">
+                        <input type="text" name="name" class="form-control input-sm duiqi" id="query_singleroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-networking"></i>
-                        </div>
-                        <h2><a href="#">find <span> what you want</span></a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+                <div class="form-group">
+                    <label for="telephone" class="col-xs-3 control-label">大床房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="phone_number" class="form-control input-sm duiqi" id="query_bigbedroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-location-on-road"></i>
-                        </div>
-                        <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+                <div class="form-group">
+                    <label for="id_card" class="col-xs-3 control-label">双人房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="id_card" class="form-control input-sm duiqi" id="query_doubleroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-            </div>
+                <div class="form-group text-right">
+                    <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                        <button class="btn btn-sm btn-primary" id="query_bottom">查询</button>
+                    </div>
+                </div>
+            </form>
         </div>
+
+        <script type="text/javascript">
+
+        </script>
     </div><!--/.container-->
 
 </section><!--/.works-->
