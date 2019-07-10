@@ -19,7 +19,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script src="js/bootstrapValidator.min.js"></script>
-    <%--<script src="js/checkValidation.js"></script>--%>
     <script>
         $(function() {
             $(".meun-item").click(function() {
@@ -94,14 +93,14 @@
         <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab" id="checkOutButton"><img src="images/icon_char_grey.png">退房登记</div>
         <div class="meun-item" href="#change" aria-controls="change" role="tab" data-toggle="tab" id="changeRoomButton"><img src="images/icon_char_grey.png">换房登记</div>
         <div class="meun-title">预定管理</div>
-        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">前台预定</div>
-        <div class="meun-item" href="#searchReserve" aria-controls="searchReserve" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">预定查询</div>
+        <div class="meun-item" href="#reserve" aria-controls="reserve" role="tab" data-toggle="tab" id="employeeReserveButton"><img src="images/icon_char_grey.png">前台预定</div>
+        <div class="meun-item" href="#searchReserve" aria-controls="searchReserve" role="tab" data-toggle="tab" id="employeeSearchReserveButton"><img src="images/icon_char_grey.png">预定查询</div>
         <div class="meun-title">客户管理</div>
         <div class="meun-item" href="#addClient" aria-controls="addClient" role="tab" data-toggle="tab" id="clientAddButton"><img src="images/icon_char_grey.png">客户添加</div>
         <div class="meun-item" href="#deleteClient" aria-controls="deleteClient" role="tab" data-toggle="tab" id="clientDelButton"><img src="images/icon_char_grey.png">客户删除</div>
         <div class="meun-title">房间管理</div>
         <div class="meun-item" href="#allRooms" aria-controls="allRooms" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">所有房间</div>
-        <div class="meun-item" href="#showEmptyRooms" aria-controls="showEmptyRooms" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">显示空房间</div>
+        <div class="meun-item" href="#showEmptyRooms" aria-controls="showEmptyRooms" role="tab" data-toggle="tab" id="showRoomsButton"><img src="images/icon_char_grey.png">显示空房间</div>
 
     </div>
     <!-- 右侧具体内容栏目 -->
@@ -115,7 +114,6 @@
         <!-- Tab panes -->
         <div class="tab-content">
 
-
             <!--入住登记模块-->
             <div role="tabpanel" class="tab-pane" id="checkin">
                 <div class="container">
@@ -127,19 +125,19 @@
                             <div class="form-group ">
                                 <label for="clientNo" class="col-xs-3 control-label" >用户名：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="clientNo" class="form-control input-sm duiqi" id="clientNo" placeholder="请输入客户ID">
+                                    <input type="" name="clientNo" class="form-control input-sm duiqi" id="clientNo" placeholder="请输入客户ID！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="roomNo" class="col-xs-3 control-label">房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="roomNo" class="form-control input-sm duiqi" id="roomNo" placeholder="请输入房间号">
+                                    <input type="" name="roomNo" class="form-control input-sm duiqi" id="roomNo" placeholder="请输入房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="duration" class="col-xs-3 control-label">入住时长：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="duration" class="form-control input-sm duiqi" id="duration" placeholder="请输入入住时长">
+                                    <input type="" name="duration" class="form-control input-sm duiqi" id="duration" placeholder="请输入入住时长！">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -219,31 +217,31 @@
                             <div class="form-group ">
                                 <label for="cNo" class="col-xs-3 control-label">客户ID：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="">
+                                    <input type="" name="client_no" class="form-control input-sm duiqi" id="cNo" placeholder="请输入客户ID！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="rNo" class="col-xs-3 control-label">房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="">
+                                    <input type="" name="room_no" class="form-control input-sm duiqi" id="rNo" placeholder="请输入房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="isD" class="col-xs-3 control-label">是否损坏：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="">
+                                    <input type="" name="isdamaged" class="form-control input-sm duiqi" id="isD" placeholder="请输入损坏情况！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="expS" class="col-xs-3 control-label">体验评分：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="">
+                                    <input type="" name="exp_score" class="form-control input-sm duiqi" id="expS" placeholder="请输入体验评分！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="serS" class="col-xs-3 control-label">服务评分：</label>
                                 <div class="col-xs-8">
-                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="">
+                                    <input type="" name="ser_score" class="form-control input-sm duiqi" id="serS" placeholder="请输入服务评分！">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -356,19 +354,19 @@
                             <div class="form-group ">
                                 <label for="clientid" class="col-xs-3 control-label">客户ID：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="clientid" class="form-control input-sm duiqi" id="clientid" placeholder="">
+                                    <input type="" name="clientid" class="form-control input-sm duiqi" id="clientid" placeholder="请输入客户ID！">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="oldRoomNo" class="col-xs-3 control-label">原房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="oldRoomNo" class="form-control input-sm duiqi" id="oldRoomNo" placeholder="">
+                                    <input type="" name="oldRoomNo" class="form-control input-sm duiqi" id="oldRoomNo" placeholder="请输入原房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="newRoomNo" class="col-xs-3 control-label">新房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="newRoomNo" class="form-control input-sm duiqi" id="newRoomNo" placeholder="">
+                                    <input type="" name="newRoomNo" class="form-control input-sm duiqi" id="newRoomNo" placeholder="请输入新房间号！">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -446,15 +444,15 @@
                     <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
                         <form id="form4" class="form-horizontal" action="employeeReserveServlet" method="post">
                             <div class="form-group ">
-                                <label for="userID" class="col-xs-3 control-label">客户身份证号：</label>
+                                <label for="userID" class="col-xs-3 control-label">身份证号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="clientID" class="form-control input-sm duiqi" id="userID" placeholder="">
+                                    <input type="" name="clientIDnum" class="form-control input-sm duiqi" id="userID" placeholder="请输入身份证号！">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label for="rmNo" class="col-xs-3 control-label">房间号：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="roomNumber" class="form-control input-sm duiqi" id="rmNo" placeholder="">
+                                    <input type="" name="roomNumber" class="form-control input-sm duiqi" id="rmNo" placeholder="请输入房间号！">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -466,7 +464,7 @@
                             <div class="form-group">
                                 <label for="leatime" class="col-xs-3 control-label">离开时间：</label>
                                 <div class="col-xs-8 ">
-                                    <input type="" name="leatime" class="form-control input-sm duiqi" id="leatime" placeholder="">
+                                    <input type="date" name="leatime" class="form-control input-sm duiqi" id="leatime" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -481,53 +479,104 @@
                 </div>
             </div>
 
+            <script type="text/javascript">
+                document.getElementById('employeeReserveButton').onclick = function () {
+                    $('#form4').bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            clientIDnum: {
+                                message: '身份证验证失败',
+                                validators: {
+                                    notEmpty: {
+                                        message: '身份证不能为空！'
+                                    },
+                                    creditCard:{
+                                     message: '身份证格式有误'
+                                    }
+                                }
+                            },
+                            roomNumber: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '房间号不能为空！'
+                                    },
+                                    regexp: {
+                                        regexp: /^[0-9]+$/,
+                                        message: '房间号只能为整数'
+                                    }
+                                }
+                            },
+                            arrtime:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'到达时间不能为空！'
+                                    },
+                                    date:{
+                                        message:'日期格式有误'
+                                    }
+                                }
+                            },
+                            leatime:{
+                                validators:{
+                                    notEmpty:{
+                                        message:'离开时间不能为空！'
+                                    },
+                                    date:{
+                                        message:'日期格式有误'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            </script>
+
+
             <!--预定查询模块-->
             <div role="tabpanel" class="tab-pane" id="searchReserve">
                 <div class="container">
                     <div class="page-header">
                         <h1 align="center">预定查询</h1>
                     </div>
-                    <form class="form-horizontal" action="searchReserveServlet" method="post">
+                    <form id="form5" class="form-horizontal" action="reserveCheckInServlet" method="post">
                         <div class="form-inline" align="center">
                             <div>
-
-                                <select  type="" name="room_type" id="cNo3" class="form-control" style="width: 200px;height: 30px;">
-                                    <option>Select a Room</option>
-                                    <option value="bigroom">Deluxe Room</option>
-                                    <option value="singleroom">Single Room</option>
-                                    <option value="doubleroom">Double Room</option>
-                                </select>
-                                <input type="date" name="arrivetime" class="form-control input-sm duiqi" id="rNo3" placeholder="" style="position: relative;left: 30px;height: 30px;top: -3px;">
-                                <input type="date" name="leavetime" class="form-control input-sm duiqi" id="isD3" placeholder="" style="position: relative;left: 60px;height: 30px;top: -3px;">
+                                <input type="" name="clientId_no" class="form-control input-sm duiqi" placeholder="请输入身份证号！" style="position: relative;left: 30px;height: 30px;top: -3px;">
+                                <input type="date" name="arrivetime" class="form-control input-sm duiqi" placeholder="请选择到达时间！" style="position: relative;left: 30px;height: 30px;top: -3px;">
                                 <button type="submit" class="btn btn-white btn-xs " style="position: relative;left: 60px;height: 30px;top: 0px;">查 询 </button>
                             </div>
                         </div>
                     </form>
-
                     <table id="blocks3" style="width: 800px; margin: 44px auto"
                            class="table table-striped table-bordered table-hover  table-condensed"
                            align='center' border='1' cellspacing='0'>
                         <tr>
-                            <td>房间号</td>
-                            <td>房间类型</td>
-                            <td>房间价格</td>
-                            <td>房间位置</td>
-                            <td>房间状态</td>
+                            <td>客户名称</td>
+                            <td>身份证号</td>
+                            <td>联系方式</td>
+                            <td>房间号码</td>
+                            <td>到达时间</td>
+                            <td>离开时间</td>
                         </tr>
-                        <c:forEach items="${sessionScope.roomList}" var="room">
+                        <c:forEach items="${sessionScope.searchList}" var="reserve">
                             <tr>
-                                <td>${room.room_id }</td>
-                                <td>${room.room_type }</td>
-                                <td>${room.room_price }</td>
-                                <td>${room.room_location }</td>
-                                <td>${room.room_state }</td>
+                                <td>${reserve.username }</td>
+                                <td>${reserve.id_card }</td>
+                                <td>${reserve.telephone }</td>
+                                <td>${reserve.room_id }</td>
+                                <td>${reserve.orderarrivedate }</td>
+                                <td>${reserve.orderleavedate }</td>
                             </tr>
                         </c:forEach>
                     </table>
 
                 </div>
             </div>
-
 
             <!--客户添加模块-->
             <div role="tabpanel" class="tab-pane" id="addClient">
@@ -801,13 +850,22 @@
 </div>
 <script src="js/jquery.nouislider.js"></script>
 
-<% if (request.getParameter("ds")!= null) {%>
+<% if (request.getParameter("searchReserve")!= null) {%>
 <script type="text/javascript">
     $(document).ready(function(){
-            $("#t1").click();
-        });
+        $("#employeeSearchReserveButton").click();
+    });
 </script>
 <%} %>
+
+<% if (request.getParameter("ds")!=null) {%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#showRoomsButton").click();
+    });
+</script>
+<%} %>
+
 /* 看板娘 */
 <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
 <script type="text/javascript">
