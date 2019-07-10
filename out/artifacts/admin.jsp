@@ -16,9 +16,6 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script>
-
-
-
         $("#myModal").modal("hide");
         function R_values(id) {
             $("#room_no").val(id);
@@ -80,22 +77,6 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
 </head>
 
 <body>
-<%
-    String incomeflag=(String)request.getSession().getAttribute("incomeflag");
-    if(incomeflag!=null)
-        if(incomeflag.equals("1"))
-        {
-
-
-%>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#taggle6").click();
-        incomeflag="0";
-    });
-
-</script>
-<%}%>
 <% String Rd = (String)request.getAttribute("room_delete");
 if (Rd!=null){
     if(Rd.equals("0")){%>
@@ -160,7 +141,7 @@ $(document).ready(function(){
         <div id="personInfor">
             <p id="adminid">亲爱的管理员<%= (String) request.getSession().getAttribute("adminid") %>，欢迎您！</p>
             <p>
-                <a href="adminlogin.jsp">退出登录</a>
+                <a href="login.jsp">退出登录</a>
             </p>
         </div>
         <div class="meun-title">房间管理</div>
@@ -169,9 +150,9 @@ $(document).ready(function(){
         <div class="meun-title">人事管理</div>
         <div class="meun-item" href="#addemployee" aria-controls="addemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png" id="taggle4">添加雇员</div>
         <div class="meun-item" href="#showemployee" aria-controls="showemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png" id="taggle3">查看雇员</div>
-        <div class="meun-item" href="#showrecord" aria-controls="showrecord" role="tab" data-toggle="tab" id="taggle5"><img src="images/icon_char_grey.png">查看上班记录</div>
+        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看上班记录</div>
         <div class="meun-title">收入管理</div>
-        <div class="meun-item" href="#lookincome" aria-controls="lookincome" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png" id="taggle6">查看月收入</div>
+        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看月收入</div>
 
     </div>
 
@@ -464,7 +445,7 @@ $(document).ready(function(){
 
                     <table style="width: 800px; margin: 44px auto"
                            class="table table-striped table-bordered table-hover  table-condensed"
-                           align='left' border='0' cellspacing='0'>
+                           align='center' border='0' cellspacing='0'>
                         <tr>
                             <td align="center">用户名</td>
                             <td align="center">密码</td>
@@ -499,11 +480,9 @@ $(document).ready(function(){
                                 <input type="submit" class="btn btn-sm btn-warning" value="delete" />
                             </form>
                             </td>
-
-                            <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal1" onclick="values(<%=employee.getEmployee_no()%>)">
+                            <td><button class="btn btn-sm btn-green" data-toggle="modal" data-target="#myModal1" onclick="values(<%=employee.getEmployee_no()%>)">
                                 change
                             </button>
-
                             <td>
                                 <form  action="resetpassword.do" >
                                     <input type="hidden" name="employee_no" value="<%=employee.getEmployee_no() %>"/>
@@ -575,278 +554,9 @@ $(document).ready(function(){
     </div>
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="showrecord">
-                <div class="container">
-                    <div class="page-header">
-                        <h4 align="center">查看人员上班记录</h4>
-                    </div>
-                    <form name="form1" action="workrecord.do" >
-                        <select id="y" name="y" onchange="funy(this)"></select>
-                        <select id="m" name="m" onchange="funm(this)"></select>
-                        <select id="d" name="d"></select>
-
-                        <INPUT Type="submit"  Value="查找" >
-                    </form>
-                </div>
-                <table style="width: 800px; margin: 44px auto"
-                       class="table table-striped table-bordered table-hover  table-condensed"
-                       align='center' border='1' cellspacing='0'>
-                    <tr>
-                        <td align="center">记录号</td>
-                        <td align="center">员工号</td>
-                        <td align="center">员工姓名</td>
-                        <td align="center">上班时间</td>
-                        <td align="center">下班时间</td>
-                    </tr>
-                    <c:forEach items="${wrs}" var="workrecord" varStatus="st">
-                        <tr>
-
-                            <td align="center" width="10%">${workrecord.record_no}</td>
-                            <td align="center" width="10%">${workrecord.staff_no}</td>
-                            <td align="center" width="10%">${workrecord.username}</td>
-                            <td align="center" width="10%">${workrecord.start_time}</td>
-                            <td align="center" width="10%">${workrecord.end_time}</td>
-
-
-                        </tr>
-                    </c:forEach>
-                </table>
-                <% String recordshow = (String)request.getAttribute("recordshow");
-
-                  if(recordshow!=null)
-                  if (recordshow.equals("1"))
-                        {%>
-                <script type="text/javascript">
-                $(document).ready(function(){
-                    $("#taggle5").click();
-                    recordshow="0";
-                });
-
-                </script>
-                <%}%>
-
 
 
         </div>
-
-
-            <div role="tabpanel" class="tab-pane" id="lookincome">
-                <div class="container">
-                    <div class="page-header">
-                        <h4 align="center">查看收入</h4>
-                    </div>
-                <div class="form-group">
-                    <form name="form1" action="lookincomeServlet" >
-                        <select id="y2" name="y2" onchange="funy1(this)"></select>
-                        <select id="m2" name="m2" ></select>
-
-
-                        <INPUT Type="submit"  Value="查找" >
-                    </form>
-                </div>
-                    <table style="width: 800px; margin: 44px auto"
-                           class="table table-striped table-bordered table-hover  table-condensed"
-                           align='center' border='0' cellspacing='0'>
-                        <tr>
-                            <td align="center">房间类型</td>
-                            <td align="center">收入</td>
-
-                        </tr>
-                        <tr>
-
-                            <td align="center" width="10%">singleroom</td>
-                            <td align="center" width="10%">${single}</td>
-                        </tr>
-                        <tr>
-
-                            <td align="center" width="10%">doubleroom</td>
-                            <td align="center" width="10%">${dou}</td>
-                        </tr>
-                        <tr>
-
-                            <td align="center" width="10%">bigbedroom</td>
-                            <td align="center" width="10%">${bigbed}</td>
-                        </tr>
-                        <tr>
-
-                            <td align="center" width="10%">总收入</td>
-                            <td align="center" width="10%">${total}</td>
-                        </tr>
-
-                    </table>
-
-
-                    <Script>
-                        /*
-                        在你的页面需要这三条html代码
-                        <select id="y" onchange="funy(this)"></select>
-                        <select id="m" onchange="funm(this)"></select>
-                        <select id="d"></select>
-                        */
-                        var y = document.getElementById('y');
-                        var m = document.getElementById('m');
-                        var d = document.getElementById('d');
-                        var y2=document.getElementById('y2');
-                        var m2=document.getElementById("m2")
-
-                        var D = new Date();
-                        var yy = D.getFullYear();               //年
-                        var mm = parseInt(D.getMonth()) + 1;    //现在是8月，月份获取是7月。一脸懵逼！
-                        var dd = D.getDate();                   //日
-                        var oyy = 10 * (yy - 100).toString().substr(0,3);   //计算最小年 o = old
-                        var marr = [1,3,5,7,8,10,12];           //列出31天的月份
-                        var add;                                //初始化每月天数 a = all
-
-                        starty();           //开始生成年下拉列表
-                        startm();
-                    //开始生成月下拉列表
-                        startd(dd,mm,yy);
-                        starty2();
-                        startm2();//开始生成日下拉列表
-
-                        // 生成年下拉列表
-                        function starty(){
-// 初始化
-                            var pyy = document.createElement('option');
-                            pyy.innerText = '选择 年';
-                            pyy.value = 0;
-                            y.appendChild(pyy);
-
-// 循环出所有年
-                            for(i=yy;i>=oyy;i--){
-                                pyy = document.createElement('option');
-                                pyy.innerText = i + ' 年';
-                                pyy.value = i;
-                                y.appendChild(pyy);
-
-                            }
-                        }
-                        function starty2(){
-
-                            var pyy = document.createElement('option');
-                            pyy.innerText = '选择 年';
-                            pyy.value = 0;
-                            y2.appendChild(pyy);
-
-// 循环出所有年
-                            for(i=yy;i>=oyy;i--){
-                                pyy = document.createElement('option');
-                                pyy.innerText = i + ' 年';
-                                pyy.value = i;
-                                y2.appendChild(pyy);
-
-                            }
-                        }
-
-                        // 生成月下拉列表
-                        function startm(){
-// 初始化
-                            var pmm = document.createElement('option');
-                            pmm.innerText = '选择 月';
-                            pmm.value = 0;
-
-                            m.appendChild(pmm);
-
-// 判断是否选择了年
-                            if(y.selectedOptions[0].value == 0) return;
-
-// 循环出所有月
-                            for(i=1;i<=12;i++){
-                                pmm = document.createElement('option');
-                                pmm.innerText = i + ' 月';
-                                pmm.value = i;
-
-                                m.appendChild(pmm);
-                            }
-                        }
-                        function startm2(){
-// 初始化
-                            var pmm = document.createElement('option');
-                            pmm.innerText = '选择 月';
-                            pmm.value = 0;
-
-                            m2.appendChild(pmm);
-
-// 判断是否选择了年
-                            if(y2.selectedOptions[0].value == 0) return;
-
-// 循环出所有月
-                            for(i=1;i<=12;i++){
-                                pmm = document.createElement('option');
-                                pmm.innerText = i + ' 月';
-                                pmm.value = i;
-
-                                m2.appendChild(pmm);
-                            }
-                        }
-
-
-                        function startd(mm,yy){
-// 初始化
-                            var pdd = document.createElement('option');
-                            pdd.innerText = '选择 日';
-                            pdd.value = 0;
-                            d.appendChild(pdd);
-
-// 判断是否选择了月
-                            if(m.selectedOptions[0].value == 0) return;
-                            var day = isadd(mm,yy);
-
-// 循环出所有日
-                            for(i=1;i<=day;i++){
-                                pdd = document.createElement('option');
-                                pdd.innerText = i + ' 日';
-                                pdd.value = i;
-                                d.appendChild(pdd);
-                            }
-                        }
-
-                        // 判断并产生该月的天数
-                        function isadd(mm,yy){
-                            if(marr.indexOf(parseInt(mm)) != -1){
-                                add = 31;
-                            }
-                            else{
-                                add = 30;
-                                if(mm == 2 && yy % 4 == 0){
-                                    add = 29;
-                                }
-                                else if(mm == 2 && yy % 4 != 0){
-                                    add = 28;
-                                }
-                            }
-                            return add;
-                        }
-
-                        // 年份改变时调用
-
-                        function funy1(obj){
-                            m2.innerHTML=null;
-                            var yy2=obj.selectedOptions[0].value;
-                            startm2();
-                        }
-                        function funy(obj){
-                            m.innerHTML = null;
-                            d.innerHTML = null;
-                            var yy = obj.selectedOptions[0].value;
-                            startm();
-                            startd(dd,mm,yy);
-                        }
-
-                        // 月份改变时调用
-                        function funm(obj){
-                            d.innerHTML = null;
-                            var yy = y.selectedOptions[0].value;
-                            var mm = obj.selectedOptions[0].value;
-                            startd(mm,yy);
-                        }
-                    </Script>
-
-
-
-
-                </div>
-            </div>
     </div>
     </div>
     <script src="js/jquery.nouislider.js"></script>

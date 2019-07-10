@@ -62,7 +62,30 @@ public class LoginDAO extends DAO.BaseDao {
         return result;
     }
 
+    public static boolean existmanager(String email){
 
+        boolean result = false;
+        String sql="select * from employee where email='" + email + "'and position ='manager'";
+        System.out.print(sql);
+
+        try {
+            Connection c = DBHelper.getInstance().getConnection();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+                if(!rs.getString(1).equals(null)){
+                    result = true;
+                }
+            }
+            DBHelper.closeConnection(c, s, rs);
+
+        } catch (Exception e) {
+            System.out.println("existEmployee()方法出错！");
+            e.printStackTrace();
+        }
+        return result;
+    }
     public static String getPasswrod(String email){
 
         String password = "";
@@ -142,4 +165,51 @@ public class LoginDAO extends DAO.BaseDao {
         params.add(client.getTelephone());
         return executeUpdate(update, params);
     }
+
+    public static String getEName(String email){
+
+        String username = "";
+        String sql="select username from employee where email='" + email + "'";
+        System.out.print(sql);
+
+        try {
+            Connection c = DBHelper.getInstance().getConnection();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+                username = rs.getString("username");
+            }
+            DBHelper.closeConnection(c, s, rs);
+
+        } catch (Exception e) {
+            System.out.println("getEname()方法出错！");
+            e.printStackTrace();
+        }
+        return username;
+    }
+    public static String getEno(String email){
+
+        String username = "";
+        String sql="select employee_no from employee where email='" + email + "'";
+        System.out.print(sql);
+
+        try {
+            Connection c = DBHelper.getInstance().getConnection();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()) {
+                username = rs.getString("employee_no");
+            }
+            DBHelper.closeConnection(c, s, rs);
+
+        } catch (Exception e) {
+            System.out.println("getEname()方法出错！");
+            e.printStackTrace();
+        }
+        return username;
+    }
+
+
 }

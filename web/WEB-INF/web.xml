@@ -163,6 +163,47 @@
         <url-pattern>/displayemployee.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>WorkRecord</servlet-name>
+        <servlet-class>Servlet.WorkRecord</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WorkRecord</servlet-name>
+        <url-pattern>/workrecord.do
+
+        </url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sign1</servlet-name>
+        <servlet-class>Servlet.Sign1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign1</servlet-name>
+        <url-pattern>/sign1.do
+
+        </url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sign2</servlet-name>
+        <servlet-class>Servlet.Sign2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign2</servlet-name>
+        <url-pattern>/sign2.do
+
+        </url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>lookincomeServlet</servlet-name>
+        <servlet-class>Servlet.lookincomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lookincomeServlet</servlet-name>
+        <url-pattern>/lookincomeServlet</url-pattern>
+    </servlet-mapping>
 
 
 
