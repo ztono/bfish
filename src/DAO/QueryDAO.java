@@ -23,22 +23,27 @@ public class QueryDAO extends DAO.BaseDao {
         String[] roomType = {"singleRoom", "doubleRoom", "bigbedroom"};
         //Get all room
         ResultSet roomResult;
-        String roomSql = "select room_type,room_no from room";
+        String roomSql = "select room_type,room_id from room";
         try {
             List<Object> params = new ArrayList<Object>();
             roomResult = executeQuery(roomSql, params);
             while (roomResult.next()) {
-                String roomNo = roomResult.getString("room_no");
+                String roomNo = roomResult.getString("room_id");
+                System.out.println(roomResult.getString("room_id"));
+                System.out.println(queryDate);
                 if(checkCheckin(queryDate,roomNo)&&checkReserve(queryDate,roomNo)){
                     if("singleroom".equals(roomResult.getString("room_type"))){
                         singleRoomNumber+=1;
                     }
+                    System.out.println(roomResult.getString("room_id"));
                     if("doubleroom".equals(roomResult.getString("room_type"))){
                         doubleRoomNumber+=1;
                     }
                     if("bigbedroom".equals(roomResult.getString("room_type"))){
                         bigbedroomNumber+=1;
                     }
+                }
+                else{
                 }
             }
 
@@ -49,6 +54,7 @@ public class QueryDAO extends DAO.BaseDao {
         result.add(singleRoomNumber);
         result.add(doubleRoomNumber);
         result.add(bigbedroomNumber);
+        System.out.println(result.toString());
         return result;
     }
 
