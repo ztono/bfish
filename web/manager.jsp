@@ -73,6 +73,22 @@
 </head>
 
 <body>
+<%
+    String incomeflag=(String)request.getSession().getAttribute("incomeflag");
+    if(incomeflag!=null)
+        if(incomeflag.equals("1"))
+        {
+
+
+%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#taggle6").click();
+        incomeflag="0";
+    });
+
+</script>
+<%}%>
 <div id="wrap">
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun">
@@ -117,7 +133,7 @@ else if (flag=="-3"){ %>alert('下错误')<%}
         <div class="meun-item" href="#displayemployee" aria-controls="displayemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
         <div class="meun-item" href=""  aria-controls="displayemployee" role="tab" data-toggle="tab" id="taggle1"><img src="images/icon_char_grey.png">每日绩效</div>
         <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png">查看绩效</div>
-        <div class="meun-item" href="#lookincome" aria-controls="lookincome" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看月收入</div>
+        <div class="meun-item" href="#lookincome" aria-controls="lookincome" role="tab" data-toggle="tab" id="taggle6"><img src="images/icon_char_grey.png">查看月收入</div>
 
     </div>
     <!-- 右侧具体内容栏目 -->
@@ -182,7 +198,7 @@ else if (flag=="-3"){ %>alert('下错误')<%}
                         <h4 align="center">查看收入</h4>
                     </div>
                     <div class="form-group">
-                        <form name="form1" action="lookincomeServlet" >
+                        <form name="form1" action="lookincomeServlet2" >
                             <select id="y2" name="y2" onchange="funy1(this)"></select>
                             <select id="m2" name="m2" ></select>
 

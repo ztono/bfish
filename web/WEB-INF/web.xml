@@ -205,6 +205,14 @@
         <url-pattern>/lookincomeServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>lookincomeServlet2</servlet-name>
+        <servlet-class>Servlet.lookincomeServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lookincomeServlet2</servlet-name>
+        <url-pattern>/lookincomeServlet2</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>
