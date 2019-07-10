@@ -29,8 +29,6 @@ public class QueryDAO extends DAO.BaseDao {
             roomResult = executeQuery(roomSql, params);
             while (roomResult.next()) {
                 String roomNo = roomResult.getString("room_id");
-                System.out.println(roomResult.getString("room_id"));
-                System.out.println(queryDate);
                 if(checkCheckin(queryDate,roomNo)&&checkReserve(queryDate,roomNo)){
                     if("singleroom".equals(roomResult.getString("room_type"))){
                         singleRoomNumber+=1;
@@ -54,7 +52,6 @@ public class QueryDAO extends DAO.BaseDao {
         result.add(singleRoomNumber);
         result.add(doubleRoomNumber);
         result.add(bigbedroomNumber);
-        System.out.println(result.toString());
         return result;
     }
 
