@@ -67,6 +67,13 @@ public class CheckinDAO extends DAO.BaseDao {
         return executeUpdate(update, params);
     }
 
+    public int updateRoomState_clean(String room_no){
+        String update = "update room set room_state = 'available' where room_id = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(room_no);
+        return executeUpdate(update, params);
+    }
+
     /**
      * 换房,更新changeroom表
      * @param or_room_id
@@ -161,8 +168,9 @@ public class CheckinDAO extends DAO.BaseDao {
         List<Object> params = new ArrayList<Object>();
         params.add(room_no);
         ResultSet rs = executeQuery(str,params);
+        rs.next();
         Room rm = new Room();
-        rm.setRoom_no(rs.getString("room_no"));
+        rm.setRoom_no(rs.getInt("room_no"));
         rm.setRoom_id(rs.getString("room_id"));
         rm.setRoom_location(rs.getString("room_location"));
         rm.setRoom_price(rs.getString("room_price"));
@@ -180,7 +188,7 @@ public class CheckinDAO extends DAO.BaseDao {
      * @param lea_dateStr
      * @return List<room>
      */
-    public List<Room> searchRoomAvaiable(String roomType,String arr_dateStr,String lea_dateStr)  {
+    public List<Room> searchRoomAvailable(String roomType,String arr_dateStr,String lea_dateStr)  {
 
         ResultSet rs = searchRoomByType(roomType);
 

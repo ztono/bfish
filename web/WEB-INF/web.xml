@@ -4,12 +4,56 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
+        <servlet-name>checkInServlet</servlet-name>
+        <servlet-class>Servlet.checkInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkInServlet</servlet-name>
+        <url-pattern>/checkInServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>checkOutServlet</servlet-name>
         <servlet-class>Servlet.checkOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>checkOutServlet</servlet-name>
         <url-pattern>/checkOutServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>changeRoomServlet</servlet-name>
+        <servlet-class>Servlet.changeRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changeRoomServlet</servlet-name>
+        <url-pattern>/changeRoomServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>cleanSureServlet</servlet-name>
+        <servlet-class>Servlet.cleanSureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cleanSureServlet</servlet-name>
+        <url-pattern>/cleanSureServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>searchRoomServlet</servlet-name>
+        <servlet-class>Servlet.searchRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchRoomServlet</servlet-name>
+        <url-pattern>/searchRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>employeeReserveServlet</servlet-name>
+        <servlet-class>Servlet.employeeReserveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>employeeReserveServlet</servlet-name>
+        <url-pattern>/employeeReserveServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -131,14 +175,9 @@
         <url-pattern>/smartQaServlet</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>showServlet</servlet-name>
-        <servlet-class>Servlet.showServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>showServlet</servlet-name>
-        <url-pattern>/showServlet</url-pattern>
-    </servlet-mapping>
+
+
+
 
 </web-app>
 

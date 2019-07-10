@@ -6,7 +6,20 @@ public class Room {
     private String room_state;
     private String room_price;
     private String room_location;
-    private String room_no;
+    private int room_no;
+
+    public Room() {
+
+    }
+
+    public Room(String room_id, String room_type, String room_state, String room_price, String room_location, String room_no) {
+        this.room_id = room_id;
+        this.room_type = room_type;
+        this.room_state = room_state;
+        this.room_price = room_price;
+        this.room_location = room_location;
+        this.room_no = room_no;
+    }
 
     public String getRoom_id() {
         return room_id;
@@ -48,11 +61,11 @@ public class Room {
         this.room_location = room_location;
     }
 
-    public String getRoom_no() {
+    public int getRoom_no() {
         return room_no;
     }
 
-    public void setRoom_no(String room_no) {
+    public void setRoom_no(int room_no) {
         this.room_no = room_no;
     }
 }
