@@ -594,6 +594,7 @@ $(document).ready(function(){
                     <tr>
                         <td align="center">记录号</td>
                         <td align="center">员工号</td>
+                        <td align="center">员工姓名</td>
                         <td align="center">上班时间</td>
                         <td align="center">下班时间</td>
                     </tr>
@@ -602,6 +603,7 @@ $(document).ready(function(){
 
                             <td align="center" width="10%">${workrecord.record_no}</td>
                             <td align="center" width="10%">${workrecord.staff_no}</td>
+                            <td align="center" width="10%">${workrecord.username}</td>
                             <td align="center" width="10%">${workrecord.start_time}</td>
                             <td align="center" width="10%">${workrecord.end_time}</td>
 

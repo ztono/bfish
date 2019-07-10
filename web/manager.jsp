@@ -115,13 +115,14 @@ else if (flag=="-3"){ %>alert('下错误')<%}
 
 
 
-        </div>
+
 
         <div class="meun-item" href="#displayemployee" aria-controls="displayemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
+        <div class="meun-item" href=""  aria-controls="displayemployee" role="tab" data-toggle="tab" id="taggle1"><img src="images/icon_char_grey.png">每日绩效</div>
         <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png">查看绩效</div>
-        <div class="meun-item" href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看月收入</div>
+        <div class="meun-item" href="#lookincome" aria-controls="lookincome" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看月收入</div>
 
-
+    </div>
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
 
@@ -177,6 +178,138 @@ else if (flag=="-3"){ %>alert('下错误')<%}
 
     </div>
 </div>
+
+            <div role="tabpanel" class="tab-pane" id="lookincome">
+                <div class="container">
+                    <div class="page-header">
+                        <h4 align="center">查看收入</h4>
+                    </div>
+                    <div class="form-group">
+                        <form name="form1" action="lookincomeServlet" >
+                            <select id="y2" name="y2" onchange="funy1(this)"></select>
+                            <select id="m2" name="m2" ></select>
+
+
+                            <INPUT Type="submit"  Value="查找" >
+                        </form>
+                    </div>
+                    <table style="width: 800px; margin: 44px auto"
+                           class="table table-striped table-bordered table-hover  table-condensed"
+                           align='center' border='0' cellspacing='0'>
+                        <tr>
+                            <td align="center">房间类型</td>
+                            <td align="center">收入</td>
+
+                        </tr>
+                        <tr>
+
+                            <td align="center" width="10%">singleroom</td>
+                            <td align="center" width="10%">${single}</td>
+                        </tr>
+                        <tr>
+
+                            <td align="center" width="10%">doubleroom</td>
+                            <td align="center" width="10%">${dou}</td>
+                        </tr>
+                        <tr>
+
+                            <td align="center" width="10%">bigbedroom</td>
+                            <td align="center" width="10%">${bigbed}</td>
+                        </tr>
+                        <tr>
+
+                            <td align="center" width="10%">总收入</td>
+                            <td align="center" width="10%">${total}</td>
+                        </tr>
+
+                    </table>
+
+
+                    <Script>
+                        /*
+                        在你的页面需要这三条html代码
+                        <select id="y" onchange="funy(this)"></select>
+                        <select id="m" onchange="funm(this)"></select>
+                        <select id="d"></select>
+                        */
+
+                        var y2=document.getElementById('y2');
+                        var m2=document.getElementById("m2")
+
+                        var D = new Date();
+                        var yy = D.getFullYear();               //年
+                        var mm = parseInt(D.getMonth()) + 1;    //现在是8月，月份获取是7月。一脸懵逼！
+                        var dd = D.getDate();                   //日
+                        var oyy = 10 * (yy - 100).toString().substr(0,3);   //计算最小年 o = old
+                        var marr = [1,3,5,7,8,10,12];           //列出31天的月份
+                        var add;                                //初始化每月天数 a = all
+
+
+                        starty2();
+                        startm2();//开始生成日下拉列表
+
+                        // 生成年下拉列表
+
+                        function starty2(){
+
+                            var pyy = document.createElement('option');
+                            pyy.innerText = '选择 年';
+                            pyy.value = 0;
+                            y2.appendChild(pyy);
+
+// 循环出所有年
+                            for(i=yy;i>=oyy;i--){
+                                pyy = document.createElement('option');
+                                pyy.innerText = i + ' 年';
+                                pyy.value = i;
+                                y2.appendChild(pyy);
+
+                            }
+                        }
+
+                        // 生成月下拉列表
+
+
+                        function startm2(){
+// 初始化
+                            var pmm = document.createElement('option');
+                            pmm.innerText = '选择 月';
+                            pmm.value = 0;
+
+                            m2.appendChild(pmm);
+
+// 判断是否选择了年
+                            if(y2.selectedOptions[0].value == 0) return;
+
+// 循环出所有月
+                            for(i=1;i<=12;i++){
+                                pmm = document.createElement('option');
+                                pmm.innerText = i + ' 月';
+                                pmm.value = i;
+
+                                m2.appendChild(pmm);
+                            }
+                        }
+
+
+
+
+
+                        // 年份改变时调用
+
+                        function funy1(obj){
+                            m2.innerHTML=null;
+                            var yy2=obj.selectedOptions[0].value;
+                            startm2();
+                        }
+
+                    </Script>
+
+
+
+
+                </div>
+            </div>
     <script src="js/jquery.nouislider.js"></script>
 
         </div>
