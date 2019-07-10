@@ -57,7 +57,7 @@ public class ReserveServlet extends HttpServlet {
                 ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
                 while (true) {
                     try {
-                        if (!rs2.next()) break;
+                        if (!rs2.next()) {break;}
                         if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
                             flag = false;
                             break;
@@ -75,15 +75,14 @@ public class ReserveServlet extends HttpServlet {
             }
         }
 
-//        HttpSession httpSession = request.getSession();
-//
-//        String email = (String) httpSession.getAttribute("clientEmail");
-//        ClientDao clientDao = new ClientDao();
-//
-//        int clientID = clientDao.searchClientByEmail(email);
+        HttpSession httpSession = request.getSession();
 
+        String email = (String) httpSession.getAttribute("clientEmail");
+        ClientDao clientDao = new ClientDao();
+        int clientId = clientDao.searchClientByEmailTrue(email);
+        System.out.println(clientId);
         System.out.println("reached");
-        Reserve re = new Reserve(1, roomNo, arrDateStr, leaveDatestr);
+        Reserve re = new Reserve(clientId, roomId, arrDateStr, leaveDatestr);
         int is = reserveDAO.reserveRoom(re);
         if (is != 0) {
             System.out.println("order suceess");
