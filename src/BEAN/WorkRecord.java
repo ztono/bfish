@@ -6,6 +6,7 @@ public class WorkRecord {
 	private String staff_no;
 	private String start_time;
 	private String end_time;
+	private String username;
 
 	/**
 	 * @return the record_no
@@ -67,18 +68,27 @@ public class WorkRecord {
 		this.end_time = end_time;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	/**
 	 * @param record_no
 	 * @param staff_no
 	 * @param start_time
 	 * @param end_time
 	 */
-	public WorkRecord(String record_no, String staff_no, String start_time, String end_time) {
+	public WorkRecord(String record_no, String staff_no, String start_time, String end_time,String username) {
 		super();
 		this.record_no = record_no;
 		this.staff_no = staff_no;
 		this.start_time = start_time;
 		this.end_time = end_time;
+		this.username= username;
 	}
 
 	public WorkRecord() {

@@ -32,6 +32,7 @@ public class Sign2 extends HttpServlet {
 
 		String staff_no = request.getParameter("staff_no");
 		int flag = WorkRecordDao.changeEndrecord(staff_no);
+		String  url = request.getHeader("referer");
 
 		if (flag == 1) {
 
