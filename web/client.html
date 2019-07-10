@@ -89,10 +89,9 @@
             if (re.readyState === 4) {
 
                 if (re.status === 200) {
-                   // alert("dd");
+
                     var name1 = document.getElementById("s1");
                     name1.value = re.responseText;
-                    alert(re.responseText);
                         document.getElementById("s1").innerHTML = name1.value;
                 }
             }

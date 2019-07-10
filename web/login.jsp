@@ -12,6 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min1.css">
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="css/tooplate.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrapValidator.min.css">
+
+	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
 </head>
 
 <body id="login">
@@ -54,6 +57,10 @@
 <%--			</header>--%>
 <%--		</div>--%>
 	</div>
+
+	<script type="text/javascript">
+
+	</script>
 
 	<footer class="row tm-mt-big mb-3">
 		<div class="col-xl-12 text-center">
