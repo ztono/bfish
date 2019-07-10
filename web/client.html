@@ -128,59 +128,41 @@
 <!--works start -->
 <section id="query" class="works">
     <div class="container">
-        <div class="section-header">
-            <h2>how it works</h2>
-            <p>Learn More about how our website works</p>
-        </div><!--/.section-header-->
-        <div class="works-content">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-lightbulb-idea"></i>
-                        </div>
-                        <h2><a href="#">choose <span> what to</span> do</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+        <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="name" class="col-xs-3 control-label">单人间：</label>
+                    <div class="col-xs-8">
+                        <input type="text" name="name" class="form-control input-sm duiqi" id="query_singleroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-networking"></i>
-                        </div>
-                        <h2><a href="#">find <span> what you want</span></a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+                <div class="form-group">
+                    <label for="telephone" class="col-xs-3 control-label">大床房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="phone_number" class="form-control input-sm duiqi"
+                               id="query_bigbedroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-how-works">
-                        <div class="single-how-works-icon">
-                            <i class="flaticon-location-on-road"></i>
-                        </div>
-                        <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut
-                            laboremagna aliqua.
-                        </p>
-                        <button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-                            read more
-                        </button>
+
+                <div class="form-group">
+                    <label for="id_card" class="col-xs-3 control-label">双人房：</label>
+                    <div class="col-xs-8">
+                        <input type="number" name="id_card" class="form-control input-sm duiqi" id="query_doubleroom"
+                               placeholder="" disabled>
                     </div>
                 </div>
-            </div>
+                <div class="form-group text-right">
+                    <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                        <button class="btn btn-sm btn-primary" id="query_bottom">查询</button>
+                    </div>
+                </div>
+            </form>
         </div>
+
+        <script type="text/javascript">
+        </script>
     </div><!--/.container-->
 
 </section><!--/.works-->
@@ -315,7 +297,7 @@
         reserve_leave_date = document.getElementById("reserve_leave_date");
 
         // 重置按钮
-        function clear_all(){
+        function clear_all() {
             reserve_name.value = "";
             reserve_telephone.value = "";
             reserve_id_card.value = "";
@@ -323,6 +305,7 @@
             reserve_arrive_date.value = "";
             reserve_leave_date.value = "";
         }
+
         reserve_reset_buttom = document.getElementById("reserve_reset");
         reserve_reset_buttom.addEventListener("click", clear_all);
         // 重置按钮
@@ -335,7 +318,7 @@
             if (reserve_xml_http_request.readyState === 4) {
                 if (reserve_xml_http_request.status === 200) {
                     alert("ok");
-                    window.location.href="client.html";
+                    window.location.href = "client.html";
                 }
             }
         }
@@ -356,7 +339,7 @@
             var reserve_arrive_date_string = reserve_arrive_date.value;
             var reserve_leave_date_string = reserve_leave_date.value;
             reserve_xml_http_request.send("name=" + reserve_name_string + "&id=" + reserve_id_card_string + "&phone_number=" + reserve_telephone_string + "&room_type=" + reserve_room_type_string + "&arrive_date=" + reserve_arrive_date_string + "&leave_date=" + reserve_leave_date_string);
-            reserve_xml_http_request.onreadystatechange =reserve_result;
+            reserve_xml_http_request.onreadystatechange = reserve_result;
         });
 
 
