@@ -391,7 +391,7 @@
                     <div class="form-group text-right">
                         <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
                             <button class="btn btn-sm btn-primary" type="reset" id="reserve_reset">重置</button>
-                            <button type="submit" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
+                            <button type="button" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
                         </div>
                     </div>
                 </form>
@@ -425,7 +425,6 @@
         var reserve_xml_http_request = new XMLHttpRequest();
 
         function reserve_result() {
-            alert("ok1");
             if (reserve_xml_http_request.readyState === 4) {
                 if (reserve_xml_http_request.status === 200) {
                     alert("ok");
@@ -463,10 +462,10 @@
     <div class="container">
         <div class="subscribe-title text-center">
             <h2>
-                do you want to add your business listing with us?
+                联系我们
             </h2>
             <p>
-                Listrace offer you to list your business with us and we very much able to promote your Business.
+                期待您的来信！
             </p>
         </div>
         <div class="row">
