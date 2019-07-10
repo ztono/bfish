@@ -28,7 +28,7 @@ public class logonServlet extends HttpServlet {
         String password = request.getParameter("password");
         String telephone = request.getParameter("telephone");
         String idcard = request.getParameter("idcard");
-        if (logindao.existClient(email)) {
+        if (LoginDAO.existClient(email)) {
 
 
             request.getSession().setAttribute("message2", "邮箱已被使用");

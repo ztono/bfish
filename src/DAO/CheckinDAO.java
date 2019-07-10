@@ -188,7 +188,7 @@ public class CheckinDAO extends DAO.BaseDao {
         ResultSet rs = executeQuery(str,params);
         rs.next();
         Room rm = new Room();
-        rm.setRoom_no(rs.getString("room_no"));
+        rm.setRoom_no(rs.getInt("room_no"));
         rm.setRoom_id(rs.getString("room_id"));
         rm.setRoom_location(rs.getString("room_location"));
         rm.setRoom_price(rs.getString("room_price"));

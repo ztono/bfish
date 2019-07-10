@@ -47,6 +47,14 @@
         <servlet-name>searchRoomServlet</servlet-name>
         <url-pattern>/searchRoomServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>employeeReserveServlet</servlet-name>
+        <servlet-class>Servlet.employeeReserveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>employeeReserveServlet</servlet-name>
+        <url-pattern>/employeeReserveServlet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>loginServlet</servlet-name>
@@ -166,5 +174,10 @@
         <servlet-name>smartQaServlet</servlet-name>
         <url-pattern>/smartQaServlet</url-pattern>
     </servlet-mapping>
+
+
+
+
+
 </web-app>
 

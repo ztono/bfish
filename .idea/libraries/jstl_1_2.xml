@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="jstl-1.2">
     <CLASSES>
-      <root url="jar://D:/Eclipse/jstl-1.2.jar!/" />
-      <root url="jar://D:/Eclipse/standard-1.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/standard.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

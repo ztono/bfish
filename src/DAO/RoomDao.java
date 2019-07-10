@@ -25,7 +25,7 @@ public class RoomDao {
 
                 room.setRoom_price(rs.getString("room_price"));
                 room.setRoom_type(rs.getString("room_type"));
-                room.setRoom_no(rs.getString("room_no"));
+                room.setRoom_no(rs.getInt("room_no"));
 
                 rooms.add(room);
 

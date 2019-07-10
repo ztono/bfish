@@ -28,8 +28,8 @@ public class loginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String  password = request.getParameter("password");
         String name = login.getName(email);
-        if(login.existClient(email)){
-            if(password.equals(login.getPasswrod(email))) {
+        if(LoginDAO.existClient(email)){
+            if(password.equals(LoginDAO.getPasswrod(email))) {
                 request.getSession().setAttribute("id", name);
                 request.getSession().setAttribute("clientEmail", email);
                 request.getRequestDispatcher("user.jsp").forward(request, response);
