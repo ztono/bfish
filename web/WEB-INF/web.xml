@@ -66,6 +66,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>showServlet</servlet-name>
+        <servlet-class>Servlet.showServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showServlet</servlet-name>
+        <url-pattern>/showServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>logonServlet</servlet-name>
         <servlet-class>Servlet.logonServlet</servlet-class>
     </servlet>

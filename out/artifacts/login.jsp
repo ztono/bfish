@@ -12,6 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min1.css">
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="css/tooplate.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrapValidator.min.css">
+
+	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
 </head>
 
 <body id="login">
@@ -55,14 +58,18 @@
 <%--		</div>--%>
 	</div>
 
-	<footer class="row tm-mt-big mb-3">
-		<div class="col-xl-12 text-center">
-			<p class="d-inline-block tm-bg-black white-text py-2 tm-px-5">
-				Copyright &copy; 2018 Company Name
+	<script type="text/javascript">
 
-				- Design:  Tooplate / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
-	</footer>
+	</script>
+
+<%--	<footer class="row tm-mt-big mb-3">--%>
+<%--		<div class="col-xl-12 text-center">--%>
+<%--			<p class="d-inline-block tm-bg-black white-text py-2 tm-px-5">--%>
+<%--				Copyright &copy; 2018 Company Name--%>
+
+<%--				- Design:  Tooplate / More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>--%>
+<%--		</div>--%>
+<%--	</footer>--%>
 </div>
 
 <script src="js/jquery-3.2.1.slim.min.js"></script>
