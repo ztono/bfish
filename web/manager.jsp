@@ -17,16 +17,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script>
-        function a()
-        {
-            document.form1.action="/sign1.do";
-            document.form1.submit();
-        }
-        function b()
-        {
-            document.form1.action="/sign2.do";
-            document.form1.submit();
-        }
 
         $(function() {
             $(".meun-item").click(function() {
@@ -94,11 +84,18 @@
             <p>
                 <a href="login.jsp">退出登录</a>
             </p>
-            <form name="form1" action="" >
-                staff_no:<input type="text" name="staff_no" id="staff_no">
-                <INPUT Type="Button"  Value="上班" onClick="a()">
-                <INPUT Type="Button"  Value="下班" onClick="b()">
+<div align="right">
+            <form name="form1" action="sign1.do" >
+               <input type="hidden" name="staff_no" id="staff_no" value="<%=(String) request.getSession().getAttribute("staff")%>">
+
+                <INPUT Type="submit" class="btn btn-sm btn-primary" value="上班">
+
             </form>
+            <form name="form2" action="sign2.do" >
+                <input type="hidden" name="staff_no2" id="staff_no2" value="<%=(String) request.getSession().getAttribute("staff")%>">
+                <INPUT TYPE="submit" class="btn btn-sm btn-warning" value="下班">
+            </form>
+</div>
         </div>
         <%
             String flag = (String)request.getAttribute("flag");
