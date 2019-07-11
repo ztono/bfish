@@ -468,9 +468,9 @@ $(document).ready(function(){
                         <tr>
                             <td align="center">用户名</td>
                             <td align="center">密码</td>
-                            <td align="center">职位</td>
                             <td align="center">电子邮件</td>
                             <td align="center">电话号码</td>
+                            <td align="center">职位</td>
                             <td align="center">编号</td>
                             <td>操作</td>
                             <td>操作</td>

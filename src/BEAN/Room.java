@@ -12,7 +12,7 @@ public class Room {
 
     }
 
-    public Room(String room_id, String room_type, String room_state, String room_price, String room_location, String  room_no) {
+    public Room(String room_id, String room_type, String room_state, String room_price, String room_location, String room_no) {
         this.room_id = room_id;
         this.room_type = room_type;
         this.room_state = room_state;
