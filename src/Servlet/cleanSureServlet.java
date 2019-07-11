@@ -28,6 +28,6 @@ public class cleanSureServlet extends HttpServlet {
             System.out.println(room_no);
         checkinDao.updateRoomState_clean(room_no);
 
-        request.getRequestDispatcher("employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp?cleanSure='cleanSure'").forward(request, response);
     }
 }

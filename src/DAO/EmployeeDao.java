@@ -16,7 +16,7 @@ import BEAN.*;
  * @author dell
  *
  */
-public class EmployeeDao {
+public class EmployeeDao extends BaseDao{
 
 	/**
 	 * @param args
@@ -53,7 +53,6 @@ public static List<Employee> ShowEmployee(){
 			DBHelper.closeConnection(c, s, rs);
 			
 		} catch (Exception e) {
-			System.out.println("showEmployee()锟斤拷锟斤拷锟斤拷锟斤拷");
 			e.printStackTrace();
 		}
 		return employees;
@@ -182,7 +181,6 @@ public static List<Employee> DisplayEmployee(){
 		DBHelper.closeConnection(c, s, rs);
 		
 	} catch (Exception e) {
-		System.out.println("showEmployee()锟斤拷锟斤拷锟斤拷锟斤拷");
 		e.printStackTrace();
 	}
 	return employees;
@@ -191,7 +189,14 @@ public static List<Employee> DisplayEmployee(){
 
 
 
-
+	public ResultSet searchEmployeeById(String username)
+	{
+		String str = "select * from employee where username = ?";
+		List<Object> params = new ArrayList<Object>();
+		params.add(username);
+		ResultSet rs = executeQuery(str,params);
+		return rs;
+	}
 
 
 

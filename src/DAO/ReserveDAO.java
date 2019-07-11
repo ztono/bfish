@@ -10,6 +10,16 @@ public class ReserveDAO extends DAO.BaseDao {
     public ReserveDAO() {
     }
 
+    public int addReserve(Reserve reserve) {
+        String update = "insert reserve (client_no, room_no, orderarrivedate, orderleavedate) values (?,?,?,?)";
+        List<Object> params = new ArrayList<Object>();
+        params.add(reserve.getClient_no());
+        params.add(reserve.getRoom_no());
+        params.add(reserve.getArr_date());
+        params.add(reserve.getLea_date());
+        return executeUpdate(update, params);
+    }
+
     /**
      * 查找所有预定
      * @return ResultSet

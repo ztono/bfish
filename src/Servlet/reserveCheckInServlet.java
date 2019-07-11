@@ -42,28 +42,22 @@ public class reserveCheckInServlet extends HttpServlet {
                 rs.next();
                 ReserveShow re = new ReserveShow();
                 re.setReserve_no(rs.getInt("reserve_no"));
-                re.setRoom_id(rs.getString("room_id"));
-                re.setRoom_type(rs.getString("room_type"));
-                re.setRoom_price(rs.getString("room_price"));
-                re.setRoom_state(rs.getString("room_state"));
+               // re.setRoom_id(rs.getString("room_id"));
+               // re.setRoom_type(rs.getString("room_type"));
+              //  re.setRoom_price(rs.getString("room_price"));
+             //   re.setRoom_state(rs.getString("room_state"));
                 re.setClient_id(rs.getString("idcard"));
-                re.setClien_name(rs.getString("username"));
+                re.setClient_name(rs.getString("username"));
                 re.setArr_date(rs.getString("orderarrivedate"));
                 re.setLea_date(rs.getString("orderleavedate"));
+                re.setClient_tele(rs.getString("telephone"));
                 rslist.add(re);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-
             request.getSession().setAttribute("searchList",rslist);
-            request.getRequestDispatcher("employee.jsp").forward(request, response);
-
-
+            request.getRequestDispatcher("employee.jsp?searchReserve='serR'").forward(request, response);
         }
-
-
-
-
 
 }

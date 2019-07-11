@@ -48,10 +48,15 @@ public class loginServlet extends HttpServlet {
             String name = login.getEName(email);
             String staff_no=login.getEno(email);
             if(login.existmanager(email)){
-                if(password.equals(login.getEPasswrod(email)))
-                    request.getSession().setAttribute("id",name);
-                    request.getSession().setAttribute("staff",staff_no);
-                request.getRequestDispatcher("manager.jsp").forward(request, response);
+                if(password.equals(login.getEPasswrod(email))) {
+                    request.getSession().setAttribute("id", name);
+                    request.getSession().setAttribute("staff", staff_no);
+                    request.getRequestDispatcher("manager.jsp").forward(request, response);
+                }
+                else {
+                    request.getSession().setAttribute("message", "密码错误");
+                    response.sendRedirect("/login.jsp");
+                }
             }
             else {
                 if (password.equals(login.getEPasswrod(email))) {

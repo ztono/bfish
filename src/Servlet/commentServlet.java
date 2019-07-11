@@ -37,9 +37,9 @@ public class commentServlet extends HttpServlet{
             ResultSet rs;
             rs = chindao.SearchScoreByOpr(operator_name);
 
-//            /* 求平均值 */
-//            int num=0;
-//            int average =0;
+            /* 求平均值 */
+            int num=0;
+            int average =0;
 //            while(true)
 //            {
 //                try {
@@ -52,30 +52,35 @@ public class commentServlet extends HttpServlet{
 //
 //            }
 //            average = average/num;
-//           request.setAttribute("average",average);
 
-//              /*返回表格*/
-//            List<Checkin> commentList = new ArrayList<Checkin>();
-//            while(true)
-//            {
-//                try {
-//                    if (!rs.next()) break;
-//                    Checkin ch = new Checkin();
-//                    ch.setRoom_no(rs.getString("room_no"));
-//                    ch.setClient_no(rs.getString("client_no"));
-//                    ch.setArrivedate(rs.getString("arrivadate"));
-//                    ch.setLeavedate(rs.getString("leavedate"));
-//                    ch.setSer_score(rs.getString("ser_score"));
-//                    commentList.add(ch);
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//            request.setAttribute("commentList",commentList);
-//
 
-            request.getRequestDispatcher("employee.jsp").forward(request, response);
+              /*返回表格*/
+            List<Checkin> commentList = new ArrayList<Checkin>();
+            while(true)
+            {
+                try {
+                    if (!rs.next()) break;
+                    num++;
+                    average = average + rs.getInt("ser_score");
+                    Checkin ch = new Checkin();
+                    ch.setRoom_no(rs.getString("room_no"));
+                    ch.setClient_no(rs.getString("client_no"));
+
+                    ch.setLeavedate(rs.getString("leavedate"));
+                    ch.setSer_score(rs.getString("ser_score"));
+                    commentList.add(ch);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            average=average/num;
+            request.getSession().setAttribute("average",average);
+            request.getSession().setAttribute("commentList",commentList);
+            request.getSession().setAttribute("commentflag","1");
+
+
+            request.getRequestDispatcher("manager.jsp").forward(request, response);
         }
 
 

@@ -18,15 +18,6 @@ public class Client {
 	public Client() {
 	}
 
-	public Client(String username, String password, String idcard, String email, String telephone, int client_no) {
-		this.username = username;
-		this.password = password;
-		this.idcard = idcard;
-		this.email = email;
-		this.telephone = telephone;
-		this.client_no = client_no;
-	}
-
 	public String getUsername() {
 		return username;
 	}

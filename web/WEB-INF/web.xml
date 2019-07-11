@@ -3,6 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <!--前台入住-->
     <servlet>
         <servlet-name>checkInServlet</servlet-name>
         <servlet-class>Servlet.checkInServlet</servlet-class>
@@ -12,6 +14,7 @@
         <url-pattern>/checkInServlet</url-pattern>
     </servlet-mapping>
 
+    <!--前台退房-->
     <servlet>
         <servlet-name>checkOutServlet</servlet-name>
         <servlet-class>Servlet.checkOutServlet</servlet-class>
@@ -21,6 +24,7 @@
         <url-pattern>/checkOutServlet</url-pattern>
     </servlet-mapping>
 
+    <!--前台换房-->
     <servlet>
         <servlet-name>changeRoomServlet</servlet-name>
         <servlet-class>Servlet.changeRoomServlet</servlet-class>
@@ -39,6 +43,7 @@
         <url-pattern>/cleanSureServlet</url-pattern>
     </servlet-mapping>
 
+    <!--前台查找空房间-->
     <servlet>
         <servlet-name>searchRoomServlet</servlet-name>
         <servlet-class>Servlet.searchRoomServlet</servlet-class>
@@ -47,6 +52,8 @@
         <servlet-name>searchRoomServlet</servlet-name>
         <url-pattern>/searchRoomServlet</url-pattern>
     </servlet-mapping>
+
+    <!--前台预定-->
     <servlet>
         <servlet-name>employeeReserveServlet</servlet-name>
         <servlet-class>Servlet.employeeReserveServlet</servlet-class>
@@ -56,6 +63,26 @@
         <url-pattern>/employeeReserveServlet</url-pattern>
     </servlet-mapping>
 
+    <!--前台查询预定-->
+    <servlet>
+        <servlet-name>reserveCheckInServlet</servlet-name>
+        <servlet-class>Servlet.reserveCheckInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reserveCheckInServlet</servlet-name>
+        <url-pattern>/reserveCheckInServlet</url-pattern>
+    </servlet-mapping>
+
+
+<!--    <servlet>-->
+<!--        <servlet-name>reserveSearchServlet</servlet-name>-->
+<!--        <servlet-class>Servlet.reserveSearchServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>reserveSearchServlet</servlet-name>-->
+<!--        <url-pattern>/reserveSearchServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>Servlet.loginServlet</servlet-class>
@@ -63,6 +90,15 @@
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showServlet</servlet-name>
+        <servlet-class>Servlet.showServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showServlet</servlet-name>
+        <url-pattern>/showServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -101,8 +137,24 @@
         <url-pattern>/editroomServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>addClientServlet</servlet-name>
+        <servlet-class>Servlet.addClientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addClientServlet</servlet-name>
+        <url-pattern>/addClientServlet</url-pattern>
+    </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>commentServlet</servlet-name>
+        <servlet-class>Servlet.commentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>commentServlet</servlet-name>
+        <url-pattern>/commentServlet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>adminloginServlet</servlet-name>
@@ -197,6 +249,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Sign3</servlet-name>
+        <servlet-class>Servlet.Sign3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign3</servlet-name>
+        <url-pattern>/sign3.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sign4</servlet-name>
+        <servlet-class>Servlet.Sign4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign4</servlet-name>
+        <url-pattern>/sign4.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>lookincomeServlet</servlet-name>
         <servlet-class>Servlet.lookincomeServlet</servlet-class>
     </servlet>
@@ -205,6 +275,14 @@
         <url-pattern>/lookincomeServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>lookincomeServlet2</servlet-name>
+        <servlet-class>Servlet.lookincomeServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lookincomeServlet2</servlet-name>
+        <url-pattern>/lookincomeServlet2</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>
@@ -217,8 +295,23 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>queryServlet</servlet-name>
+        <servlet-class>Servlet.QueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>queryServlet</servlet-name>
+        <url-pattern>/queryServlet</url-pattern>
+    </servlet-mapping>
 
 
-
+    <servlet>
+        <servlet-name>reserveServlet</servlet-name>
+        <servlet-class>Servlet.ReserveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reserveServlet</servlet-name>
+        <url-pattern>/reserveServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
 

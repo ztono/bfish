@@ -2,6 +2,8 @@ package qa;
 
 //import com.alibaba.fastjson.JSONObject;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,13 +41,12 @@ public class SmartQA {
             while ((inputLine = br.readLine()) != null) {
                 urlResult.append(inputLine);
             }
-            System.out.println(urlResult);
-//            JSONObject jsonObject = (JSONObject) JSONObject.parse(urlResult.toString());
-//            System.out.println(jsonObject.getJSONObject("topScoringIntent").get("intent").toString());
-//            if (Float.valueOf(jsonObject.getJSONObject("topScoringIntent").get("score").toString()) < 0.6) {
-//                return "";
-//            }
-//            return jsonObject.getJSONObject("topScoringIntent").get("intent").toString();
+            JSONObject jsonObject = (JSONObject) JSONObject.parse(urlResult.toString());
+            System.out.println(jsonObject.getJSONObject("topScoringIntent").get("intent").toString());
+            if (Float.parseFloat(jsonObject.getJSONObject("topScoringIntent").get("score").toString()) < 0.6) {
+                return "";
+            }
+            return jsonObject.getJSONObject("topScoringIntent").get("intent").toString();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,8 +54,4 @@ public class SmartQA {
         return null;
     }
 
-//    public static void main(String[] args) {
-//        SmartQA smartQA = new SmartQA();
-//        System.out.println(smartQA.getResult("宾馆怎么去"));
-//    }
 }

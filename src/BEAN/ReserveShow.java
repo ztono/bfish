@@ -3,16 +3,25 @@ package BEAN;
 public class ReserveShow {
     private int reserve_no;
     private String client_id;
-    private String clien_name;
+    private String client_name;
     private String room_id;
     private String room_type;
     private String room_price;
     private String room_state;
     private String arr_date;
     private String lea_date;
+    private String client_tele;
 
 
     public ReserveShow() {
+    }
+
+    public String getClient_tele() {
+        return client_tele;
+    }
+
+    public void setClient_tele(String client_tele) {
+        this.client_tele = client_tele;
     }
 
     public String getRoom_state() {
@@ -55,12 +64,12 @@ public class ReserveShow {
         this.client_id = client_id;
     }
 
-    public String getClien_name() {
-        return clien_name;
+    public String getClient_name() {
+        return client_name;
     }
 
-    public void setClien_name(String clien_name) {
-        this.clien_name = clien_name;
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
     }
 
     public String getRoom_id() {

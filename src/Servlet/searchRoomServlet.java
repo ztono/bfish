@@ -31,6 +31,6 @@ public class searchRoomServlet extends HttpServlet {
 
         request.getSession().setAttribute("roomList", roomList);
 
-        request.getRequestDispatcher("employee.jsp?ds='showEmptyRooms'").forward(request, response);
+        request.getRequestDispatcher("employee.jsp?showEmptyRoom='showEmptyR'").forward(request, response);
     }
 }
