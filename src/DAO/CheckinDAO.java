@@ -323,14 +323,6 @@ public class CheckinDAO extends DAO.BaseDao {
      * @return
      */
 
-    public ResultSet SearchReserveById(String id,String arrive_date)
-    {
-        String sql = "select * from reserve,client,room where reserve.client_no=client.client_no and room.room_id=reserve.room_no and client.idcard= ? and reserve.orderarrivedate = ?";
-        List<Object> params = new ArrayList<Object>();
-        params.add(id);
-        params.add(arrive_date);
-        ResultSet rs =executeQuery(sql, params);
-        return rs;
-    }
+
 
 }

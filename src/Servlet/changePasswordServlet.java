@@ -24,42 +24,39 @@ public class changePasswordServlet extends HttpServlet {
         System.out.println("sss");
         LoginDAO login = new LoginDAO();
 
-        String email = request.getParameter("email");
-        String  password = request.getParameter("password");
+        String email = (String) request.getSession().getAttribute("clientEmail");
+        String  password1 = request.getParameter("password1");
+        String  password2 = request.getParameter("password2");
         String name = login.getName(email);
-        if(login.existClient(email)){
-            if(password.equals(login.getPasswrod(email))) {
-                request.getSession().setAttribute("id", name);
-                request.getRequestDispatcher("user.jsp").forward(request, response);
-
+        request.getSession().removeAttribute("message3");
+        request.getSession().removeAttribute("message");
+            if(password1.equals(login.getPasswrod(email))) {
+                if(password1.equals(password2)){
+                    request.getSession().setAttribute("message3", "新密码和旧密码相同");
+                    response.sendRedirect("/change.jsp");
+                }
+                else {
+                    request.getSession().removeAttribute("message3");
+                    request.getSession().removeAttribute("message");
+                    request.getSession().removeAttribute("clientEmail");
+                    request.getSession().removeAttribute("id");
+                    request.getSession().setAttribute("message4","修改成功");
+                    login.ChangePassword(email, password2);
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                }
             }
             else {
-                request.getSession().setAttribute("message", "密码错误");
-                response.sendRedirect("/login.jsp");
-            }
-        }
-        else if(login.existEmployee(email)){
-            if(password.equals(login.getEPasswrod(email))) {
-                request.getSession().setAttribute("id", name);
-                request.getRequestDispatcher("employee.jsp").forward(request, response);
-
-            }
-            else {
-                request.getSession().setAttribute("message", "密码错误");
-                response.sendRedirect("/login.jsp");
+                request.getSession().setAttribute("message3", "原密码错误");
+                response.sendRedirect("/change.jsp");
             }
 
 
 
 
         }
-        else {
-            request.getSession().setAttribute("message", "邮箱错误");
-            response.sendRedirect("/login.jsp");
 
-        }
        // request.getRequestDispatcher("user.jsp").forward(request, response);
 
 
-    }
+
 }

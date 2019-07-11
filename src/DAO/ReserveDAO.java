@@ -33,7 +33,7 @@ public class ReserveDAO extends DAO.BaseDao {
         ResultSet rs = executeQuery(str,params);
         return rs;
     }
-    public ResultSet searchReserveByNo(int room_no)  {
+    public ResultSet searchReserveByNo(String room_no)  {
         String str ="select * from reserve where room_no = ?";
         List<Object> params = new ArrayList<Object>();
         params.add(room_no);

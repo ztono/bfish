@@ -42,7 +42,7 @@ public class ReserveServlet extends HttpServlet {
         ReserveDAO reserveDAO = new ReserveDAO();
         System.out.println(roomType);
         boolean flag = true;
-        int roomId = -1;
+        String roomId = "-1";
         int roomNo = -1;
 
         ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
@@ -52,14 +52,15 @@ public class ReserveServlet extends HttpServlet {
                 if (!rs1.next()) {
                     break;
                 }
-                roomId = rs1.getInt("room_id");
+                roomId = rs1.getString("room_id");
                 roomNo = rs1.getInt("room_no");
-                ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
+                ResultSet rs2 = reserveDAO.searchReserveByNo(roomId);
                 while (true) {
                     try {
                         if (!rs2.next()) {break;}
                         if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
                             flag = false;
+                            System.out.println("conflict");
                             break;
                         }
                     } catch (SQLException e) {
@@ -74,6 +75,11 @@ public class ReserveServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        PrintWriter printWriter = response.getWriter();
+        if (!flag) {
+            printWriter.write("order fail");
+            return;
+        }
 
         HttpSession httpSession = request.getSession();
 
@@ -81,18 +87,13 @@ public class ReserveServlet extends HttpServlet {
         ClientDao clientDao = new ClientDao();
         int clientId = clientDao.searchClientByEmailTrue(email);
         System.out.println(clientId);
-        System.out.println("reached");
         Reserve re = new Reserve(clientId, roomId, arrDateStr, leaveDatestr);
         int is = reserveDAO.reserveRoom(re);
         if (is != 0) {
-            System.out.println("order suceess");
-            System.out.println(roomId);
+            printWriter.write("order suceess");
         } else {
-            System.out.println("order fail");
+            printWriter.write("order fail");
         }
-
-        PrintWriter printWriter = response.getWriter();
-        printWriter.write("result");
     }
 
 
