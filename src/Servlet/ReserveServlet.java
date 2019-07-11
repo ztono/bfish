@@ -54,12 +54,13 @@ public class ReserveServlet extends HttpServlet {
                 }
                 roomId = rs1.getString("room_id");
                 roomNo = rs1.getInt("room_no");
-                ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
+                ResultSet rs2 = reserveDAO.searchReserveByNo(roomId);
                 while (true) {
                     try {
                         if (!rs2.next()) {break;}
                         if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
                             flag = false;
+                            System.out.println("conflict");
                             break;
                         }
                     } catch (SQLException e) {
@@ -75,7 +76,7 @@ public class ReserveServlet extends HttpServlet {
             }
         }
         PrintWriter printWriter = response.getWriter();
-        if (flag == false) {
+        if (!flag) {
             printWriter.write("order fail");
             return;
         }
