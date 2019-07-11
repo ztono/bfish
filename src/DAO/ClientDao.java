@@ -32,6 +32,15 @@ public class ClientDao extends DAO.BaseDao{
         return rs;
     }
 
+    public ResultSet returnClient_No(String client_id)
+    {
+        String str = "select client_no from client where idcard = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(client_id);
+        ResultSet rs = executeQuery(str,params);
+        return rs;
+    }
+
     public int searchClientByEmail(String id)
     {
         String str = "select * from client where email = ?";
@@ -75,6 +84,7 @@ public class ClientDao extends DAO.BaseDao{
         params.add(client.getTelephone());
         return executeUpdate(update, params);
     }
+
     public static void deleteClient(String email) {
         String sql = "delete from client   where email='" + email + "'";
         System.out.println(sql);

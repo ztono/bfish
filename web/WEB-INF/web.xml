@@ -74,14 +74,14 @@
     </servlet-mapping>
 
 
-    <servlet>
-        <servlet-name>reserveSearchServlet</servlet-name>
-        <servlet-class>Servlet.reserveSearchServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>reserveSearchServlet</servlet-name>
-        <url-pattern>/reserveSearchServlet</url-pattern>
-    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>reserveSearchServlet</servlet-name>-->
+<!--        <servlet-class>Servlet.reserveSearchServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>reserveSearchServlet</servlet-name>-->
+<!--        <url-pattern>/reserveSearchServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
 
     <servlet>
         <servlet-name>loginServlet</servlet-name>
@@ -249,6 +249,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Sign3</servlet-name>
+        <servlet-class>Servlet.Sign3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign3</servlet-name>
+        <url-pattern>/sign3.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sign4</servlet-name>
+        <servlet-class>Servlet.Sign4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign4</servlet-name>
+        <url-pattern>/sign4.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>lookincomeServlet</servlet-name>
         <servlet-class>Servlet.lookincomeServlet</servlet-class>
     </servlet>
@@ -304,7 +322,7 @@
         <servlet-name>reserveServlet</servlet-name>
         <url-pattern>/reserveServlet</url-pattern>
     </servlet-mapping>
-    
+
     <servlet>
         <servlet-name>changePasswordServlet</servlet-name>
         <servlet-class>Servlet.changePasswordServlet</servlet-class>

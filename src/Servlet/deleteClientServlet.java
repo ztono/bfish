@@ -24,6 +24,6 @@ public class deleteClientServlet extends HttpServlet {
         ClientDao clientdao = new ClientDao();
         String email = request.getParameter("email1");
         clientdao.deleteClient(email);
-        request.getRequestDispatcher("employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp?delClient='delClient'").forward(request, response);
     }
 }

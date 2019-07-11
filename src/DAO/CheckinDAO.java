@@ -18,11 +18,12 @@ public class CheckinDAO extends DAO.BaseDao {
     public CheckinDAO() {
     }
 
-    public int addCheckin(Checkin checkin){
-        String sql = "insert checkin (client_no, room_no, arrivedate) values (?,?,sysdate())";
+    public int addCheckin(Checkin checkin, String operator_id){
+        String sql = "insert checkin (client_no, room_no,operator_id, arrivedate) values (?,?,?,sysdate())";
         List<Object> params = new ArrayList<Object>();
         params.add(checkin.getClient_no());
         params.add(checkin.getRoom_no());
+        params.add(operator_id);
         return executeUpdate(sql, params);
     }
 
@@ -74,6 +75,25 @@ public class CheckinDAO extends DAO.BaseDao {
         return executeUpdate(update, params);
     }
 
+    public int reserveRoom(int client_no,int room_no,int during)
+    {
+        String str = "insert reserve(client_no,room_no,orderarrivedate,orderleavedate)values(?,?,sysdate(),(sysdate() + ?))";
+        List<Object> params = new ArrayList<Object>();
+        params.add(client_no);
+        params.add(room_no);
+        params.add(during);
+        return executeUpdate(str, params);
+    }
+
+    public ResultSet SearchIsRoom(String room_id)
+    {
+        String str = "select * from room where room_id = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(room_id);
+        ResultSet rs = executeQuery(str,params);
+        return rs;
+    }
+
     /**
      * 根据操作员查找评分
      * @param operator_name
@@ -97,7 +117,7 @@ public class CheckinDAO extends DAO.BaseDao {
 
     public ResultSet SearchReserveById(String id,String arrive_date)
     {
-        String sql = "select * from reserve,client,room where reserve.client_no=client.client_no and room.room_no=reserve.room_no and client.idcard= ? and reserve.orderarrivedate = ?";
+        String sql = "select * from reserve,client where reserve.client_no=client.client_no and client.idcard= ? and reserve.orderarrivedate = ?";
         List<Object> params = new ArrayList<Object>();
         params.add(id);
         params.add(arrive_date);
@@ -315,14 +335,6 @@ public class CheckinDAO extends DAO.BaseDao {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
         return fmt.format(date1).equals(fmt.format(date2));
     }
-
-    /**
-     * 查找预定
-     * @param id
-     * @param arrive_date
-     * @return
-     */
-
 
 
 }

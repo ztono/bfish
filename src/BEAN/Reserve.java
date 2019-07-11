@@ -3,7 +3,7 @@ package BEAN;
 public class Reserve {
         private int reserve_no;
         private int client_no;
-        private int room_no;
+        private String room_no;
         private String arr_date;
         private String lea_date;
 
@@ -11,7 +11,7 @@ public class Reserve {
     {
 
     }
-    public Reserve( int client_no, int room_no, String arr_date, String lea_date) {
+    public Reserve( int client_no, String room_no, String arr_date, String lea_date) {
 
         this.client_no = client_no;
         this.room_no = room_no;
@@ -35,11 +35,11 @@ public class Reserve {
         this.client_no = client_no;
     }
 
-    public int getRoom_no() {
+    public String getRoom_no() {
         return room_no;
     }
 
-    public void setRoom_no(int room_no) {
+    public void setRoom_no(String room_no) {
         this.room_no = room_no;
     }
 

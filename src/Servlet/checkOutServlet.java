@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet(name = "checkOutServlet")
 public class checkOutServlet extends HttpServlet {
@@ -27,9 +29,29 @@ public class checkOutServlet extends HttpServlet {
 
         String client_no = request.getParameter("client_no");
         String room_no = request.getParameter("room_no");
-        String isdamaged = request.getParameter("isdamaged");
+        String flag = request.getParameter("isdamaged");
+        String isdamaged;
         String exp_score = request.getParameter("exp_score");
         String ser_score = request.getParameter("ser_score");
+        if (flag.equals("1")){
+            isdamaged = "YES";
+        }else{
+            isdamaged = "NO";
+        }
+
+        ResultSet rs1 =checkindao.SearchIsRoom(room_no);
+
+        try {
+            if(!rs1.next())
+            {
+                //如果房间不存在错误信息
+                System.out.println("room wrong");
+                request.getRequestDispatcher("employee.jsp?room_er2=12").forward(request, response);
+                return ;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         checkout.setClient_no(client_no);
         checkout.setRoom_no(room_no);
@@ -40,6 +62,6 @@ public class checkOutServlet extends HttpServlet {
         checkindao.addCheckout(checkout);
         checkindao.updateRoomState_leave(room_no); //更新房间状态
        // response.sendRedirect("employee.jsp?#checkout");
-     request.getRequestDispatcher("employee.jsp?ds='55'").forward(request, response);
+     request.getRequestDispatcher("employee.jsp?checkout='55'").forward(request, response);
     }
 }

@@ -36,6 +36,6 @@ public class addClientServlet extends HttpServlet {
         client.setEmail(email);
         client.setTelephone(telephone);
         clientdao.addClient(client);
-        request.getRequestDispatcher("employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp?addClient='addClient'").forward(request, response);
     }
 }
