@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>登录页面</title>
+	<title>Login Form by Tooplate</title>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min1.css">
@@ -22,33 +22,25 @@
 	<div class="row tm-register-row tm-mb-35">
 		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-login-l">
 			<%
-				Object message = request.getSession().getAttribute("message");
-				Object message1 = request.getSession().getAttribute("message4");
+				Object message = request.getSession().getAttribute("message3");
 				if(message!=null && !"".equals(message)){
 
 			%>
 			<script type="text/javascript">
 				alert("<%=message%>");
 			</script>
-			  <%}
-				if(message1!=null && !"".equals(message1)){
-			  %>
-			<script type="text/javascript">
-				alert("<%=message1%>");
-			</script>
-			<%}%>
-
-			<form action="loginServlet" method="post" class="tm-bg-black p-5 h-100">
+			  <%} %>
+			<form action="changePasswordServlet" method="post" class="tm-bg-black p-5 h-100">
 				<div class="input-field">
-					<input placeholder="Email" id="email" name="email" type="text" class="validate" >
+					<input placeholder="原密码" id="email" name="password1" type="password" class="validate" >
 				</div>
 				<div class="input-field mb-5">
-					<input placeholder="Password" id="password" name="password" type="password" class="validate" onclick="check()">
+					<input placeholder="新密码" id="password" name="password2" type="password" class="validate" >
 				</div>
 				<div class="tm-flex-lr">
 <%--					<a href="#" class="white-text small">Forgot Password?</a>--%>
-					<button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">登录</button>
-					<a href="logon.jsp" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">注册</a>
+					<button type="submit" class="waves-effect btn-large btn-large-white px-4 black-text rounded-0">确定</button>
+
 				</div>
 <%--				<div class="row">--%>
 <%--					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ml-auto mr-0 text-center">--%>
@@ -82,32 +74,7 @@
 
 <script src="js/jquery-3.2.1.slim.min.js"></script>
 <script src="js/materialize.min.js"></script>
-<script>
-	$(document).ready(function () {
-		$('select').formSelect();
-	});
-    function check()
-    {
 
-        var email=document.getElementById("email").value;
-
-//
-        if(email=="")
-        {
-            alert("电子邮件不能为空");
-            return false;
-        }
-        else
-        {
-            reg=/^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi;
-            if(!reg.test(email))
-            {
-                alert("非法的电子邮件");
-                return false;
-            }
-        }
-    }
-</script>
 </body>
 
 </html>

@@ -66,14 +66,22 @@
     function jump(){
         window.location.href="http://localhost:8080/login.jsp";
     }
+    function jump3(){
+
+        window.location.href="http://localhost:8080/information.jsp";
+    }
     function jump1(){
-        window.location.href="http://localhost:8080/login.jsp";
+        window.location.href="http://localhost:8080/loading.jsp";
+    }
+    function jump2(){
+        window.location.href="http://localhost:8080/change.jsp";
     }
 </script>
 <script language="javascript" type="text/javascript">
 
     window.onload = function setValue() {
-        // document.getElementById("s1").innerHTML = "登录";
+       // document.getElementById("s1").innerHTML = "登录";
+
         var re = new XMLHttpRequest();
         //var ask_button = document.getElementById("qa_ask_button");
         //  ask_button.addEventListener('click', function (ev) {
@@ -92,7 +100,7 @@
 
                     var name1 = document.getElementById("s1");
                     name1.value = re.responseText;
-                    document.getElementById("s1").innerHTML = name1.value;
+                        document.getElementById("s1").innerHTML = name1.value;
                 }
             }
         }
@@ -134,6 +142,8 @@
 
                     </li>
                     <li class="header-top-contact">
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump3()">修改信息</button>
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump2()">修改密码</button>
                         <button type="button" class="btn btn-sm btn-green" onclick="jump1()">退出登录</button>
                     </li>
                 </ul>
