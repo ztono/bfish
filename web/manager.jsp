@@ -17,6 +17,16 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pagination.js"></script>
     <script>
+        function J_values(id) {
+            $("#employee_no").val(id);
+
+
+        }
+        function a()
+        {
+            document.form1.action="/judge1.do";
+            document.form1.submit();
+        }
 
         $(function() {
             $(".meun-item").click(function() {
@@ -106,6 +116,40 @@
 
 </script>
 <%}%>
+
+<%
+    String judge1flag=(String)request.getAttribute("judge1flag");
+    if(judge1flag!=null)
+        if(judge1flag.equals("1"))
+        {
+
+
+%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#taggle2").click();
+        judge1flag="0";
+    });
+
+</script>
+<%}%>
+<%
+    String judge2flag=(String)request.getAttribute("judge2flag");
+    if(judge2flag!=null)
+        if(judge2flag.equals("1"))
+        {
+
+
+%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#taggle3").click();
+        judge2flag="0";
+    });
+
+</script>
+<%}%>
+
 <div id="wrap">
     <!-- 左侧菜单栏目块 -->
     <div class="leftMeun" id="leftMeun">
@@ -134,13 +178,14 @@
             String flag = (String)request.getAttribute("flag");
         %>
         <Script language="javascript">
-            <% if (flag=="1"){ %>alert('上班打卡成功')<%}
-else if (flag=="-1"){ %>alert('您已打卡')<%}
-else if (flag=="2"){ %>alert('下班打卡成功')<%}
-else if (flag=="-2"){ %>alert('您已打卡')<%}
-else if (flag=="3"){ %>alert('上错误')<%}
-else if (flag=="-3"){ %>alert('下错误')<%}
-%>
+
+            <% if (flag!=null){if (flag.equals("1")){ %>alert('上班打卡成功'); flag="0";<% }
+else if (flag=="-1"){ %>alert('您已打卡');  flag="0";<%}
+else if (flag=="2"){ %>alert('下班打卡成功');  flag="0";<%}
+else if (flag=="-2"){ %>alert('您已打卡'); flag="0";<%}
+else if (flag=="3"){ %>alert('上错误') ;flag="0";<%}
+else if (flag=="-3"){ %>alert('下错误'); flag="0";<%}
+}%>
         </Script>
 
 
@@ -149,8 +194,8 @@ else if (flag=="-3"){ %>alert('下错误')<%}
 
         <div class="meun-item" href="#displayemployee" aria-controls="displayemployee" role="tab" data-toggle="tab"><img src="images/icon_char_grey.png">查看雇员</div>
         <div class="meun-item" href="#showcom" aria-controls="showcom" role="tab" data-toggle="tab" id="taggle4"><img src="images/icon_char_grey.png">查看客户评价</div>
-        <div class="meun-item" href=""  aria-controls="displayemployee" role="tab" data-toggle="tab" id="taggle1"><img src="images/icon_char_grey.png">每日绩效</div>
-        <div class="meun-item" href="#modroom" aria-controls="modroom" role="tab" data-toggle="tab" ><img src="images/icon_char_grey.png">查看绩效</div>
+        <div class="meun-item" href="#judge" aria-controls="judge" role="tab" data-toggle="tab" id="taggle2" ><img src="images/icon_char_grey.png">绩效打分</div>
+        <div class="meun-item" href="#checkjudge" aria-controls="checkjudge" role="tab" data-toggle="tab"  id="taggle3" ><img src="images/icon_char_grey.png">查看绩效</div>
         <div class="meun-item" href="#lookincome" aria-controls="lookincome" role="tab" data-toggle="tab" id="taggle6"><img src="images/icon_char_grey.png">查看月收入</div>
 
     </div>
@@ -379,6 +424,152 @@ else if (flag=="-3"){ %>alert('下错误')<%}
 
                 </div>
             </div>
+
+            <div role="tabpanel" class="tab-pane" id="judge">
+                <div class="container">
+                    <div class="page-header">
+                        <h4 align="center">绩效打分</h4>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>员工号</th>
+                            <th>员工姓名</th>
+                            <th>评分</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            List<JudgeDay> es =JudgeDao.getemployees();
+
+
+                            for(JudgeDay jd: es)
+                            {
+
+                        %>
+                        <tr>
+                            <td ><%= jd.getEmployee_no() %></td>
+                            <td ><%= jd.getEmployee_name()%></td>
+                            <td ><%= jd.getPerformance()%></td>
+                            <td> <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myJudge" onclick="J_values(<%=jd.getEmployee_no()%>)" > change</button></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+
+
+
+                        </tbody>
+                    </table>
+                    <%--                    <%--%>
+                    <%--                        String flag = (String)request.getAttribute("flag");--%>
+                    <%--                    %>--%>
+                    <%--                    <Script language="javascript">--%>
+                    <%--                        <% if (flag=="1"){ %>alert('错误')<%}--%>
+                    <%--                        else if (flag=="-1"){ %>alert('修改成功')<%}--%>
+                    <%--                        %>--%>
+                    <%--                    </Script>--%>
+                    <div class="modal fade" id="myJudge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="form-group ">
+                                        <form action="judge1.do">
+                                            <table>
+
+                                                <tr>
+                                                    <td width="100" height="50" font size="20px">评分</td>
+
+                                                    <td><input type="text" name="performance" id="performance" ></td></tr>
+
+                                                <input type="hidden" name="employee_no" id="employee_no">
+                                                <tr> <td><input type="submit" value="SUBMIT"></td></tr>
+
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查看绩效 -->
+            <div role="tabpanel" class="tab-pane" id="checkjudge">
+                <div class="container">
+                    <div class="page-header">
+                        <h4 align="center">查看绩效</h4>
+                    </div>
+                    <form name="form1" action="judge1.do">
+                        <%--                        年：<input type = text name="y" id="y">--%>
+                        <%--                        月：<input type = text name="m" id="m">--%>
+                        <%--                        日：<input type = text name="d" id="d">--%>
+                        <%--                        <select id="y" name="y" onchange="funy(this)"></select>--%>
+                        <%--                        <select id="m" name="m" onchange="funm(this)"></select>--%>
+                        <%--                        <select id="d" name="d"></select>--%>
+                        <select name="y" class="text2">
+                            <option value="0" selected>请选择年份</option>
+                            <option value="2019">2019年</option>
+                            <option value="2018">2018年</option>
+                            <option value="2017">2017年</option>
+                            <option value="2016">2016年</option>
+                        </select>
+                        <select  name="m" class="text2">
+                            <option value="0" selected>请选择月份</option>
+                            <option value="1">1月</option>
+                            <option value="2">2月</option>
+                            <option value="3">3月</option>
+                            <option value="4">4月</option>
+                            <option value="5">5月</option>
+                            <option value="6">6月</option>
+                            <option value="7">7月</option>
+                            <option value="8">8月</option>
+                            <option value="9">9月</option>
+                            <option value="10">10月</option>
+                            <option value="11">11月</option>
+                            <option value="12">12月</option>
+
+                        </select>
+                        <INPUT Type="submit"  Value="查找" >
+                    </form>
+
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>员工号</th>
+                            <th>员工姓名</th>
+                            <th>员工绩效</th>
+                            <th>评分时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            List<JudgeDay> jds =(List<JudgeDay>)request.getAttribute("jds");
+                            if(jds!=null){
+                                for(JudgeDay jd: jds)
+                                {
+                        %>
+                        <tr>
+                            <td ><%= jd.getEmployee_no() %></td>
+                            <td ><%= jd.getEmployee_name()%></td>
+                            <td ><%= jd.getPerformance()%></td>
+                            <td ><%= jd.getTime().substring(0,10)%></td>
+                        </tr>
+                        <%
+                                }
+                            }
+                        %>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/jquery.nouislider.js"></script>
 
         </div>
