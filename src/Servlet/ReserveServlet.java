@@ -44,7 +44,7 @@ public class ReserveServlet extends HttpServlet {
         boolean flag = true;
         String roomId = "-1";
         int roomNo = -1;
-        PrintWriter printWriter = response.getWriter();
+
         ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
         System.out.println(rs1);
         while (true) {
@@ -67,14 +67,19 @@ public class ReserveServlet extends HttpServlet {
                     }
                 }
                 if (flag == true) {
-                    printWriter.write("order fail");
-                    return;
+                    break;
                 }
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+        PrintWriter printWriter = response.getWriter();
+        if (flag == false) {
+            printWriter.write("order fail");
+            return;
+        }
+
         HttpSession httpSession = request.getSession();
 
         String email = (String) httpSession.getAttribute("clientEmail");
@@ -88,9 +93,6 @@ public class ReserveServlet extends HttpServlet {
         } else {
             printWriter.write("order fail");
         }
-
-
-        printWriter.write("result");
     }
 
 
