@@ -86,7 +86,7 @@
         <div id="personInfor">
             <p id="userName">亲爱的用户<%= (String) request.getSession().getAttribute("id") %>，欢迎您！</p>
             <div role="group" aria-label="...">
-                <a href="login.jsp"><button type="button" class="btn btn-link btn-xs" style="margin-left: 10px;width: 100px;" onclick="logout()">点击退出登录</button></a>
+                <a href="loading.jsp"><button type="button" class="btn btn-link btn-xs" style="margin-left: 10px;width: 100px;" >点击退出登录</button></a>
                 <div>
                     <form class="form-inline" action="sign3.do" method="post" style="float: left">
                         <input type="hidden" name="staff_no" id="staff_no" value="<%=(String) request.getSession().getAttribute("staff")%>">
