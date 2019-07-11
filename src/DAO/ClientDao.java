@@ -58,6 +58,22 @@ public class ClientDao extends DAO.BaseDao{
         return -1;
     }
 
+    public int searchClientByEmailTrue(String email)
+    {
+        String str = "select * from client where email = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(email);
+        ResultSet rs = executeQuery(str,params);
+        try {
+            rs.next();
+            return rs.getInt("client_no");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1;
+    }
+
     public int addClient(Client client) {
         String update = "insert client (username, password, idcard, email, telephone) values (?,?,?,?,?)";
         List<Object> params = new ArrayList<Object>();

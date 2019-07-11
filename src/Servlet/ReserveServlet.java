@@ -24,74 +24,77 @@ public class ReserveServlet extends HttpServlet {
         doPost(request, response);
     }
 
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        request.setCharacterEncoding("UTF-8");
-//        response.setCharacterEncoding("UTF-8");
-//        String roomType = request.getParameter("room_type");
-//        String arrDateStr = request.getParameter("arrive_date");
-//        String leaveDatestr = request.getParameter("leave_date");
-//        String name = request.getParameter("name");
-//        String idNo = request.getParameter("id");
-//        String phoneNum = request.getParameter("phone_number");
-//
-//        java.sql.Date arrDate = new java.sql.Date(strToDate(arrDateStr).getTime());
-//        java.sql.Date leaveDate = new java.sql.Date(strToDate(leaveDatestr).getTime());
-//
-//        ReserveDAO reserveDAO = new ReserveDAO();
-//        System.out.println(roomType);
-//        boolean flag = true;
-//        int roomId = -1;
-//        int roomNo = -1;
-//
-//        ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
-//        System.out.println(rs1);
-//        while (true) {
-//            try {
-//                if (!rs1.next()) {
-//                    break;
-//                }
-//                roomId = rs1.getInt("room_id");
-//                roomNo = rs1.getInt("room_no");
-//                ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
-//                while (true) {
-//                    try {
-//                        if (!rs2.next()) {break;}
-//                        if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
-//                            flag = false;
-//                            break;
-//                        }
-//                    } catch (SQLException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//                if (flag == true) {
-//                    break;
-//                }
-//
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        HttpSession httpSession = request.getSession();
-//
-//        String email = (String) httpSession.getAttribute("clientEmail");
-//        ClientDao clientDao = new ClientDao();
-//        int clientId = clientDao.searchClientByEmailTrue(email);
-//        Reserve re = new Reserve(clientId, roomId, arrDateStr, leaveDatestr);
-//        int is = reserveDAO.reserveRoom(re);
-//        if (is != 0) {
-//            System.out.println("order suceess");
-//            System.out.println(roomId);
-//        } else {
-//            System.out.println("order fail");
-//        }
-//
-//        PrintWriter printWriter = response.getWriter();
-//        printWriter.write("result");
-//    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String roomType = request.getParameter("room_type");
+        String arrDateStr = request.getParameter("arrive_date");
+        String leaveDatestr = request.getParameter("leave_date");
+        String name = request.getParameter("name");
+        String idNo = request.getParameter("id");
+        String phoneNum = request.getParameter("phone_number");
+
+        java.sql.Date arrDate = new java.sql.Date(strToDate(arrDateStr).getTime());
+        java.sql.Date leaveDate = new java.sql.Date(strToDate(leaveDatestr).getTime());
+
+        ReserveDAO reserveDAO = new ReserveDAO();
+        System.out.println(roomType);
+        boolean flag = true;
+        String roomId = "-1";
+        int roomNo = -1;
+
+        ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
+        System.out.println(rs1);
+        while (true) {
+            try {
+                if (!rs1.next()) {
+                    break;
+                }
+                roomId = rs1.getString("room_id");
+                roomNo = rs1.getInt("room_no");
+                ResultSet rs2 = reserveDAO.searchReserveByNo(roomId);
+                while (true) {
+                    try {
+                        if (!rs2.next()) {break;}
+                        if (!is_solt(arrDate, leaveDate, new java.sql.Date(rs2.getDate("orderarrivedate").getTime()), new java.sql.Date(rs2.getDate("orderleavedate").getTime()))) {
+                            flag = false;
+                            System.out.println("conflict");
+                            break;
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (flag == true) {
+                    break;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        PrintWriter printWriter = response.getWriter();
+        if (!flag) {
+            printWriter.write("order fail");
+            return;
+        }
+
+        HttpSession httpSession = request.getSession();
+
+        String email = (String) httpSession.getAttribute("clientEmail");
+        ClientDao clientDao = new ClientDao();
+        int clientId = clientDao.searchClientByEmailTrue(email);
+        System.out.println(clientId);
+        Reserve re = new Reserve(clientId, roomId, arrDateStr, leaveDatestr);
+        int is = reserveDAO.reserveRoom(re);
+        if (is != 0) {
+            printWriter.write("order suceess");
+        } else {
+            printWriter.write("order fail");
+        }
+    }
 
 
     public boolean is_solt(Date arr_a, Date lea_a, Date arr_b, Date lea_b) {

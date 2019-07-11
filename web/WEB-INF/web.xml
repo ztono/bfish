@@ -286,6 +286,15 @@
 
 
     <servlet>
+        <servlet-name>Judge1</servlet-name>
+        <servlet-class>Servlet.Judge1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Judge1</servlet-name>
+        <url-pattern>/judge1.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>smartQaServlet</servlet-name>
         <servlet-class>Servlet.SmartQaServlet</servlet-class>
     </servlet>
@@ -312,6 +321,15 @@
     <servlet-mapping>
         <servlet-name>reserveServlet</servlet-name>
         <url-pattern>/reserveServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>changePasswordServlet</servlet-name>
+        <servlet-class>Servlet.changePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changePasswordServlet</servlet-name>
+        <url-pattern>/changePasswordServlet</url-pattern>
     </servlet-mapping>
 </web-app>
 

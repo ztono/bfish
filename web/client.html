@@ -62,12 +62,97 @@
 <!--[if lte IE 9]>
 
 <![endif]-->
+<script>
+    function jump(){
+        window.location.href="http://localhost:8080/login.jsp";
+    }
+    function jump3(){
 
+        window.location.href="http://localhost:8080/information.jsp";
+    }
+    function jump1(){
+        window.location.href="http://localhost:8080/loading.jsp";
+    }
+    function jump2(){
+        window.location.href="http://localhost:8080/change.jsp";
+    }
+</script>
+<script language="javascript" type="text/javascript">
+
+    window.onload = function setValue() {
+       // document.getElementById("s1").innerHTML = "登录";
+
+        var re = new XMLHttpRequest();
+        //var ask_button = document.getElementById("qa_ask_button");
+        //  ask_button.addEventListener('click', function (ev) {
+        //  var user_qa_input_textarea = document.getElementById("ask_qa_textarea");
+        // var user_qa_input = user_qa_input_textarea.value;
+        var qa_url = "showServlet";
+        re.open("GET", qa_url, true);
+        re.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        re.send(null);
+        //alert("dd");
+        re.onreadystatechange = show_answer;
+        function show_answer() {
+            if (re.readyState === 4) {
+
+                if (re.status === 200) {
+
+                    var name1 = document.getElementById("s1");
+                    name1.value = re.responseText;
+                        document.getElementById("s1").innerHTML = name1.value;
+                }
+            }
+        }
+
+
+
+
+
+    }
+</script>
 <!--header-top start -->
 <header id="header-top" class="header-top">
+    <ul>
+        <li>
+            <div class="header-top-left">
+                <ul>
+                    <li class="select-opt">
+                        <select name="language" id="language">
+                            <option value="default">CN</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
 
+                    </li>
+                    <li class="select-opt">
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="head-responsive-right pull-right">
+            <div class="header-top-right">
+                <ul>
+
+                    <li class="header-top-contact">
+                        <div th:text="${session.id}"></div>
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump()">亲爱的用户
+                            <span  id="s1"> </span>，你好！
+                        </button>
+
+                    </li>
+                    <li class="header-top-contact">
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump3()">修改信息</button>
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump2()">修改密码</button>
+                        <button type="button" class="btn btn-sm btn-green" onclick="jump1()">退出登录</button>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
 
 </header><!--/.header-top-->
+
 <!--header-top end -->
 
 <!-- top-area Start -->
@@ -112,7 +197,7 @@
 <section id="home" class="welcome-hero">
     <div class="container">
         <div class="welcome-hero-txt">
-            <h2>最好的服务<br> 提供你所有需要 </h2>
+            <h2>最好的服务<br> 满足你所有需要 </h2>
             <p>
             </p>
         </div>
@@ -126,10 +211,21 @@
 <!--list-topics end-->
 
 <!--works start -->
-<section id="query" class="works">
+<section id="query" class="blog">
     <div class="container">
+        <div class="section-header">
+            <h2>选择日期，查看空闲房间数</h2>
+        </div>
         <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
             <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="id_card" class="col-xs-3 control-label">查询时间：</label>
+                    <div class="col-xs-8">
+                        <input type="date" name="id_card" class="form-control input-sm duiqi"
+                               id="query_date"
+                               placeholder="" value="2019-07-04">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="name" class="col-xs-3 control-label">单人间：</label>
                     <div class="col-xs-8">
@@ -155,13 +251,36 @@
                 </div>
                 <div class="form-group text-right">
                     <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
-                        <button class="btn btn-sm btn-primary" id="query_bottom">查询</button>
+                        <button class="btn btn-sm btn-primary" id="query_bottom" type="button">查询</button>
                     </div>
                 </div>
             </form>
         </div>
 
         <script type="text/javascript">
+            var query_xml_request=new XMLHttpRequest();
+            query_date_input=document.getElementById("query_date");
+
+            query_bottom=document.getElementById("query_bottom");
+            query_bottom.addEventListener("click",function (ev) {
+                query_date=query_date_input.value;
+                var query_url = "queryServlet?query_date=" + query_date;
+                query_xml_request.open("GET",query_url,true);
+                query_xml_request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                query_xml_request.send(null);
+                query_xml_request.onreadystatechange=function () {
+                    if(query_xml_request.readyState===4){
+                        if(query_xml_request.status===200){
+                            result_total = query_xml_request.responseText;
+                            numbers = result_total.split("|");
+                            document.getElementById("query_singleroom").value = numbers[0];
+                            document.getElementById("query_doubleroom").value = numbers[1];
+                            document.getElementById("query_bigbedroom").value = numbers[2];
+
+                        }
+                    }
+                }
+            })
         </script>
     </div><!--/.container-->
 
@@ -280,7 +399,7 @@
                     <div class="form-group text-right">
                         <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
                             <button class="btn btn-sm btn-primary" type="reset" id="reserve_reset">重置</button>
-                            <button type="submit" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
+                            <button type="button" class="btn btn-sm btn-green" id="reserve_submit">保 存</button>
                         </div>
                     </div>
                 </form>
@@ -314,10 +433,9 @@
         var reserve_xml_http_request = new XMLHttpRequest();
 
         function reserve_result() {
-            alert("ok1");
             if (reserve_xml_http_request.readyState === 4) {
                 if (reserve_xml_http_request.status === 200) {
-                    alert("ok");
+                    alert(reserve_xml_http_request.responseText);
                     window.location.href = "client.html";
                 }
             }
@@ -352,21 +470,18 @@
     <div class="container">
         <div class="subscribe-title text-center">
             <h2>
-                do you want to add your business listing with us?
+                联系我们
             </h2>
             <p>
-                Listrace offer you to list your business with us and we very much able to promote your Business.
+                期待您的来信！
             </p>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="subscription-input-group">
-                    <form action="#">
-                        <input type="email" class="subscription-input-form" placeholder="Enter your email here">
-                        <button class="appsLand-btn subscribe-btn" onclick="window.location.href='#'">
-                            creat account
-                        </button>
-                    </form>
+                    <h2>
+                        邮箱：nwpu@nwpu.gov.cn
+                    </h2>
                 </div>
             </div>
         </div>
@@ -376,49 +491,7 @@
 <!--subscription end -->
 
 <!--footer start-->
-<footer id="footer" class="footer">
-    <div class="container">
-        <div class="footer-menu">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="client.html">list<span>race</span></a>
-                    </div><!--/.navbar-header-->
-                </div>
-                <div class="col-sm-9">
-                    <ul class="footer-menu-item">
-                        <li class="scroll"><a href="#query">how it works</a></li>
-                        <li class="scroll"><a href="#smart_qa">explore</a></li>
-                        <li class="scroll"><a href="#ask_clean">review</a></li>
-                        <li class="scroll"><a href="#reserve">blog</a></li>
-                        <li class="scroll"><a href="#contact">contact</a></li>
-                        <li class=" scroll"><a href="#contact">my account</a></li>
-                    </ul><!--/.nav -->
-                </div>
-            </div>
-        </div>
-        <div class="hm-footer-copyright">
-            <div class="row">
-                <div class="col-sm-5">
-                    <p>
-                        &copy;copyright. designed and developed by themesine / More Templates <a
-                            href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a
-                            href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                    </p><!--/p-->
-                </div>
-                <div class="col-sm-7">
-                    <div class="footer-social">
-                        <span><i class="fa fa-phone"> +1  (222) 777 8888</i></span>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </div>
-                </div>
-            </div>
 
-        </div><!--/.hm-footer-copyright-->
-    </div><!--/.container-->
 
     <div id="scroll-Top">
         <div class="return-to-top">
