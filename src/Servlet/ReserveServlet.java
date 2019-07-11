@@ -42,9 +42,9 @@ public class ReserveServlet extends HttpServlet {
         ReserveDAO reserveDAO = new ReserveDAO();
         System.out.println(roomType);
         boolean flag = true;
-        int roomId = -1;
+        String roomId = "-1";
         int roomNo = -1;
-
+        PrintWriter printWriter = response.getWriter();
         ResultSet rs1 = reserveDAO.searchRoomByType(roomType);
         System.out.println(rs1);
         while (true) {
@@ -52,7 +52,7 @@ public class ReserveServlet extends HttpServlet {
                 if (!rs1.next()) {
                     break;
                 }
-                roomId = rs1.getInt("room_id");
+                roomId = rs1.getString("room_id");
                 roomNo = rs1.getInt("room_no");
                 ResultSet rs2 = reserveDAO.searchReserveByNo(roomNo);
                 while (true) {
@@ -67,31 +67,29 @@ public class ReserveServlet extends HttpServlet {
                     }
                 }
                 if (flag == true) {
-                    break;
+                    printWriter.write("order fail");
+                    return;
                 }
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
         HttpSession httpSession = request.getSession();
 
         String email = (String) httpSession.getAttribute("clientEmail");
         ClientDao clientDao = new ClientDao();
         int clientId = clientDao.searchClientByEmailTrue(email);
         System.out.println(clientId);
-        System.out.println("reached");
         Reserve re = new Reserve(clientId, roomId, arrDateStr, leaveDatestr);
         int is = reserveDAO.reserveRoom(re);
         if (is != 0) {
-            System.out.println("order suceess");
-            System.out.println(roomId);
+            printWriter.write("order suceess");
         } else {
-            System.out.println("order fail");
+            printWriter.write("order fail");
         }
 
-        PrintWriter printWriter = response.getWriter();
+
         printWriter.write("result");
     }
 
