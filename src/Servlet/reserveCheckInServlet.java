@@ -47,23 +47,17 @@ public class reserveCheckInServlet extends HttpServlet {
                 re.setRoom_price(rs.getString("room_price"));
                 re.setRoom_state(rs.getString("room_state"));
                 re.setClient_id(rs.getString("idcard"));
-                re.setClien_name(rs.getString("username"));
+                re.setClient_name(rs.getString("username"));
                 re.setArr_date(rs.getString("orderarrivedate"));
                 re.setLea_date(rs.getString("orderleavedate"));
+                re.setClient_tele(rs.getString("telephone"));
                 rslist.add(re);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-
             request.getSession().setAttribute("searchList",rslist);
-            request.getRequestDispatcher("employee.jsp").forward(request, response);
-
-
+            request.getRequestDispatcher("employee.jsp?searchReserve='serR'").forward(request, response);
         }
-
-
-
-
 
 }
