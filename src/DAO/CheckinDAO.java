@@ -35,7 +35,7 @@ public class CheckinDAO extends DAO.BaseDao {
     }
 
     public int addCheckout(Checkin checkout) {
-        String update = "update checkin set isdamaged=?, exp_score=?, ser_score=? where client_no = ? and room_no = ?;";
+        String update = "update checkin set isdamaged=?, exp_score=?, ser_score=? where client_no = ? and room_no = ? and leavedate = sysdate();";
         List<Object> params = new ArrayList<Object>();
         params.add(checkout.getIsdamaged());
         params.add(checkout.getExp_score());
@@ -93,6 +93,38 @@ public class CheckinDAO extends DAO.BaseDao {
         ResultSet rs = executeQuery(str,params);
         return rs;
     }
+
+
+    public ResultSet SearchIsRoom(String room_id,String client_no)
+    {
+        //System.out.println(room_id);
+        // System.out.println(client_no);   select * from checkin where leavedate = sysdate() and room_no = '303' and client_no = '131182199808266612';
+        String str = "select * from checkin where room_no = ? and client_no = ?";
+        List<Object> params = new ArrayList<Object>();
+        params.add(room_id);
+        params.add(client_no);
+        ResultSet rs = executeQuery(str,params);
+        return rs;
+    }
+
+    public ResultSet SearchIsRoom(String room_id,String client_no,String flag)
+    {
+        //System.out.println(room_id);
+       // System.out.println(client_no);   select * from checkin where leavedate = sysdate() and room_no = '303' and client_no = '131182199808266612';
+        Date date=new Date();//此时date为当前的时间
+        SimpleDateFormat dateFormat=new SimpleDateFormat("YYYY-MM-dd");//设置当前时间的
+        String str = "select * from checkin where leavedate = ? and room_no = ? and client_no = ?";
+        List<Object> params = new ArrayList<Object>();
+        System.out.println(dateFormat.format(date));
+        params.add(dateFormat.format(date));
+        params.add(room_id);
+        params.add(client_no);
+        ResultSet rs = executeQuery(str,params);
+        return rs;
+    }
+
+
+
 
     /**
      * 根据操作员查找评分

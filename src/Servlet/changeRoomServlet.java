@@ -24,7 +24,7 @@ public class changeRoomServlet extends javax.servlet.http.HttpServlet {
         String or_room_id = request.getParameter("oldRoomNo");
         String to_room_id = request.getParameter("newRoomNo");
 
-        ResultSet rs1 =checkinDao.SearchIsRoom(or_room_id);
+        ResultSet rs1 =checkinDao.SearchIsRoom(or_room_id,client_no);
 
         try {
             if(!rs1.next())

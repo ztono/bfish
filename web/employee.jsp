@@ -96,6 +96,7 @@
                         <input type="hidden" name="staff_no2" id="staff_no2" value="<%=(String) request.getSession().getAttribute("staff")%>">
                         <button type="submit" class="btn btn-primary btn-xs" style="float: right;margin-right: 30px;">下班</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -303,7 +304,7 @@
             },
 
             regexp: {
-            regexp: /^[0-9]\d{3}$/,
+            regexp: /^[0-9]\d{2}$/,
             message: '房间号只能是三位'
             }
             }
@@ -394,19 +395,56 @@
                         },
                         fields: {
                             client_no: {
-                                message: '用户名验证失败',
                                 validators: {
                                     notEmpty: {
-                                        message: '用户名不能为空！'
-                                    },
-                                    stringLength: {
-                                        min: 6,
-                                        max: 20,
-                                        message: '用户名长度必须在6到20位之间'
+                                        message: '身份证号不能为空！'
                                     },
                                     regexp: {
-                                        regexp: /^[a-zA-Z0-9_]+$/,
-                                        message: '用户名只能包含大写、小写、数字和下划线'
+                                        regexp: /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/,
+                                        message: '身份证号码格式不正确，为15位和18位身份证号码！'
+                                    },
+                                    callback: {
+                                        message: '身份证号码无效！',
+                                        callback:function(value, validator,$field){
+                                            //15位和18位身份证号码的正则表达式
+                                            var regIdCard = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+                                            //如果通过该验证，说明身份证格式正确，但准确性还需计算
+                                            var idCard = value;
+                                            if (regIdCard.test(idCard)) {
+                                                if (idCard.length == 18) {
+                                                    var idCardWi = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2); //将前17位加权因子保存在数组里
+                                                    var idCardY = new Array(1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2); //这是除以11后，可能产生的11位余数、验证码，也保存成数组
+                                                    var idCardWiSum = 0; //用来保存前17位各自乖以加权因子后的总和
+                                                    for (var i = 0; i < 17; i++) {
+                                                        idCardWiSum += idCard.substring(i, i + 1) * idCardWi[i];
+                                                    }
+                                                    var idCardMod = idCardWiSum % 11;//计算出校验码所在数组的位置
+                                                    var idCardLast = idCard.substring(17);//得到最后一位身份证号码
+                                                    //如果等于2，则说明校验码是10，身份证号码最后一位应该是X
+                                                    if (idCardMod == 2) {
+                                                        if (idCardLast == "X" || idCardLast == "x") {
+                                                            return true;
+                                                            //alert("恭喜通过验证啦！");
+                                                        } else {
+                                                            return false;
+                                                            //alert("身份证号码错误！");
+                                                        }
+                                                    } else {
+                                                        //用计算出的验证码与最后一位身份证号码匹配，如果一致，说明通过，否则是无效的身份证号码
+                                                        if (idCardLast == idCardY[idCardMod]) {
+                                                            //alert("恭喜通过验证啦！");
+                                                            return true;
+                                                        } else {
+                                                            return false;
+                                                            //alert("身份证号码错误！");
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                //alert("身份证格式不正确!");
+                                                return false;
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -1092,6 +1130,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#checkInButton").click();
+        alert("check in success")
     });
 </script>
 <%} %>
@@ -1112,6 +1151,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#checkOutButton").click();
+        alert("check out success")
     });
 </script>
 <%} %>
@@ -1120,7 +1160,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#checkOutButton").click();
-            alert("the old room id is wrong");
+            alert("the check in is not exist");
         });
     </script>
         <%} %>
@@ -1129,6 +1169,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#changeRoomButton").click();
+        alert("change room success")
     });
 </script>
 <%} %>
@@ -1136,7 +1177,7 @@
     <script  type="text/javascript">
         $(document).ready(function(){
             $("#changeRoomButton").click();
-            alert("the old room id is wrong");
+            alert("the check in  is not exist");
         });
     </script>
         <%} %>
@@ -1162,6 +1203,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#employeeReserveButton").click();
+        alert("reserve success")
     });
 </script>
 <%} %>
@@ -1180,6 +1222,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#clientAddButton").click();
+            alert("add success")
         });
     </script>
 <%} %>
@@ -1189,6 +1232,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#clientDelButton").click();
+            alert("delete success")
         });
     </script>
 <%} %>
@@ -1211,15 +1255,6 @@
 </script>
 <%} %>
 
-<%--    错误处理--%>
-        <% if (request.getParameter("room_er1")!= null) {%>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#checkInButton").click();
-            alert("the room id is wrong");
-        });
-    </script>
-        <%} %>
 
 
 /* 看板娘 */

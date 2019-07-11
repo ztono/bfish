@@ -39,7 +39,7 @@ public class checkOutServlet extends HttpServlet {
             isdamaged = "NO";
         }
 
-        ResultSet rs1 =checkindao.SearchIsRoom(room_no);
+        ResultSet rs1 =checkindao.SearchIsRoom(room_no,client_no,flag);
 
         try {
             if(!rs1.next())
